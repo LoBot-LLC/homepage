@@ -3,7 +3,7 @@ import type { Dict } from "./en";
 const vi: Dict = {
   nav: {
     products: "Sản phẩm",
-    about: "Về công ty",
+    about: "Về",
     blog: "Blog",
     careers: "Tuyển dụng",
     flagship: "Chủ lực",
@@ -253,7 +253,7 @@ const vi: Dict = {
       items: [
         { title: "Linh hoạt", desc: "Làm việc từ xa, bất đồng bộ và theo khung giờ hiệu quả nhất của bạn." },
         { title: "Minh bạch", desc: "Thông tin mở, quyết định mở và ưu tiên rõ ràng." },
-        { title: "Linh hoạt", desc: "Chu kỳ ngắn từ ý tưởng đến sản phẩm, nhờ công cụ AI." },
+        { title: "Thần tốc", desc: "Chu kỳ ngắn từ ý tưởng đến sản phẩm, nhờ công cụ AI." },
         { title: "Lạc quan", desc: "Tiếp cận các vấn đề phức tạp với niềm tin rằng chúng có thể giải quyết được vấn đề." },
         { title: "Làm chủ tích cực", desc: "Mọi người đều được trao quyền chủ động và theo đuổi mục tiêu đến cùng." },
       ],
