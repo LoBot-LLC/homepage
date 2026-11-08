@@ -134,36 +134,54 @@ All API routes are server-rendered (`force-dynamic`) and require a working `DATA
 src/
 ├── app/
 │   ├── api/
-│   │   ├── health/route.ts       # Health check endpoint
+│   │   ├── health/route.ts        # Health check endpoint
 │   │   └── blog/
 │   │       ├── route.ts           # List all posts
 │   │       └── [slug]/route.ts    # Get single post
 │   ├── blog/
 │   │   ├── page.tsx               # Blog index page
 │   │   └── [slug]/page.tsx        # Blog post page
-│   ├── products/                  # Product pages
-│   ├── careers/                   # Careers page
-│   ├── about/                     # About page
+│   ├── products/
+│   │   ├── page.tsx               # Products index
+│   │   └── tecnoindicator/page.tsx
+│   ├── careers/page.tsx           # Careers page
+│   ├── about/page.tsx             # About page
 │   ├── layout.tsx                 # Root layout
 │   ├── page.tsx                   # Homepage
+│   ├── not-found.tsx              # 404 page
 │   └── globals.css                # Global styles
 ├── components/
-│   ├── pages/                     # Page-level components
+│   ├── pages/
+│   │   ├── BlogContent.tsx        # Blog list/article; renders inline images and IEEE citation links
+│   │   ├── HomeContent.tsx
+│   │   ├── AboutContent.tsx
+│   │   ├── CareersContent.tsx
+│   │   ├── ProductsContent.tsx
+│   │   └── TecnoIndicatorContent.tsx
 │   ├── ui.tsx                     # Reusable UI components
 │   ├── Icons.tsx                  # SVG icons
-│   ├── Providers.tsx              # React context providers (i18n, theme)
-│   └── ...
+│   ├── Logo.tsx                   # Logo assets
+│   ├── Navbar.tsx / Footer.tsx
+│   └── Providers.tsx              # React context providers (i18n, theme)
 ├── db/
 │   ├── index.ts                   # Lazy-initialized Drizzle client (getDb())
-│   └── schema.ts                  # Blog posts schema
+│   └── schema.ts                  # Blog schema/types (translations, cover image, references)
 ├── lib/
-│   ├── blog.ts                    # Blog data layer (with seed fallback)
-│   └── site.ts                    # Site constants (email, GitHub, etc.)
-├── i18n/
-│   ├── en.ts                      # English translations
-│   ├── es.ts                      # Spanish translations
-│   └── vi.ts                      # Vietnamese translations
-└── ...
+│   ├── blog.ts                    # Blog data layer + seed posts (en/es/vi, IEEE references)
+│   ├── github.ts                  # GitHub helpers
+│   └── site.ts                    # Site constants (email, URLs)
+└── i18n/
+    ├── en.ts                      # English translations
+    ├── es.ts                      # Spanish translations
+    └── vi.ts                      # Vietnamese translations
+
+public/
+├── favicon.svg
+└── images/
+    └── blog/                      # Blog article images (cover + inline)
+
+images/                            # Project/marketing image assets (repo-level)
+drizzle.config.json                # Drizzle Kit config
 ```
 
 ---

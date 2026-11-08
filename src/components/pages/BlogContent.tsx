@@ -27,6 +27,27 @@ function readingTime(body: string[]) {
   return Math.max(1, Math.round(words / 200));
 }
 
+function renderTextWithCitations(text: string) {
+  const parts = text.split(/(\[\d+\])/g);
+  return parts.map((part, i) => {
+    const match = /^\[(\d+)\]$/.exec(part);
+    if (match) {
+      const n = match[1];
+      return (
+        <a
+          key={`cite-${n}-${i}`}
+          href={`#ref-${n}`}
+          className="font-medium text-brand-600 no-underline hover:underline dark:text-brand-300"
+          aria-label={`Reference ${n}`}
+        >
+          [{n}]
+        </a>
+      );
+    }
+    return part ? <span key={`txt-${i}`}>{part}</span> : null;
+  });
+}
+
 function renderBodyBlock(block: string, index: number) {
   if (block.startsWith("__IMAGE__:")) {
     const payload = block.slice("__IMAGE__:".length);
@@ -52,7 +73,7 @@ function renderBodyBlock(block: string, index: number) {
   }
   return (
     <p key={index} className="whitespace-pre-line">
-      {block}
+      {renderTextWithCitations(block)}
     </p>
   );
 }
@@ -156,13 +177,13 @@ export function BlogArticle({ post }: { post: PublicPost }) {
         )}
       </div>
       {tr.references && tr.references.length > 0 ? (
-        <section className="mt-14 border-t border-slate-200 pt-8 dark:border-white/10" aria-labelledby="references-heading">
+        <section className="mt-14 scroll-mt-24 border-t border-slate-200 pt-8 dark:border-white/10" aria-labelledby="references-heading">
           <h2 id="references-heading" className="text-2xl font-bold text-slate-900 dark:text-white">
             {t.blog.references}
           </h2>
           <ol className="mt-5 list-decimal space-y-3 pl-6 text-sm leading-relaxed text-slate-600 dark:text-slate-400">
             {tr.references.map((ref, i) => (
-              <li key={i}>
+              <li key={i} id={`ref-${i + 1}`} className="scroll-mt-24 rounded px-1 target:bg-brand-50 dark:target:bg-brand-500/10">
                 <a
                   href={ref.url}
                   target="_blank"
