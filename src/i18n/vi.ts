@@ -3,7 +3,7 @@ import type { Dict } from "./en";
 const vi: Dict = {
   nav: {
     products: "Sản phẩm",
-    about: "Về",
+    about: "Về công ty",
     blog: "Blog",
     careers: "Tuyển dụng",
     flagship: "Chủ lực",
@@ -58,16 +58,16 @@ const vi: Dict = {
       subtitle:
         "Chúng tôi kết hợp dữ liệu thị trường trực tiếp, mô hình dự báo minh bạch và khả năng AI phân tích dữ liệu chính xác mà ai cũng có thể tiếp cận được.",
       items: [
-        { title: "Dự báo dài hạn", desc: "Dải kịch bản (lạc quan, trung bình, bi quan) tới 10 năm cho các mặt hàng quyết định chi phí vận hành." },
+        { title: "Dự báo dài hạn", desc: "Dải kịch bản (lạc quan, trung bình, bi quan) báo cáo số liệu lên đến 10 năm cho các mặt hàng quyết định chi phí vận hành." },
         { title: "Phân tích AI dễ hiểu", desc: "Mỗi dự báo đi kèm các yếu tố chính, chiều hướng và mức độ tác động — không có hộp đen." },
-        { title: "Khuyến nghị có thể hành động", desc: "Chiến lược do AI tạo ra biến dự báo thành hành động cụ thể: phòng ngừa rủi ro, thời điểm ký hợp đồng, nguồn cung và tuyến đường." },
-        { title: "Dễ tiếp cận & mở", desc: "Miễn phí, mã nguồn mở, đa tiền tệ và theo khu vực — trí tuệ cấp doanh nghiệp mà không rườm rà." },
+        { title: "Khuyến nghị có thể hành động", desc: "Các chiến lược do chuyên gia AI phân tích biến dự báo thành hành động cụ thể: phòng ngừa rủi ro, thời điểm ký hợp đồng, nguồn cung và tuyến đường." },
+        { title: "Dễ tiếp cận & mở", desc: "Miễn phí, mã nguồn mở, đa tiền tệ và theo khu vực — trí tuệ cấp doanh nghiệp, không cầu kỳ." },
       ],
     },
     ecosystem: {
       eyebrow: "Hệ sinh thái phần mềm",
       title: "Hệ sinh thái phần mềm của LoBot",
-      subtitle: "Hệ sinh thái mã nguồn mở ngày càng lớn dành cho nhà quản lý kinh doanh và logistics.",
+      subtitle: "Hệ sinh thái mã nguồn mở ngày càng lớn mạnh dành cho nhà quản lý kinh doanh và logistics.",
       products: [
         { name: "TecnoIndicator", tag: "Chủ lực · Phân tích giá năng lượng", desc: "Dự báo thời gian thực được AI dự đoán và phân tích trong 10 năm cho giá dầu, điện và nước toàn cầu, kèm phân tích kịch bản, thông tin khu vực, yếu tố động và khả năng xuất dữ liệu." },
       ],
@@ -80,7 +80,7 @@ const vi: Dict = {
       features: [
         { title: "Báo giá trực tiếp", desc: "Tác nhân AI tìm kiếm và lấy giá thị trường hiện tại từ nguồn công khai uy tín, sau đó trích xuất dữ liệu có cấu trúc." },
         { title: "Phân tích yếu tố động", desc: "Mô hình chọn ra 8 yếu tố ảnh hưởng giá lớn nhất trên toàn cầu và từng khu vực, đánh giá mức độ và chiều hướng." },
-        { title: "AI phân tích chiến lược", desc: "Tối đa 3 khuyến nghị được tạo từ chính các yếu tố người dùng nhìn thấy — hoàn toàn truy vết được." },
+        { title: "AI phân tích chiến lược", desc: "Tối đa 3 khuyến nghị được tạo từ chính các yếu tố người dùng nhìn thấy — hoàn toàn truy xuất được." },
         { title: "Dải dự báo", desc: "Dải dự báo 11 năm có AI hỗ trợ, kết hợp yếu tố cơ bản và tín hiệu trực tiếp, được refresh mỗi đêm." },
       ],
       flowTitle: "Cách hoạt động",
