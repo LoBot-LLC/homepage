@@ -1,4 +1,4 @@
-# This is a sample prompt you can put into AI agents when implementing a feature and/or bug fix.
+_This is a sample prompt you can put into AI agents when implementing a feature and/or bug fix._
 
 Based on the following repo, can you please implement the following features and/or bug fixes inside the repo? 
 
