@@ -247,7 +247,7 @@ Copyright (c) 2026, LoBot LLC
 ## 🙏 Credits
 
 **Author & Maintainer**  
-LoBot LLC — [https://github.com/LoBot-LLC](https://github.com/LoBot-LLC)
+🤖 [LoBot LLC](https://github.com/LoBot-LLC)
 
 **Company Contact**  
 📧 lobotllc@atomicmail.io
