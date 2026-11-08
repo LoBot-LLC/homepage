@@ -286,7 +286,7 @@ const en = {
         { title: "Quality over volume", desc: "We always measure the impact on how we operate and deliver." },
         { title: "Technology must benefit everyone", desc: "We build accessible tools that level the playing field." },
         { title: "Accountability", desc: "We own our decisions, our mistakes and our wins." },
-        { title: "Say NO to monopolistic behavior", desc: "We compete fairly, stay open and never lock users in." },
+        { title: "NO MORE monopolistic behavior", desc: "We compete fairly, stay open and never lock users in." },
         { title: "Human & AI collaboration", desc: "The best results come from people and AI working together." },
       ],
     },
