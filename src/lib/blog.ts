@@ -163,7 +163,7 @@ export const SEED_POSTS: PublicPost[] = [
       },
       vi: {
         title:
-          "Chiến dịch Epic Fury và các cuộc chiến đang diễn ra ở Trung Đông đã tác động đến sự ra mắt của LoBot TecnoIndicator như thế nào",
+          "Chiến dịch Epic Fury và các cuộc chiến tương tự ở khu vực Trung Đông đã tác động đến sự ra mắt của LoBot TecnoIndicator như thế nào",
         excerpt:
           "Xung đột Trung Đông năm 2026 và sự gián đoạn lịch sử của dòng chảy dầu mỏ toàn cầu cho thấy việc hoạch định có thể mong manh đến mức nào. Đây là cách những sự kiện đó định hình LoBot TecnoIndicator và cách công cụ này hỗ trợ ứng phó biến động.",
         body: [
