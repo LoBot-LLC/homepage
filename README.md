@@ -15,6 +15,8 @@ LoBot LLC is a fast-moving, AI-native company founded in October 2026. Our missi
 
 Our flagship product is **LoBot TecnoIndicator** — an open-source web application that delivers real-time, AI-powered 10-year forecasts for global oil, electricity, and water prices with scenario analysis, dynamic factor insights, and actionable recommendations.
 
+Visit our homepage here: https://lobotllc.vercel.app/
+
 ---
 
 ## 🚀 Quick Start
