@@ -134,58 +134,54 @@ All API routes are server-rendered (`force-dynamic`) and require a working `DATA
 src/
 ├── app/
 │   ├── api/
-│   │   ├── health/route.ts       # Health check endpoint
+│   │   ├── health/route.ts        # Health check endpoint
 │   │   └── blog/
 │   │       ├── route.ts           # List all posts
 │   │       └── [slug]/route.ts    # Get single post
 │   ├── blog/
 │   │   ├── page.tsx               # Blog index page
 │   │   └── [slug]/page.tsx        # Blog post page
-│   ├── products/                  # Product pages
-│   │   ├── page.tsx               # Products overview
-│   │   └── tecnoindicator/        # TecnoIndicator product page
-│   │       └── page.tsx
-│   ├── careers/                   # Careers page
-│   │   └── page.tsx
-│   ├── about/                     # About page
-│   │   └── page.tsx
+│   ├── products/
+│   │   ├── page.tsx               # Products index
+│   │   └── tecnoindicator/page.tsx
+│   ├── careers/page.tsx           # Careers page
+│   ├── about/page.tsx             # About page
 │   ├── layout.tsx                 # Root layout
 │   ├── page.tsx                   # Homepage
-│   ├── globals.css                # Global styles
-│   └── not-found.tsx              # 404 page
+│   ├── not-found.tsx              # 404 page
+│   └── globals.css                # Global styles
 ├── components/
-│   ├── pages/                     # Page-level components
-│   │   ├── AboutContent.tsx
-│   │   ├── BlogContent.tsx
-│   │   ├── CareersContent.tsx
+│   ├── pages/
+│   │   ├── BlogContent.tsx        # Blog list/article; renders inline images and IEEE citation links
 │   │   ├── HomeContent.tsx
-│   │   └── ProductContent.tsx
-│   ├── Navbar.tsx                 # Main navigation
-│   ├── Footer.tsx                 # Site footer
-│   ├── Providers.tsx              # React context providers (i18n, theme)
-│   ├── CopyEmail.tsx              # Email copy component
+│   │   ├── AboutContent.tsx
+│   │   ├── CareersContent.tsx
+│   │   ├── ProductsContent.tsx
+│   │   └── TecnoIndicatorContent.tsx
+│   ├── ui.tsx                     # Reusable UI components
 │   ├── Icons.tsx                  # SVG icons
-│   └── ui.tsx                     # Reusable UI components
+│   ├── Logo.tsx                   # Logo assets
+│   ├── Navbar.tsx / Footer.tsx
+│   └── Providers.tsx              # React context providers (i18n, theme)
 ├── db/
 │   ├── index.ts                   # Lazy-initialized Drizzle client (getDb())
-│   └── schema.ts                  # Blog posts schema
+│   └── schema.ts                  # Blog schema/types (translations, cover image, references)
 ├── lib/
-│   ├── blog.ts                    # Blog data layer (with seed fallback)
-│   └── site.ts                    # Site constants (email, GitHub, etc.)
-├── i18n/
-│   ├── en.ts                      # English translations
-│   ├── es.ts                      # Spanish translations
-│   └── vi.ts                      # Vietnamese translations
-└── middleware.ts                  # i18n request middleware
-```
+│   ├── blog.ts                    # Blog data layer + seed posts (en/es/vi, IEEE references)
+│   ├── github.ts                  # GitHub helpers
+│   └── site.ts                    # Site constants (email, URLs)
+└── i18n/
+    ├── en.ts                      # English translations
+    ├── es.ts                      # Spanish translations
+    └── vi.ts                      # Vietnamese translations
 
-**Public assets:**
-```
 public/
-├── favicon.svg                    # Site favicon
-├── robots.txt                     # AI agent & crawler access rules
-├── llms.txt                       # Website metadata for AI agents
-└── sitemap.xml                    # XML sitemap for search engines
+├── favicon.svg
+└── images/
+    └── blog/                      # Blog article images (cover + inline)
+
+images/                            # Project/marketing image assets (repo-level)
+drizzle.config.json                # Drizzle Kit config
 ```
 
 ---
