@@ -319,7 +319,7 @@ const en = {
       steps: [
         {
           title: "Send us your CV",
-          desc: "Send a polite email to our company email with your CV attached. Your CV must include demonstrable proof of work — projects, repositories, portfolios, publications or shipped products.",
+          desc: "Send a polite email to our company email with your CV attached. Your CV must include demonstrable proof of work — projects, repositories, portfolios, publications or shipped products, as well as why you really wanted to join LoBot LLC.",
         },
         {
           title: "Meet the Executive Board",
