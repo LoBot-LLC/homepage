@@ -275,7 +275,7 @@ const es: Dict = {
     hiring: {
       title: "Cómo contratamos",
       steps: [
-        { title: "Envíanos tu CV", desc: "Envía un correo cordial a la dirección de la empresa con tu CV adjunto. Tu CV debe incluir pruebas demostrables de trabajo: proyectos, repositorios, portafolios, publicaciones o productos lanzados." },
+        { title: "Envíanos tu CV", desc: "Envía un correo cordial a la dirección de la empresa con tu CV adjunto. Tu CV debe incluir pruebas demostrables de trabajo: proyectos, repositorios, portafolios, publicaciones o productos lanzados, y también por que te unes LoBot LLC." },
         { title: "Reúnete con la Junta Ejecutiva", desc: "Cuando recibas la notificación de que has sido aceptado/a, te reunirás directamente con nuestra Junta Ejecutiva (EBs), en línea o en persona. Escríbenos indicando qué modalidad usarás para la entrevista para que los EBs se preparen." },
       ],
     },
