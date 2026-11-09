@@ -6,6 +6,7 @@ import { useEffect, useState } from "react";
 import { LOCALES, useApp } from "./Providers";
 import { GithubIcon, LoBotLogo } from "./Icons";
 import { GITHUB_ORG } from "@/lib/site";
+import lobotLogo from "../../images/lobotlogoonly.svg";
 
 export function Footer() {
   const { t, lang } = useApp();
@@ -48,7 +49,7 @@ export function Footer() {
                 data-testid="footer-website"
                 className="inline-flex h-10 w-10 items-center justify-center rounded-lg border border-slate-300 text-slate-700 transition hover:border-brand-400 hover:text-brand-600 dark:border-white/15 dark:text-slate-300 dark:hover:text-white"
               >
-                <Image src="/favicon.svg" alt="LoBot LLC logo" width={32} height={32} />
+                <Image src={lobotLogo} alt="LoBot LLC logo" width={32} height={32} className="h-8 w-8" />
               </a>
             </div>
           </div>
