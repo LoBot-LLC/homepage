@@ -48,7 +48,7 @@ export function Footer() {
                 data-testid="footer-website"
                 className="inline-flex h-10 w-10 items-center justify-center rounded-lg border border-slate-300 text-slate-700 transition hover:border-brand-400 hover:text-brand-600 dark:border-white/15 dark:text-slate-300 dark:hover:text-white"
               >
-                <Image src="images/lobotlogoonly.svg" alt="LoBot LLC logo" width={32} height={32} />
+                <Image src="/images/lobotlogoonly.svg" alt="LoBot LLC logo" width={32} height={32} className="h-8 w-8" />
               </a>
             </div>
           </div>

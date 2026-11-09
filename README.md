@@ -179,8 +179,9 @@ src/
 
 public/
 ├── favicon.svg
-└── images/
-    └── blog/                      # Blog article images (cover + inline)
+├── images/
+│   ├── lobotlogoonly.svg
+│   └── blog/                      # Blog article images (cover + inline)
 
 images/                            # Project/marketing image assets (repo-level)
 drizzle.config.json                # Drizzle Kit config
