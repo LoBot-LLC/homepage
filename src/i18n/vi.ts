@@ -275,7 +275,7 @@ const vi: Dict = {
     hiring: {
       title: "Quy trình tuyển dụng",
       steps: [
-        { title: "Gửi CV cho chúng tôi", desc: "Gửi một email lịch sự đến địa chỉ email của công ty kèm CV. CV của bạn cần có bằng chứng công việc cụ thể — dự án, repository, portfolio, ấn phẩm hoặc sản phẩm đã ra mắt." },
+        { title: "Gửi CV cho chúng tôi", desc: "Gửi một email lịch sự đến địa chỉ email của công ty kèm CV. CV của bạn cần có bằng chứng công việc cụ thể — dự án, repository, portfolio, ấn phẩm hoặc sản phẩm đã ra mắt, và đồng thời giải thích tại sao bạn thực sự muốn gia nhập LoBot LLC." },
         { title: "Gặp Ban điều hành", desc: "Khi nhận được thông báo trúng tuyển, bạn sẽ gặp trực tiếp Ban điều hành (EBs), trực tuyến hoặc trực tiếp. Vui lòng email cho chúng tôi hình thức phỏng vấn bạn chọn để EBs chuẩn bị." },
       ],
     },
