@@ -1,6 +1,6 @@
 import type { SVGProps } from "react";
 
-/** LoBot LLC mark: a robot head profile built from circuit traces & nodes. */
+/** LoBot mark: a robot head profile built from circuit traces & nodes. */
 export function LoBotMark({ className = "h-9 w-9", ...props }: SVGProps<SVGSVGElement>) {
   return (
     <svg viewBox="0 0 64 64" fill="none" className={className} aria-hidden="true" {...props}>
@@ -48,9 +48,8 @@ export function LoBotLogo({ className = "" }: { className?: string }) {
   return (
     <span className={`inline-flex items-center gap-2.5 ${className}`}>
       <LoBotMark className="h-9 w-9 text-slate-700 dark:text-white" />
-      <span className="text-lg font-extrabold tracking-tight">
-        <span className="text-slate-900 dark:text-white">LoBot</span>{" "}
-        <span className="text-brand-500 dark:text-brand-300">LLC</span>
+      <span className="text-lg font-extrabold tracking-tight text-slate-900 dark:text-white">
+        LoBot
       </span>
     </span>
   );
