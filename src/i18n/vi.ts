@@ -267,9 +267,9 @@ const vi: Dict = {
       items: [
         { dept: "Phần mềm", title: "Kỹ sư phần mềm", desc: "Xây dựng và mở rộng sản phẩm Next.js / TypeScript / Bun cùng các tác nhân AI.", tracks: ["Full-stack", "Backend", "Front-end"] },
         { dept: "DevOps", title: "Kỹ sư DevOps", desc: "Quản lý cơ sở hạ tầng quan trọng để duy trì hoạt động - với các công cụ như Vercel và Supabase.", tracks: [] },
-        { dept: "Nhân sự", title: "Chuyên viên Nhân sự (HR)", desc: "Định hình tuyển dụng, onboarding và văn hóa lấy con người làm trung tâm.", tracks: [] },
+        { dept: "Nhân sự", title: "Điều phối viên Nhân sự (HR)", desc: "Định hình tuyển dụng, onboarding và văn hóa lấy con người làm trung tâm.", tracks: [] },
         { dept: "Nghiên cứu", title: "Chuyên viên Nghiên cứu thị trường", desc: "Nghiên cứu thị trường năng lượng, logistics và doanh nghiệp để định hướng sản phẩm.", tracks: [] },
-        { dept: "Quan hệ Ngoại", title: "Trình điều phối Quan hệ Ngoại", desc: "Tổ chức và điều phối các sự kiện chung cho công ty hoặc với bên ngoài, và đàm phán các điều khoản với họ.", tracks: [] },
+        { dept: "Quan hệ Ngoại", title: "Điều phối viên Quan hệ đối ngoại (ER)", desc: "Tổ chức và điều phối các sự kiện chung cho công ty hoặc với bên ngoài, và đàm phán các điều khoản với họ.", tracks: [] },
         { dept: "Marketing", title: "Content Manager", desc: "Quảng bá hình ảnh của LoBot qua blog, mạng xã hội, tài liệu và các hình thức khác.", tracks: [] },
         { dept: "Marketing", title: "Thiết kế đồ họa", desc: "Tạo nên bản sắc muôn màu của LoBot trên sản phẩm, website, mạng xã hội và các kênh truyền thông khác của LoBot.", tracks: [] },
       ],
