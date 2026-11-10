@@ -14,7 +14,6 @@ export const metadata: Metadata = {
   },
   description:
     "LoBot LLC is an AI-native startup that creates business solutions enabling large enterprises to make future-ready strategic decisions.",
-  icons: { icon: "/favicon.svg" },
 };
 
 // Applies the saved/system theme before paint to avoid a flash of the wrong theme.

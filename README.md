@@ -178,10 +178,11 @@ src/
     └── vi.ts                      # Vietnamese translations
 
 public/
-├── favicon.svg
 ├── images/
-│   ├── lobotlogoonly.svg
 │   └── blog/                      # Blog article images (cover + inline)
+├── llms.txt
+├── robots.txt
+└── sitemap.xml
 
 images/                            # Project/marketing image assets (repo-level)
 drizzle.config.json                # Drizzle Kit config
