@@ -204,6 +204,7 @@ const vi: Dict = {
       pulls: "Pull request",
       forks: "Fork",
       source: "Nguồn: GitHub API — cập nhật mỗi giờ.",
+      mostActiveDeveloper: "Nhà phát triển Hoạt động Nhất",
     },
     culture: {
       title: "Văn hóa làm việc",

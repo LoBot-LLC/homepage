@@ -246,6 +246,7 @@ const en = {
       pulls: "Pull requests",
       forks: "Forks",
       source: "Source: GitHub API — refreshed hourly.",
+      mostActiveDeveloper: "Most Active Developer",
     },
     culture: {
       title: "Work culture",
