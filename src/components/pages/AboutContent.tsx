@@ -111,16 +111,18 @@ export function AboutContent({ stats }: { stats: CommunityStats }) {
               {s.note && <p className="text-xs text-slate-500 dark:text-slate-400">{s.note}</p>}
             </div>
           ))}
-          <div className="card flex flex-col items-center text-center">
+        </div>
+        <div className="mt-5 flex justify-center">
+          <div className="card flex w-full max-w-xs flex-col items-center text-center">
             <GithubIcon className="h-6 w-6 text-brand-500" />
             <p className="mt-3 text-sm font-semibold uppercase tracking-wide text-brand-600 dark:text-brand-300">{madLabel}</p>
             <div className="mt-3">
               {mad ? (
                 <a href={`https://github.com/${encodeURIComponent(mad.login)}`} target="_blank" rel="noopener noreferrer" className="inline-flex flex-col items-center gap-2 rounded-lg p-2 transition hover:bg-brand-50 dark:hover:bg-white/5">
                   {mad.avatarUrl ? (
-                    <Image src={mad.avatarUrl} alt={`${mad.name} avatar`} width={56} height={56} className="h-14 w-14 rounded-full" />
+                    <Image src={mad.avatarUrl} alt={`${mad.name} avatar`} width={80} height={80} className="h-20 w-20 rounded-full" unoptimized />
                   ) : (
-                    <span className="h-14 w-14 rounded-full bg-brand-500/20" aria-hidden="true" />
+                    <span className="h-20 w-20 rounded-full bg-brand-500/20" aria-hidden="true" />
                   )}
                   <span className="text-lg font-bold text-slate-900 dark:text-white">{mad.name}</span>
                   <span className="text-sm text-slate-500 dark:text-slate-400">@{mad.login}</span>
