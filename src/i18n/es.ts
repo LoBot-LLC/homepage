@@ -269,7 +269,7 @@ const es: Dict = {
         { dept: "DevOps", title: "Ingeniero/a DevOps", desc: "Administre nuestra infraestructura crítica para mantenerla activa - con herramientas como Vercel y Supabase.", tracks: [] },
         { dept: "Personas", title: "Especialista de RR. HH.", desc: "Da forma a la contratación, el onboarding y una cultura humana y nativa en IA.", tracks: [] },
         { dept: "Investigación", title: "Analista de Investigación de Mercado", desc: "Estudia los mercados de energía, logística y empresas para guiar la hoja de ruta.", tracks: [] },
-        { dept: "Relaciones Externas", title: "Coordinador/a de Relaciones Externas", desc: "Organice y coordine eventos conjuntos para la empresa o con partes externas, y negocie términos con ellos.", tracks: [] },
+        { dept: "Relaciones Externas", title: "Coordinador/a de Relaciones Externas", desc: "Organice y coordine eventos conjuntos para la LoBot o con partes externas, y negocie términos con ellos.", tracks: [] },
         { dept: "Marketing", title: "Content Manager", desc: "Promociona la imagen de LoBot en blogs, redes sociales, documentación y otros canales.", tracks: [] },
         { dept: "Marketing", title: "Diseñador/a Gráfico/a", desc: "Crea la identidad colorida de LoBot en nuestros productos, sitio web, redes sociales y otros canales de comunicación.", tracks: [] },
       ],
