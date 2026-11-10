@@ -1,9 +1,10 @@
 "use client";
 
+import Image from "next/image";
 import { useApp } from "../Providers";
 import { GithubIcon } from "../Icons";
 import { PageHero, Section, SectionHeader } from "../ui";
-import type { CommunityStats } from "@/lib/github";
+import type { CommunityStats, MostActiveDeveloper } from "@/lib/github";
 import { GITHUB_ORG } from "@/lib/site";
 
 const missionIcons = ["🏢", "🤖", "🔓", "📐"];
@@ -38,6 +39,9 @@ export function AboutContent({ stats }: { stats: CommunityStats }) {
     { value: stats.pulls, label: c.pulls },
     { value: stats.forks, label: c.forks },
   ];
+
+  const mad = stats.mostActiveDeveloper;
+  const madLabel = c.mostActiveDeveloper ?? "Most Active Developer";
 
   return (
     <>
@@ -107,6 +111,30 @@ export function AboutContent({ stats }: { stats: CommunityStats }) {
               {s.note && <p className="text-xs text-slate-500 dark:text-slate-400">{s.note}</p>}
             </div>
           ))}
+        </div>
+        <div className="mt-5 flex justify-center">
+          <div className="card flex w-full max-w-xs flex-col items-center text-center">
+            <GithubIcon className="h-6 w-6 text-brand-500" />
+            <p className="mt-3 text-sm font-semibold uppercase tracking-wide text-brand-600 dark:text-brand-300">{madLabel}</p>
+            <div className="mt-3">
+              {mad ? (
+                <a href={`https://github.com/${encodeURIComponent(mad.login)}`} target="_blank" rel="noopener noreferrer" className="inline-flex flex-col items-center gap-2 rounded-lg p-2 transition hover:bg-brand-50 dark:hover:bg-white/5">
+                  {mad.avatarUrl ? (
+                    <Image src={mad.avatarUrl} alt={`${mad.name} avatar`} width={80} height={80} className="h-20 w-20 rounded-full" unoptimized />
+                  ) : (
+                    <span className="h-20 w-20 rounded-full bg-brand-500/20" aria-hidden="true" />
+                  )}
+                  <span className="text-lg font-bold text-slate-900 dark:text-white">{mad.name}</span>
+                  <span className="text-sm text-slate-500 dark:text-slate-400">@{mad.login}</span>
+                  <span className="text-sm font-semibold text-brand-600 dark:text-brand-300">{mad.contributions} commits</span>
+                  {mad.bio && <p className="mt-1 max-w-[200px] text-xs text-slate-500 dark:text-slate-400">{mad.bio}</p>}
+                  {mad.createdAt && <p className="mt-1 text-xs text-slate-400 dark:text-slate-500">Joined {new Date(mad.createdAt).toLocaleDateString()}</p>}
+                </a>
+              ) : (
+                <p className="text-sm text-slate-500 dark:text-slate-400">Loading…</p>
+              )}
+            </div>
+          </div>
         </div>
         <p className="mt-6 flex items-center justify-center gap-2 text-center text-xs text-slate-500 dark:text-slate-400">
           <GithubIcon className="h-4 w-4" />

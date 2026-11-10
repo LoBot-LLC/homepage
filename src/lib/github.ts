@@ -1,3 +1,12 @@
+export type MostActiveDeveloper = {
+  login: string;
+  name: string;
+  avatarUrl: string;
+  createdAt: string;
+  bio: string;
+  contributions: number;
+};
+
 export type CommunityStats = {
   developers: number;
   humans: number;
@@ -6,6 +15,7 @@ export type CommunityStats = {
   pulls: number;
   forks: number;
   live: boolean;
+  mostActiveDeveloper: MostActiveDeveloper | null;
 };
 
 // Snapshot taken from the GitHub API (LoBot-LLC org) — used when the API is unreachable/rate-limited.
@@ -17,6 +27,7 @@ export const FALLBACK_STATS: CommunityStats = {
   pulls: 66,
   forks: 6,
   live: false,
+  mostActiveDeveloper: null,
 };
 
 const ORG = "LoBot-LLC";
@@ -40,6 +51,63 @@ async function countViaLink(url: string): Promise<number> {
 
 type Repo = { name: string; forks_count: number; fork: boolean };
 type Contributor = { login?: string; type: string; contributions: number };
+
+/** Aggregate total commits per contributor across all org repos (including future ones) and return the most active developer. */
+export async function getMostActiveDeveloper(): Promise<MostActiveDeveloper | null> {
+  try {
+    const repos = (await (await gh(`https://api.github.com/orgs/${ORG}/repos?per_page=100`)).json()) as Repo[];
+    const own = repos.filter((r) => !r.fork);
+
+    // Aggregate commits per contributor login across all repos
+    const perDeveloper = new Map<string, number>();
+
+    for (const repo of own) {
+      const base = `https://api.github.com/repos/${ORG}/${repo.name}`;
+      const contribRes = await gh(`${base}/contributors?per_page=100&anon=1`).then((r) => (r.status === 204 ? [] : r.json())).catch(() => []);
+      const contribs = (contribRes as Contributor[]) ?? [];
+      for (const c of contribs) {
+        const key = c.login ?? `anon-${repo.name}`;
+        const current = perDeveloper.get(key) ?? 0;
+        perDeveloper.set(key, current + (c.contributions ?? 0));
+      }
+    }
+
+    if (perDeveloper.size === 0) return null;
+
+    // Find the developer with the most commits
+    let topLogin: string | null = null;
+    let topCommits = 0;
+    for (const [login, total] of perDeveloper) {
+      if (total > topCommits) {
+        topCommits = total;
+        topLogin = login;
+      }
+    }
+
+    if (!topLogin) return null;
+
+    // Fetch the user profile
+    const userRes = await gh(`https://api.github.com/users/${encodeURIComponent(topLogin)}`);
+    const user = (await userRes.json()) as {
+      name?: string;
+      login: string;
+      avatar_url?: string;
+      created_at?: string;
+      bio?: string;
+    };
+
+    return {
+      login: user.login ?? topLogin,
+      name: user.name ?? user.login ?? topLogin,
+      avatarUrl: user.avatar_url ?? "",
+      createdAt: user.created_at ?? "",
+      bio: user.bio ?? "",
+      contributions: topCommits,
+    };
+  } catch {
+    return null;
+  }
+}
 
 export async function getCommunityStats(): Promise<CommunityStats> {
   try {
@@ -69,6 +137,7 @@ export async function getCommunityStats(): Promise<CommunityStats> {
     }
 
     if (contributions === 0) return FALLBACK_STATS;
+    const mad = await getMostActiveDeveloper();
     return {
       developers: humans.size + agents.size,
       humans: humans.size,
@@ -77,8 +146,13 @@ export async function getCommunityStats(): Promise<CommunityStats> {
       pulls,
       forks,
       live: true,
+      mostActiveDeveloper: mad,
     };
   } catch {
-    return FALLBACK_STATS;
+    const mad = await getMostActiveDeveloper();
+    return {
+      ...FALLBACK_STATS,
+      mostActiveDeveloper: mad,
+    };
   }
 }

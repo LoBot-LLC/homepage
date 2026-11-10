@@ -204,6 +204,7 @@ const es: Dict = {
       pulls: "Pull requests",
       forks: "Forks",
       source: "Fuente: API de GitHub — actualizada cada hora.",
+      mostActiveDeveloper: "Desarrollador Más Activo",
     },
     culture: {
       title: "Cultura de trabajo",

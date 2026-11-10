@@ -127,6 +127,7 @@ All API routes are server-rendered (`force-dynamic`) and require a working `DATA
 | Package Manager | npm (with `package-lock.json` for reproducibility) |
 | Linting | ESLint 9 + eslint-config-next |
 | CI/CD | GitHub Actions (Node.js `latest`) |
+| GitHub Integration | REST API for live community statistics (repos, contributors, commits, MAD) |
 
 ---
 
@@ -170,9 +171,9 @@ src/
 │   ├── index.ts                  # Lazy-initialized Drizzle client (getDb())
 │   └── schema.ts                 # Blog schema/types (translations, cover image, references)
 ├── lib/
-│   ├── blog.ts                   # Blog data layer + seed posts (en/es/vi, IEEE references)
-│   ├── github.ts                 # GitHub helpers
-│   └── site.ts                   # Site constants (email, URLs)
+│   ├── blog.ts                    # Blog data layer + seed posts (en/es/vi, IEEE references)
+│   ├── github.ts                  # GitHub helpers (community stats + Most Active Developer)
+│   └── site.ts                    # Site constants (email, URLs)
 └── i18n/
     ├── en.ts                     # English translations
     ├── es.ts                     # Spanish translations
