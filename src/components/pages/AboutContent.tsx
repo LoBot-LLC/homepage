@@ -1,9 +1,10 @@
 "use client";
 
+import Image from "next/image";
 import { useApp } from "../Providers";
 import { GithubIcon } from "../Icons";
 import { PageHero, Section, SectionHeader } from "../ui";
-import type { CommunityStats } from "@/lib/github";
+import type { CommunityStats, MostActiveDeveloper } from "@/lib/github";
 import { GITHUB_ORG } from "@/lib/site";
 
 const missionIcons = ["🏢", "🤖", "🔓", "📐"];
@@ -38,6 +39,22 @@ export function AboutContent({ stats }: { stats: CommunityStats }) {
     { value: stats.pulls, label: c.pulls },
     { value: stats.forks, label: c.forks },
   ];
+
+  const mad = stats.mostActiveDeveloper;
+  const madLabel = c.mostActiveDeveloper ?? "Most Active Developer";
+
+  const madNameLink = mad ? (
+    <a href={`https://github.com/${encodeURIComponent(mad.login)}`} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 hover:underline">
+      {mad.avatarUrl ? (
+        <Image src={mad.avatarUrl} alt={`${mad.name} avatar`} width={28} height={28} className="h-7 w-7 rounded-full" />
+      ) : (
+        <span className="h-7 w-7 rounded-full bg-brand-500/20" aria-hidden="true" />
+      )}
+      <span>
+        {mad.name} ({mad.login})
+      </span>
+    </a>
+  ) : null;
 
   return (
     <>
