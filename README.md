@@ -24,7 +24,7 @@ Visit our homepage **HERE**: https://lobotllc.vercel.app/
 ### Prerequisites
 
 - **Node.js** latest LTS (v22+ recommended)
-- **Next.js** latest (currently v16.2.6)
+- **Next.js** latest (currently v16.4.5)
 - **PostgreSQL** database (local or managed like Neon, Supabase, etc.)
 
 ### Installation
@@ -119,9 +119,9 @@ All API routes are server-rendered (`force-dynamic`) and require a working `DATA
 
 | Category | Technology |
 |----------|------------|
-| Framework | Next.js 16 (App Router, Turbopack) |
+| Framework | Next.js 16.4.5 (App Router, Turbopack) |
 | Language | TypeScript 5.9 |
-| Styling | Tailwind CSS 4 |
+| Styling | Tailwind CSS 4.1 (PostCSS) |
 | Database | PostgreSQL + Drizzle ORM 0.45 |
 | Runtime | Node.js 22+ |
 | Package Manager | npm (with `package-lock.json` for reproducibility) |
@@ -160,32 +160,33 @@ src/
 │   │   ├── CareersContent.tsx
 │   │   ├── ProductsContent.tsx
 │   │   └── TecnoIndicatorContent.tsx
-│   ├── ui.tsx                     # Reusable UI components
-│   ├── Icons.tsx                  # SVG icons
-│   ├── Logo.tsx                   # Logo assets
-│   ├── Navbar.tsx / Footer.tsx
-│   └── Providers.tsx              # React context providers (i18n, theme)
+│   ├── CopyEmail.tsx             # Email-copy UI component
+│   ├── Footer.tsx                # Footer with logo, description, links
+│   ├── Icons.tsx                 # SVG icons + brand marks (LoBotLogo, TecnoLogo, etc.)
+│   ├── Navbar.tsx                # Sticky navbar with dropdowns, theme & language toggles
+│   ├── Providers.tsx             # React context providers (i18n, theme)
+│   └── ui.tsx                    # Reusable UI components
 ├── db/
-│   ├── index.ts                   # Lazy-initialized Drizzle client (getDb())
-│   └── schema.ts                  # Blog schema/types (translations, cover image, references)
+│   ├── index.ts                  # Lazy-initialized Drizzle client (getDb())
+│   └── schema.ts                 # Blog schema/types (translations, cover image, references)
 ├── lib/
-│   ├── blog.ts                    # Blog data layer + seed posts (en/es/vi, IEEE references)
-│   ├── github.ts                  # GitHub helpers
-│   └── site.ts                    # Site constants (email, URLs)
+│   ├── blog.ts                   # Blog data layer + seed posts (en/es/vi, IEEE references)
+│   ├── github.ts                 # GitHub helpers
+│   └── site.ts                   # Site constants (email, URLs)
 └── i18n/
-    ├── en.ts                      # English translations
-    ├── es.ts                      # Spanish translations
-    └── vi.ts                      # Vietnamese translations
+    ├── en.ts                     # English translations
+    ├── es.ts                     # Spanish translations
+    └── vi.ts                     # Vietnamese translations
 
 public/
 ├── images/
-│   └── blog/                      # Blog article images (cover + inline)
+│   └── blog/                     # Blog article images (cover + inline)
 ├── llms.txt
 ├── robots.txt
 └── sitemap.xml
 
-images/                            # Project/marketing image assets (repo-level)
-drizzle.config.json                # Drizzle Kit config
+images/                             # Project/marketing image assets (repo-level)
+drizzle.config.json                 # Drizzle Kit config
 ```
 
 ---
