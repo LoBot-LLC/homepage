@@ -311,7 +311,7 @@ const en = {
         { dept: "DevOps", title: "DevOps Engineer", desc: "Manage our critical infrastructure to keep it alive - with tools like Vercel and Supabase.", tracks: [] },
         { dept: "People", title: "HR Specialist", desc: "Shape hiring, onboarding and a culture that's human-centric and AI-native.", tracks: [] },
         { dept: "Research", title: "Market Research Analyst", desc: "Study energy, logistics and enterprise markets to guide our product roadmap.", tracks: [] },
-        { dept: "External Relations", title: "External Relations Coordinator", desc: "Organize and coordinate joint events for the company or with external parties, and negotiate terms with them.", tracks: [] },
+        { dept: "External Relations", title: "External Relations Coordinator", desc: "Organize and coordinate joint events for LoBot or with external parties, and negotiate terms with them.", tracks: [] },
         { dept: "Marketing", title: "Content Manager", desc: "Promote LoBot's image through blogs, social media, documentation and other channels.", tracks: [] },
         { dept: "Marketing", title: "Graphic Designer", desc: "Create LoBot's colorful identity across our products, website, social media and other LoBot communication channels.", tracks: [] },
       ],
