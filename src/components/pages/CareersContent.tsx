@@ -1,5 +1,6 @@
 "use client";
 
+import { useState } from "react";
 import { useApp } from "../Providers";
 import { MailIcon } from "../Icons";
 import { CopyButton } from "../CopyEmail";
@@ -11,6 +12,91 @@ const operateIcons = ["🕊️", "🔍", "⚡", "☀️", "🏅"];
 
 function mailto(subject: string) {
   return `mailto:${COMPANY_EMAIL}?subject=${encodeURIComponent(subject)}`;
+}
+
+type RoleItem = {
+  dept: string;
+  title: string;
+  desc: string;
+  tracks: string[];
+  levels?: string[];
+};
+
+type RoleCardProps = {
+  role: RoleItem;
+  t: {
+    type: string;
+    chooseLevel: string;
+    chooseOne: string;
+    apply: string;
+  };
+};
+
+function RoleCard({ role, t }: RoleCardProps) {
+  const [selectedLevel, setSelectedLevel] = useState<string | null>(null);
+  const [selectedTrack, setSelectedTrack] = useState<string | null>(null);
+
+  const buildSubject = () => {
+    const parts = [`Application: ${role.title}`];
+    if (selectedLevel) parts.push(selectedLevel);
+    if (selectedTrack) parts.push(selectedTrack);
+    return parts.join(" · ");
+  };
+
+  const selectedCls =
+    "rounded-lg border border-brand-400 text-brand-600 bg-brand-50 transition dark:border-brand-400 dark:text-brand-300 dark:bg-brand-900/20";
+  const unselectedCls =
+    "rounded-lg border border-slate-300 text-slate-700 transition hover:border-brand-400 hover:text-brand-600 dark:border-white/15 dark:text-slate-200 dark:hover:text-brand-300";
+
+  return (
+    <div key={role.title} className="card card-hover flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+      <div>
+        <div className="flex flex-wrap items-center gap-2">
+          <span className="rounded-full bg-brand-50 px-2.5 py-0.5 text-xs font-semibold text-brand-700 dark:bg-brand-500/10 dark:text-brand-300">
+            {role.dept}
+          </span>
+          <span className="text-xs text-slate-500 dark:text-slate-400">{t.type}</span>
+        </div>
+        <h3 className="mt-2 text-lg font-semibold text-slate-900 dark:text-white">{role.title}</h3>
+        <p className="mt-1 text-sm text-slate-600 dark:text-slate-400">{role.desc}</p>
+
+        {role.levels && role.levels.length > 0 && (
+          <div className="mt-3 flex flex-wrap items-center gap-2">
+            <span className="text-xs font-medium text-slate-500 dark:text-slate-400">{t.chooseLevel}</span>
+            {role.levels.map((level) => (
+              <button
+                key={level}
+                type="button"
+                onClick={() => setSelectedLevel(selectedLevel === level ? null : level)}
+                className={`px-2.5 py-1 text-xs font-semibold ${selectedLevel === level ? selectedCls : unselectedCls}`}
+              >
+                {level}
+              </button>
+            ))}
+          </div>
+        )}
+
+        {role.tracks.length > 0 && (
+          <div className="mt-3 flex flex-wrap items-center gap-2">
+            <span className="text-xs font-medium text-slate-500 dark:text-slate-400">{t.chooseOne}</span>
+            {role.tracks.map((tr) => (
+              <button
+                key={tr}
+                type="button"
+                onClick={() => setSelectedTrack(selectedTrack === tr ? null : tr)}
+                className={`px-2.5 py-1 text-xs font-semibold ${selectedTrack === tr ? selectedCls : unselectedCls}`}
+              >
+                {tr}
+              </button>
+            ))}
+          </div>
+        )}
+      </div>
+      <a href={mailto(buildSubject())} className="btn-secondary shrink-0">
+        {t.apply}
+      </a>
+    </div>
+  );
 }
 
 export function CareersContent() {
@@ -55,37 +141,7 @@ export function CareersContent() {
         <SectionHeader title={c.roles.title} subtitle={c.roles.subtitle} />
         <div className="mx-auto mt-12 max-w-4xl space-y-4">
           {c.roles.items.map((r) => (
-            <div key={r.title} className="card card-hover flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
-              <div>
-                <div className="flex flex-wrap items-center gap-2">
-                  <span className="rounded-full bg-brand-50 px-2.5 py-0.5 text-xs font-semibold text-brand-700 dark:bg-brand-500/10 dark:text-brand-300">{r.dept}</span>
-                  <span className="text-xs text-slate-500 dark:text-slate-400">{c.roles.type}</span>
-                </div>
-                <h3 className="mt-2 text-lg font-semibold text-slate-900 dark:text-white">{r.title}</h3>
-                <p className="mt-1 text-sm text-slate-600 dark:text-slate-400">{r.desc}</p>
-                {r.levels?.length > 0 && (
-                  <div className="mt-3 flex flex-wrap items-center gap-2">
-                    <span className="text-xs font-medium text-slate-500 dark:text-slate-400">{c.roles.chooseLevel}</span>
-                    {r.levels.map((level) => (
-                      <a key={level} href={mailto(`Application: ${r.title} (${level})`)} className="rounded-lg border border-slate-300 px-2.5 py-1 text-xs font-semibold text-slate-700 transition hover:border-brand-400 hover:text-brand-600 dark:border-white/15 dark:text-slate-200 dark:hover:text-brand-300">
-                        {level}
-                      </a>
-                    ))}
-                  </div>
-                )}
-                {r.tracks.length > 0 && (
-                  <div className="mt-3 flex flex-wrap items-center gap-2">
-                    <span className="text-xs font-medium text-slate-500 dark:text-slate-400">{c.roles.chooseOne}</span>
-                    {r.tracks.map((tr) => (
-                      <a key={tr} href={mailto(`Application: ${r.title} (${tr})`)} className="rounded-lg border border-slate-300 px-2.5 py-1 text-xs font-semibold text-slate-700 transition hover:border-brand-400 hover:text-brand-600 dark:border-white/15 dark:text-slate-200 dark:hover:text-brand-300">
-                        {tr}
-                      </a>
-                    ))}
-                  </div>
-                )}
-              </div>
-              <a href={mailto(`Application: ${r.title}`)} className="btn-secondary shrink-0">{c.roles.apply}</a>
-            </div>
+            <RoleCard key={r.title} role={r} t={c.roles} />
           ))}
         </div>
       </Section>
