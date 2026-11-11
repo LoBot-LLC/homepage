@@ -155,12 +155,11 @@ src/
 │   └── globals.css                # Global styles
 ├── components/
 │   ├── pages/
-│   │   ├── BlogContent.tsx        # Blog list/article; renders inline images and IEEE citation links
-│   │   ├── HomeContent.tsx
 │   │   ├── AboutContent.tsx
-│   │   ├── CareersContent.tsx
-│   │   ├── ProductsContent.tsx
-│   │   └── TecnoIndicatorContent.tsx
+│   │   ├── BlogContent.tsx        # Blog list/article; renders inline images and IEEE citation links
+│   │   ├── CareersContent.tsx      # Careers page content incl. role levels/tracks
+│   │   ├── HomeContent.tsx
+│   │   └── ProductContent.tsx      # TecnoIndicator product page content
 │   ├── CopyEmail.tsx             # Email-copy UI component
 │   ├── Footer.tsx                # Footer with logo, description, links
 │   ├── Icons.tsx                 # SVG icons + brand marks (LoBotLogo, TecnoLogo, etc.)

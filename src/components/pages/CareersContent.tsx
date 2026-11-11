@@ -63,6 +63,16 @@ export function CareersContent() {
                 </div>
                 <h3 className="mt-2 text-lg font-semibold text-slate-900 dark:text-white">{r.title}</h3>
                 <p className="mt-1 text-sm text-slate-600 dark:text-slate-400">{r.desc}</p>
+                {r.levels?.length > 0 && (
+                  <div className="mt-3 flex flex-wrap items-center gap-2">
+                    <span className="text-xs font-medium text-slate-500 dark:text-slate-400">{c.roles.chooseLevel}</span>
+                    {r.levels.map((level) => (
+                      <a key={level} href={mailto(`Application: ${r.title} (${level})`)} className="rounded-lg border border-slate-300 px-2.5 py-1 text-xs font-semibold text-slate-700 transition hover:border-brand-400 hover:text-brand-600 dark:border-white/15 dark:text-slate-200 dark:hover:text-brand-300">
+                        {level}
+                      </a>
+                    ))}
+                  </div>
+                )}
                 {r.tracks.length > 0 && (
                   <div className="mt-3 flex flex-wrap items-center gap-2">
                     <span className="text-xs font-medium text-slate-500 dark:text-slate-400">{c.roles.chooseOne}</span>
