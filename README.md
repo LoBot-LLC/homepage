@@ -128,6 +128,7 @@ All API routes are server-rendered (`force-dynamic`) and require a working `DATA
 | Linting | ESLint 9 + eslint-config-next |
 | CI/CD | GitHub Actions (Node.js `latest`) |
 | GitHub Integration | REST API for live community statistics (repos, contributors, commits, MAD) |
+| Social Media | LinkedIn company page linked in footer (https://www.linkedin.com/company/lobot-llc) |
 
 ---
 
@@ -162,8 +163,8 @@ src/
 │   │   ├── ProductsContent.tsx
 │   │   └── TecnoIndicatorContent.tsx
 │   ├── CopyEmail.tsx             # Email-copy UI component
-│   ├── Footer.tsx                # Footer with logo, description, links
-│   ├── Icons.tsx                 # SVG icons + brand marks (LoBotLogo, TecnoLogo, etc.)
+│   ├── Footer.tsx                # Footer with logo, description, links, and social icons (GitHub, LinkedIn, company website)
+│   ├── Icons.tsx                 # SVG icons + brand marks (LoBotLogo, TecnoLogo, GithubIcon, LinkedinIcon, etc.)
 │   ├── Navbar.tsx                # Sticky navbar with dropdowns, theme & language toggles
 │   ├── Providers.tsx             # React context providers (i18n, theme)
 │   └── ui.tsx                    # Reusable UI components

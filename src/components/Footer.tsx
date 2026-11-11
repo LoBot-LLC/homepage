@@ -4,8 +4,8 @@ import Link from "next/link";
 import Image from "next/image";
 import { useEffect, useState } from "react";
 import { LOCALES, useApp } from "./Providers";
-import { GithubIcon, LoBotLogo } from "./Icons";
-import { GITHUB_ORG } from "@/lib/site";
+import { GithubIcon, LinkedinIcon, LoBotLogo } from "./Icons";
+import { GITHUB_ORG, LINKEDIN_URL } from "@/lib/site";
 import lobotLogo from "../../images/lobotlogoonly.svg";
 
 export function Footer() {
@@ -41,6 +41,15 @@ export function Footer() {
                 className="inline-flex h-10 w-10 items-center justify-center rounded-lg border border-slate-300 text-slate-700 transition hover:border-brand-400 hover:text-brand-600 dark:border-white/15 dark:text-slate-300 dark:hover:text-white"
               >
                 <GithubIcon />
+              </a>
+              <a
+                href={LINKEDIN_URL}
+                rel="noopener noreferrer"
+                aria-label="LoBot LLC on LinkedIn"
+                data-testid="footer-linkedin"
+                className="inline-flex h-10 w-10 items-center justify-center rounded-lg border border-slate-300 text-slate-700 transition hover:border-brand-400 hover:text-brand-600 dark:border-white/15 dark:text-slate-300 dark:hover:text-white"
+              >
+                <LinkedinIcon />
               </a>
               <a
                 href="https://lobotllc.vercel.app/"
