@@ -115,18 +115,44 @@ All API routes are server-rendered (`force-dynamic`) and require a working `DATA
 
 ---
 
+## 📝 Blog
+
+The blog is powered by a seeded editorial data pipeline (`src/lib/blog.ts`). Posts live in PostgreSQL (table `blog_posts`, auto-created on first use) and are kept in sync from the `SEED_POSTS` array — no manual migrations for editorial changes.
+
+**Seeded articles** (newest first):
+
+| Published | Slug | Topic |
+|-----------|-----------------------|-------|
+| 2026-11-13 | `how-cathay-cargo-terminal-powers-hkia-daily-logistics` | How Cathay Cargo Terminal powers the daily logistics of HKIA, the world’s busiest cargo airport — import/export flows, exception handling, live-animal care, and the HKIA Cargo Data Platform |
+| 2026-11-07 | `how-operation-epic-fury-inspired-lobot-tecnoindicator` | How the 2026 Middle East conflict inspired LoBot TecnoIndicator |
+| 2026-10-28 | `introducing-lobot-llc` | Company introduction |
+
+**Article features** (all rendered by `src/components/pages/BlogContent.tsx`):
+
+- **Cover image** — high-resolution image displayed at the top of the article (e.g. `cathay cargo terminal.jpg` for the HKIA logistics article), with a `coverEmoji` fallback.
+- **Inline images** — body paragraphs can embed an image via the `__IMAGE__:/images/blog/<name>|<alt>|<caption>` marker.
+- **IEEE-style references** — numbered citations such as `[1]`, `[2]` inside paragraphs are clickable and jump to the matching entry in the **References** section at the end of the article, where every reference links out to its source URL.
+- **Localized references** — the reference labels follow IEEE conventions in each language (`[Online]. Available:` for English, `[En línea]. Disponible:` for Spanish, `[Trực tuyến]. Có tại:` for Vietnamese).
+- **Metadata** — every article shows the author (`By LoBot LLC Team`), the publication date, and an automatic estimated reading time in all supported languages.
+
+Every seeded post is fully translated into the **3 supported languages** (`en`, `es`, `vi`) — titles, excerpts, bodies, image alt/captions, and references.
+
+---
+
 ## 🛠 Tech Stack
 
 | Category | Technology |
 |----------|------------|
 | Framework | Next.js 16.4.5 (App Router, Turbopack) |
+| UI Library | React 19.2 |
 | Language | TypeScript 5.9 |
 | Styling | Tailwind CSS 4.1 (PostCSS) |
-| Database | PostgreSQL + Drizzle ORM 0.45 |
+| Database | PostgreSQL + Drizzle ORM 0.45 (`pg` 8.20) |
 | Runtime | Node.js 22+ |
 | Package Manager | npm (with `package-lock.json` for reproducibility) |
 | Linting | ESLint 9 + eslint-config-next |
-| CI/CD | GitHub Actions (Node.js `latest`) |
+| CI/CD | GitHub Actions (`.github/workflows/nextjs.yml`, `nodejs.yml` — Node.js `latest`) |
+| Analytics | Vercel Analytics (`@vercel/analytics`) + Speed Insights (`@vercel/speed-insights`) |
 | GitHub Integration | REST API for live community statistics (repos, contributors, commits, MAD) |
 | Social Media | LinkedIn company page linked in footer (https://www.linkedin.com/company/lobot-llc) |
 
@@ -135,6 +161,12 @@ All API routes are server-rendered (`force-dynamic`) and require a working `DATA
 ## 📁 Project Structure
 
 ```
+.github/
+├── ISSUE_TEMPLATE/               # GitHub issue templates
+└── workflows/
+    ├── nextjs.yml                # Next.js CI workflow
+    └── nodejs.yml                # Node.js CI workflow
+
 src/
 ├── app/
 │   ├── api/
@@ -157,7 +189,7 @@ src/
 ├── components/
 │   ├── pages/
 │   │   ├── AboutContent.tsx
-│   │   ├── BlogContent.tsx        # Blog list/article; renders inline images and IEEE citation links
+│   │   ├── BlogContent.tsx        # Blog list/article; renders inline images, cover images and IEEE citation links
 │   │   ├── CareersContent.tsx      # Careers page content incl. role levels/tracks
 │   │   ├── HomeContent.tsx
 │   │   └── ProductContent.tsx      # TecnoIndicator product page content
@@ -171,7 +203,7 @@ src/
 │   ├── index.ts                  # Lazy-initialized Drizzle client (getDb())
 │   └── schema.ts                 # Blog schema/types (translations, cover image, references)
 ├── lib/
-│   ├── blog.ts                    # Blog data layer + seed posts (en/es/vi, IEEE references)
+│   ├── blog.ts                    # Blog data layer + seed posts (en/es/vi) with IEEE references, cover images, and inline images
 │   ├── github.ts                  # GitHub helpers (community stats + Most Active Developer)
 │   └── site.ts                    # Site constants (email, URLs)
 └── i18n/
@@ -181,13 +213,27 @@ src/
 
 public/
 ├── images/
-│   └── blog/                     # Blog article images (cover + inline)
+│   └── blog/                     # Blog article images (covers + inline), e.g.:
+│       ├── cathay cargo terminal.jpg                # Cover — Cathay Cargo Terminal × HKIA logistics article
+│       ├── hong kong international airport.jpg      # Inline — HKIA overview
+│       ├── hong kong air cargo handling.png         # Inline — air cargo handling/ramp operations
+│       ├── cargo warning.jpg                        # Inline — special/exception cargo handling
+│       ├── HKIA air cargo data platform.jpg         # Inline — HKIA Cargo Data Platform
+│       ├── operation epic fury.png                  # Cover — Operation Epic Fury article
+│       ├── oil rigs.png / oil price rise.png        # Inline — Operation Epic Fury article
+│       └── logistics.png / tecnoindicator promotion.png  # Inline — Operation Epic Fury article
 ├── llms.txt
 ├── robots.txt
 └── sitemap.xml
 
 images/                             # Project/marketing image assets (repo-level)
+next.config.ts                      # Next.js configuration
+postcss.config.mjs                  # PostCSS (Tailwind) configuration
+eslint.config.mjs                   # ESLint configuration
 drizzle.config.json                 # Drizzle Kit config
+tsconfig.json                       # TypeScript configuration
+package.json / package-lock.json    # npm manifest + lockfile
+AGENT_PROMPT.md                     # Extra guidance for AI agents working on this repo
 ```
 
 ---
