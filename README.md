@@ -154,7 +154,6 @@ Every seeded post is fully translated into the **3 supported languages** (`en`, 
 | CI/CD | GitHub Actions (`.github/workflows/nextjs.yml`, `nodejs.yml` — Node.js `latest`) |
 | Analytics | Vercel Analytics (`@vercel/analytics`) + Speed Insights (`@vercel/speed-insights`) |
 | GitHub Integration | REST API for live community statistics (repos, contributors, commits, MAD) |
-| Social Media | LinkedIn company page linked in footer (https://www.linkedin.com/company/lobot-llc) |
 
 ---
 
