@@ -340,12 +340,12 @@ const en = {
   },
   policy: {
     eyebrow: "Company policy",
-    title: "A clear policy for everyone at LoBot",
+    title: "A clear policy for every employee at LoBot",
     subtitle:
       "These rules keep our workplace respectful, safe and fun — and make our hiring process transparent for every applicant.",
     employees: {
       title: "For all internal employees",
-      subtitle: "Seven rules every team member follows, no exceptions.",
+      subtitle: "Here are the rules all employees must adhere to:",
       items: [
         { title: "Be respectful", desc: "Treat everyone with respect regardless of background, identity or role." },
         { title: "Complete tasks on time", desc: "Finish your assigned tasks on time and attend company events, both online and offline." },
