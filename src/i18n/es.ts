@@ -297,7 +297,7 @@ const es: Dict = {
       "Estas normas mantienen un lugar de trabajo respetuoso, seguro y divertido, y hacen que la contratación sea transparente para cada candidato.",
     employees: {
       title: "Para todos los empleados internos",
-      subtitle: "Siete normas que cada miembro del equipo cumple, sin excepciones.",
+      subtitle: "Aquí tienes las siguientes regulaciones que debes seguir:",
       items: [
         { title: "Sé respetuoso/a", desc: "Trata a todos con respeto, sin importar su origen, identidad o rol." },
         { title: "Completa las tareas a tiempo", desc: "Termina tus tareas asignadas a tiempo y asiste a los eventos de la empresa, en línea y presenciales." },
