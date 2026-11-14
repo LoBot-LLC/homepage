@@ -2,6 +2,7 @@ const en = {
   nav: {
     products: "Products",
     about: "About",
+    policy: "Policy",
     blog: "Blog",
     careers: "Careers",
     flagship: "Flagship",
@@ -337,6 +338,52 @@ const en = {
       button: "Email your CV",
     },
   },
+  policy: {
+    eyebrow: "Company policy",
+    title: "A clear policy for everyone at LoBot",
+    subtitle:
+      "These rules keep our workplace respectful, safe and fun — and make our hiring process transparent for every applicant.",
+    employees: {
+      title: "For all internal employees",
+      subtitle: "Seven rules every team member follows, no exceptions.",
+      items: [
+        { title: "Be respectful", desc: "Treat everyone with respect regardless of background, identity or role." },
+        { title: "Complete tasks on time", desc: "Finish your assigned tasks on time and attend company events, both online and offline." },
+        { title: "No smoking, vaping or drugs", desc: "Do NOT smoke, vape or use drugs at work or at company events." },
+        { title: "No weapons or violence", desc: "Do NOT bring weapons or explosives to work, and never use physical violence against anyone." },
+        { title: "No hacking", desc: "Do NOT hack the company's services or anyone's personal credentials." },
+        { title: "No leaking credentials", desc: "Do NOT leak confidential credentials, secrets or internal access to anyone outside the company." },
+        { title: "Stay fun", desc: "Stay fun — keep a positive spirit and help make LoBot a great place to work." },
+      ],
+    },
+    applicants: {
+      title: "For new applicants",
+      subtitle: "Two rounds: an application review, then a meeting with the Executive Board.",
+      firstRound: {
+        title: "First round — application",
+        items: [
+          "Your CV is required and must include your email address.",
+          "SWE / DevOps: include a repository URL where more than 50% of your projects are viable end products — web apps deployed to Vercel or Cloud Run, desktop apps with an exported .exe + .flatpak, mobile apps with an installable .apk.",
+          "HR / ER: show 2 organizations you have worked with, with images.",
+          "Market Research: show 2 regions or platforms you have researched, what you learned, and a repository (CSV or Markdown plus other formats).",
+          "Content Managers: show 2 content projects you have created, with URLs.",
+          "Designers: show 1 design project in any format.",
+          "Be respectful in every email you send us.",
+          "Wait for our email with the results of the first round.",
+        ],
+      },
+      secondRound: {
+        title: "Second round — Executive Board meeting",
+        items: [
+          "Choose an online or offline interview.",
+          "For offline interviews, the location is a cafe or restaurant chosen by the company.",
+          "For online interviews, join via the meeting link we send, with your camera and microphone on.",
+          "Be respectful during the whole interview.",
+          "Wait for our email with the final results.",
+        ],
+      },
+    },
+  },
   footer: {
     description:
       "LoBot LLC is an AI-native startup that creates breakthrough business solutions enabling large enterprises to make future-ready strategic decisions.",
@@ -344,6 +391,7 @@ const en = {
     blogs: "Blogs",
     company: "Company",
     about: "About",
+    policy: "Policy",
     careers: "Careers",
     rights: "LoBot, LLC - All rights reserved",
     updated: "Last updated:",

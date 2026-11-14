@@ -181,6 +181,7 @@ src/
 │   │   └── tecnoindicator/page.tsx
 │   ├── careers/page.tsx           # Careers page
 │   ├── about/page.tsx             # About page
+│   ├── policy/page.tsx            # Company policy page (renders PolicyContent)
 │   ├── layout.tsx                 # Root layout
 │   ├── page.tsx                   # Homepage
 │   ├── not-found.tsx              # 404 page
@@ -191,11 +192,12 @@ src/
 │   │   ├── BlogContent.tsx        # Blog list/article; renders inline images, cover images and IEEE citation links
 │   │   ├── CareersContent.tsx      # Careers page content incl. role levels/tracks
 │   │   ├── HomeContent.tsx
+│   │   ├── PolicyContent.tsx       # Company policy page (employee rules + applicant rounds, trilingual via `policy` keys)
 │   │   └── ProductContent.tsx      # TecnoIndicator product page content
 │   ├── CopyEmail.tsx             # Email-copy UI component
 │   ├── Footer.tsx                # Footer with logo, description, links, and social icons (GitHub, LinkedIn, company website)
 │   ├── Icons.tsx                 # SVG icons + brand marks (LoBotLogo, TecnoLogo, GithubIcon, LinkedinIcon, etc.)
-│   ├── Navbar.tsx                # Sticky navbar with dropdowns, theme & language toggles
+│   ├── Navbar.tsx                # Sticky navbar with dropdowns, theme & language toggles (`nav-policy` testid for /policy link)
 │   ├── Providers.tsx             # React context providers (i18n, theme)
 │   └── ui.tsx                    # Reusable UI components
 ├── db/
@@ -206,9 +208,9 @@ src/
 │   ├── github.ts                  # GitHub helpers (community stats + Most Active Developer)
 │   └── site.ts                    # Site constants (email, URLs)
 └── i18n/
-    ├── en.ts                     # English translations
-    ├── es.ts                     # Spanish translations
-    └── vi.ts                     # Vietnamese translations
+     ├── en.ts                     # English translations (incl. `policy` keys)
+     ├── es.ts                     # Spanish translations (incl. `policy` keys)
+     └── vi.ts                     # Vietnamese translations (incl. `policy` keys)
 
 public/
 ├── images/
@@ -221,9 +223,9 @@ public/
 │       ├── operation epic fury.png                  # Cover — Operation Epic Fury article
 │       ├── oil rigs.png / oil price rise.png        # Inline — Operation Epic Fury article
 │       └── logistics.png / tecnoindicator promotion.png  # Inline — Operation Epic Fury article
-├── llms.txt
+├── llms.txt                      # Includes /policy
 ├── robots.txt
-└── sitemap.xml
+└── sitemap.xml                  # Includes /policy (lastmod 2026-11-14)
 
 images/                             # Project/marketing image assets (repo-level)
 next.config.ts                      # Next.js configuration

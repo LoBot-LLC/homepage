@@ -4,6 +4,7 @@ const es: Dict = {
   nav: {
     products: "Productos",
     about: "Acerca",
+    policy: "Política",
     blog: "Blog",
     careers: "Empleo",
     flagship: "Insignia",
@@ -289,6 +290,52 @@ const es: Dict = {
       button: "Enviar tu CV",
     },
   },
+  policy: {
+    eyebrow: "Política de la empresa",
+    title: "Una política clara para todos en LoBot",
+    subtitle:
+      "Estas normas mantienen un lugar de trabajo respetuoso, seguro y divertido, y hacen que la contratación sea transparente para cada candidato.",
+    employees: {
+      title: "Para todos los empleados internos",
+      subtitle: "Siete normas que cada miembro del equipo cumple, sin excepciones.",
+      items: [
+        { title: "Sé respetuoso/a", desc: "Trata a todos con respeto, sin importar su origen, identidad o rol." },
+        { title: "Completa las tareas a tiempo", desc: "Termina tus tareas asignadas a tiempo y asiste a los eventos de la empresa, en línea y presenciales." },
+        { title: "Sin tabaco, vapeo ni drogas", desc: "NO fumes, vapees ni uses drogas en el trabajo ni en eventos de la empresa." },
+        { title: "Sin armas ni violencia", desc: "NO traigas armas ni explosivos al trabajo y nunca uses violencia física contra nadie." },
+        { title: "Sin hackeos", desc: "NO hackees los servicios de la empresa ni las credenciales personales de nadie." },
+        { title: "Sin filtrar credenciales", desc: "NO filtres credenciales confidenciales, secretos ni accesos internos a nadie fuera de la empresa." },
+        { title: "Mantén la diversión", desc: "Mantén un espíritu positivo y ayuda a que LoBot sea un gran lugar para trabajar." },
+      ],
+    },
+    applicants: {
+      title: "Para nuevos candidatos",
+      subtitle: "Dos rondas: revisión de la solicitud y luego una reunión con la Junta Ejecutiva.",
+      firstRound: {
+        title: "Primera ronda — solicitud",
+        items: [
+          "Tu CV es obligatorio y debe incluir tu correo electrónico.",
+          "SWE / DevOps: incluye la URL de un repositorio donde más del 50% de tus proyectos sean productos finales viables: apps web desplegadas en Vercel o Cloud Run, apps de escritorio con .exe + .flatpak exportados, apps móviles con .apk instalable.",
+          "RR. HH. / RR. EE.: muestra 2 organizaciones con las que hayas trabajado, con imágenes.",
+          "Investigación de mercado: muestra 2 regiones o plataformas investigadas, lo aprendido y un repositorio (CSV o Markdown más otros formatos).",
+          "Content Managers: muestra 2 proyectos de contenido que hayas creado, con sus URL.",
+          "Diseñadores: muestra 1 proyecto de diseño en cualquier formato.",
+          "Sé respetuoso/a en cada correo que nos envíes.",
+          "Espera nuestro correo con los resultados de la primera ronda.",
+        ],
+      },
+      secondRound: {
+        title: "Segunda ronda — reunión con la Junta Ejecutiva",
+        items: [
+          "Elige una entrevista en línea o presencial.",
+          "En entrevistas presenciales, el lugar es un café o restaurante elegido por la empresa.",
+          "En entrevistas en línea, únete con el enlace que te enviamos, con cámara y micrófono encendidos.",
+          "Sé respetuoso/a durante toda la entrevista.",
+          "Espera nuestro correo con los resultados finales.",
+        ],
+      },
+    },
+  },
   footer: {
     description:
       "LoBot LLC es una startup nativa en IA que crea soluciones empresariales innovadoras que permiten a las grandes empresas tomar decisiones estratégicas preparadas para el futuro.",
@@ -296,6 +343,7 @@ const es: Dict = {
     blogs: "Blogs",
     company: "Empresa",
     about: "Acerca de",
+    policy: "Política",
     careers: "Empleo",
     rights: "LoBot, LLC - Todos los derechos reservados",
     updated: "Última actualización:",
