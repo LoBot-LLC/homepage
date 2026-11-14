@@ -292,19 +292,19 @@ const vi: Dict = {
   },
   policy: {
     eyebrow: "Chính sách công ty",
-    title: "Chính sách rõ ràng cho mọi người tại LoBot",
+    title: "Chính sách rõ ràng cho tất cả nhân viên ở LoBot",
     subtitle:
       "Các quy định này giữ cho nơi làm việc tôn trọng, an toàn và vui vẻ — đồng thời giúp quy trình tuyển dụng minh bạch với mọi ứng viên.",
     employees: {
-      title: "Dành cho toàn bộ nhân viên nội bộ",
-      subtitle: "Bảy quy định mọi thành viên đều tuân thủ, không ngoại lệ.",
+      title: "Dành cho tất cả các nhân viên nội bộ",
+      subtitle: "Sau đây là một số quy định mọi thành viên đều phải tuân thủ:",
       items: [
-        { title: "Tôn trọng mọi người", desc: "Đối xử tôn trọng với mọi người bất kể xuất thân, danh tính hay vai trò." },
+        { title: "Tôn trọng tất cả mọi người", desc: "Đối xử tôn trọng với mọi người bất kể xuất thân, danh tính hay vai trò." },
         { title: "Hoàn thành công việc đúng hạn", desc: "Hoàn thành nhiệm vụ được giao đúng hạn và tham dự các sự kiện của công ty, cả trực tuyến lẫn trực tiếp." },
-        { title: "Không hút thuốc, vape hay chất cấm", desc: "KHÔNG hút thuốc, vape hay sử dụng chất cấm khi làm việc hay tại sự kiện công ty." },
-        { title: "Không vũ khí hay bạo lực", desc: "KHÔNG mang vũ khí hay chất nổ đến nơi làm việc, và không bao giờ dùng bạo lực với bất kỳ ai." },
-        { title: "Không hack", desc: "KHÔNG hack các dịch vụ của công ty hay thông tin cá nhân của bất kỳ ai." },
-        { title: "Không rò rỉ thông tin mật", desc: "KHÔNG rò rỉ thông tin đăng nhập mật, bí mật hay quyền truy cập nội bộ cho bất kỳ ai ngoài công ty." },
+        { title: "Cấm hút thuốc, vape hay chất cấm", desc: "NGHIÊM CẤM hút thuốc, vape hay sử dụng các loại chất cấm khi làm việc hay tại sự kiện công ty." },
+        { title: "Cấm sử dụng vũ khí hay bạo lực", desc: "NGHIÊM CẤM mang vũ khí hay chất nổ đến nơi làm việc, và không được sử dùng bạo lực với bất kỳ ai." },
+        { title: "Cấm hack", desc: "NGHIÊM CẤM hack các dịch vụ của công ty hay thông tin cá nhân của bất kỳ ai." },
+        { title: "Cấm rò rỉ thông tin mật", desc: "NGHIÊM CẤM rò rỉ thông tin đăng nhập mật, bí mật hay quyền truy cập nội bộ cho bất kỳ ai ngoài công ty." },
         { title: "Luôn vui vẻ", desc: "Luôn giữ tinh thần tích cực và góp phần giúp LoBot trở thành nơi làm việc tuyệt vời." },
       ],
     },
@@ -314,10 +314,10 @@ const vi: Dict = {
       firstRound: {
         title: "Vòng một — hồ sơ ứng tuyển",
         items: [
-          "CV là bắt buộc và phải có địa chỉ email của bạn.",
+          "Phải có CV có đính kèm địa chỉ email của bạn.",
           "SWE / DevOps: đính kèm URL repository trong đó hơn 50% dự án là sản phẩm hoàn chỉnh — web app đã deploy lên Vercel hoặc Cloud Run, desktop app có file .exe + .flatpak, mobile app có file .apk cài được.",
           "HR / ER: nêu 2 tổ chức bạn từng làm việc cùng, kèm hình ảnh.",
-          "Market Research: nêu 2 khu vực hoặc nền tảng bạn đã nghiên cứu, bài học rút ra, và repository (CSV hoặc Markdown kèm các định dạng khác).",
+          "Market Research: nêu 2 khu vực hoặc nền tảng bạn đã nghiên cứu, bài học bạn rút ra, và đường dẫn repository (CSV hoặc Markdown kèm các định dạng khác).",
           "Content Manager: nêu 2 dự án nội dung bạn đã tạo, kèm URL.",
           "Designer: nêu 1 dự án thiết kế ở bất kỳ định dạng nào.",
           "Hãy lịch sự, tôn trọng trong mọi email gửi cho chúng tôi.",
