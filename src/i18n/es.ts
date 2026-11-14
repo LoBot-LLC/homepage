@@ -292,7 +292,7 @@ const es: Dict = {
   },
   policy: {
     eyebrow: "Política de la empresa",
-    title: "Una política clara para todos en LoBot",
+    title: "Una política clara para todos empleados en LoBot",
     subtitle:
       "Estas normas mantienen un lugar de trabajo respetuoso, seguro y divertido, y hacen que la contratación sea transparente para cada candidato.",
     employees: {
