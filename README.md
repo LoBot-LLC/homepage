@@ -144,10 +144,10 @@ Every seeded post is fully translated into the **3 supported languages** (`en`, 
 | Category | Technology |
 |----------|------------|
 | Framework | Next.js 16.4.5 (App Router, Turbopack) |
-| UI Library | React 19.2 |
-| Language | TypeScript 5.9 |
-| Styling | Tailwind CSS 4.1 (PostCSS) |
-| Database | PostgreSQL + Drizzle ORM 0.45 (`pg` 8.20) |
+| UI Library | React 19.2.6 |
+| Language | TypeScript 5.9.3 |
+| Styling | Tailwind CSS 4.1.17 (PostCSS) |
+| Database | PostgreSQL + Drizzle ORM 0.45.2 (`pg` 8.20.0) |
 | Runtime | Node.js 22+ |
 | Package Manager | npm (with `package-lock.json` for reproducibility) |
 | Linting | ESLint 9 + eslint-config-next |
@@ -190,7 +190,7 @@ src/
 │   ├── pages/
 │   │   ├── AboutContent.tsx
 │   │   ├── BlogContent.tsx        # Blog list/article; renders inline images, cover images and IEEE citation links
-│   │   ├── CareersContent.tsx      # Careers page content incl. role levels/tracks
+│   │   ├── CareersContent.tsx      # Careers page content incl. role levels/tracks and hiring steps
 │   │   ├── HomeContent.tsx
 │   │   ├── PolicyContent.tsx       # Company policy page (employee rules + applicant rounds, trilingual via `policy` keys)
 │   │   └── ProductContent.tsx      # TecnoIndicator product page content
@@ -199,7 +199,7 @@ src/
 │   ├── Icons.tsx                 # SVG icons + brand marks (LoBotLogo, TecnoLogo, GithubIcon, LinkedinIcon, etc.)
 │   ├── Navbar.tsx                # Sticky navbar with dropdowns, theme & language toggles (`nav-policy` testid for /policy link)
 │   ├── Providers.tsx             # React context providers (i18n, theme)
-│   └── ui.tsx                    # Reusable UI components
+│   └── ui.tsx                    # Shared Section, SectionHeader, NumberBadge, and PageHero components
 ├── db/
 │   ├── index.ts                  # Lazy-initialized Drizzle client (getDb())
 │   └── schema.ts                 # Blog schema/types (translations, cover image, references)
@@ -236,6 +236,8 @@ tsconfig.json                       # TypeScript configuration
 package.json / package-lock.json    # npm manifest + lockfile
 AGENT_PROMPT.md                     # Extra guidance for AI agents working on this repo
 ```
+
+`NumberBadge` is shared by the homepage, careers hiring steps, and policy applicant rounds. It displays numbers with a leading zero and keeps its 40px square size in flex layouts instead of shrinking beside text.
 
 ---
 

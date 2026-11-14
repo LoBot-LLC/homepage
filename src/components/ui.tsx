@@ -20,7 +20,7 @@ export function SectionHeader({ eyebrow, title, subtitle, center = true }: { eye
 
 export function NumberBadge({ n }: { n: number }) {
   return (
-    <span className="inline-flex h-10 w-10 items-center justify-center rounded-xl bg-gradient-to-br from-brand-500 to-emerald-400 text-sm font-bold text-white shadow-md">
+    <span className="inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-gradient-to-br from-brand-500 to-emerald-400 text-sm font-bold text-white shadow-md">
       {String(n).padStart(2, "0")}
     </span>
   );
