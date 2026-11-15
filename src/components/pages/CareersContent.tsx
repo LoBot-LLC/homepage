@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { Fragment, useState } from "react";
 import { useApp } from "../Providers";
 import { MailIcon } from "../Icons";
 import { CopyButton } from "../CopyEmail";
@@ -51,12 +51,7 @@ function RoleCard({ role, t }: RoleCardProps) {
   return (
     <div key={role.title} className="card card-hover flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
       <div>
-        <div className="flex flex-wrap items-center gap-2">
-          <span className="rounded-full bg-brand-50 px-2.5 py-0.5 text-xs font-semibold text-brand-700 dark:bg-brand-500/10 dark:text-brand-300">
-            {role.dept}
-          </span>
-          <span className="text-xs text-slate-500 dark:text-slate-400">{t.type}</span>
-        </div>
+        <span className="text-xs text-slate-500 dark:text-slate-400">{t.type}</span>
         <h3 className="mt-2 text-lg font-semibold text-slate-900 dark:text-white">{role.title}</h3>
         <p className="mt-1 text-sm text-slate-600 dark:text-slate-400">{role.desc}</p>
 
@@ -139,11 +134,25 @@ export function CareersContent() {
 
       <Section id="roles">
         <SectionHeader title={c.roles.title} subtitle={c.roles.subtitle} />
-        <div className="mx-auto mt-12 max-w-4xl space-y-4">
-          {c.roles.items.map((r) => (
-            <RoleCard key={r.title} role={r} t={c.roles} />
-          ))}
-        </div>
+      <div className="mx-auto mt-12 max-w-4xl space-y-4">
+        {Object.entries(
+          c.roles.items.reduce<Record<string, RoleItem[]>>((acc, role) => {
+            (acc[role.dept] ||= []).push(role);
+            return acc;
+          }, {})
+        ).map(([dept, roles]) => (
+          <Fragment key={dept}>
+            <h3 className="mb-4 text-xl font-bold text-slate-900 dark:text-white">
+              {dept}
+            </h3>
+            <div className="space-y-4">
+              {roles.map((r) => (
+                <RoleCard key={r.title} role={r} t={c.roles} />
+              ))}
+            </div>
+          </Fragment>
+        ))}
+      </div>
       </Section>
 
       <Section id="hiring" className="bg-slate-50 dark:bg-white/[0.015]">

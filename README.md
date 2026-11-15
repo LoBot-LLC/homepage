@@ -189,7 +189,7 @@ src/
 │   ├── pages/
 │   │   ├── AboutContent.tsx
 │   │   ├── BlogContent.tsx        # Blog list/article; renders inline images, cover images and IEEE citation links
-│   │   ├── CareersContent.tsx      # Careers page content incl. role levels/tracks
+│   │   ├── CareersContent.tsx      # Careers page content incl. roles grouped by department, role levels/tracks
 │   │   ├── HomeContent.tsx
 │   │   └── ProductContent.tsx      # TecnoIndicator product page content
 │   ├── CopyEmail.tsx             # Email-copy UI component
