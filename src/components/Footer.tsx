@@ -72,6 +72,7 @@ export function Footer() {
             <h3 className="text-sm font-semibold text-slate-900 dark:text-white">{t.footer.company}</h3>
             <ul className="mt-4 space-y-3">
               <li><Link href="/about" className={linkCls}>{t.footer.about}</Link></li>
+              <li><Link href="/policy" className={linkCls}>{t.footer.policy}</Link></li>
               <li><Link href="/careers" className={linkCls}>{t.footer.careers}</Link></li>
             </ul>
           </div>

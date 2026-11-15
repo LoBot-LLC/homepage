@@ -144,10 +144,10 @@ Every seeded post is fully translated into the **3 supported languages** (`en`, 
 | Category | Technology |
 |----------|------------|
 | Framework | Next.js 16.4.5 (App Router, Turbopack) |
-| UI Library | React 19.2 |
-| Language | TypeScript 5.9 |
-| Styling | Tailwind CSS 4.1 (PostCSS) |
-| Database | PostgreSQL + Drizzle ORM 0.45 (`pg` 8.20) |
+| UI Library | React 19.2.6 |
+| Language | TypeScript 5.9.3 |
+| Styling | Tailwind CSS 4.1.17 (PostCSS) |
+| Database | PostgreSQL + Drizzle ORM 0.45.2 (`pg` 8.20.0) |
 | Runtime | Node.js 22+ |
 | Package Manager | npm (with `package-lock.json` for reproducibility) |
 | Linting | ESLint 9 + eslint-config-next |
@@ -181,6 +181,7 @@ src/
 │   │   └── tecnoindicator/page.tsx
 │   ├── careers/page.tsx           # Careers page
 │   ├── about/page.tsx             # About page
+│   ├── policy/page.tsx            # Company policy page (renders PolicyContent)
 │   ├── layout.tsx                 # Root layout
 │   ├── page.tsx                   # Homepage
 │   ├── not-found.tsx              # 404 page
@@ -189,15 +190,16 @@ src/
 │   ├── pages/
 │   │   ├── AboutContent.tsx
 │   │   ├── BlogContent.tsx        # Blog list/article; renders inline images, cover images and IEEE citation links
-│   │   ├── CareersContent.tsx      # Careers page content incl. role levels/tracks
+│   │   ├── CareersContent.tsx      # Careers page content incl. role levels/tracks and hiring steps
 │   │   ├── HomeContent.tsx
+│   │   ├── PolicyContent.tsx       # Company policy page (employee rules + applicant rounds, trilingual via `policy` keys)
 │   │   └── ProductContent.tsx      # TecnoIndicator product page content
 │   ├── CopyEmail.tsx             # Email-copy UI component
 │   ├── Footer.tsx                # Footer with logo, description, links, and social icons (GitHub, LinkedIn, company website)
 │   ├── Icons.tsx                 # SVG icons + brand marks (LoBotLogo, TecnoLogo, GithubIcon, LinkedinIcon, etc.)
-│   ├── Navbar.tsx                # Sticky navbar with dropdowns, theme & language toggles
+│   ├── Navbar.tsx                # Sticky navbar with dropdowns, theme & language toggles (`nav-policy` testid for /policy link)
 │   ├── Providers.tsx             # React context providers (i18n, theme)
-│   └── ui.tsx                    # Reusable UI components
+│   └── ui.tsx                    # Shared Section, SectionHeader, NumberBadge, and PageHero components
 ├── db/
 │   ├── index.ts                  # Lazy-initialized Drizzle client (getDb())
 │   └── schema.ts                 # Blog schema/types (translations, cover image, references)
@@ -206,9 +208,9 @@ src/
 │   ├── github.ts                  # GitHub helpers (community stats + Most Active Developer)
 │   └── site.ts                    # Site constants (email, URLs)
 └── i18n/
-    ├── en.ts                     # English translations
-    ├── es.ts                     # Spanish translations
-    └── vi.ts                     # Vietnamese translations
+     ├── en.ts                     # English translations (incl. `policy` keys)
+     ├── es.ts                     # Spanish translations (incl. `policy` keys)
+     └── vi.ts                     # Vietnamese translations (incl. `policy` keys)
 
 public/
 ├── images/
@@ -221,9 +223,9 @@ public/
 │       ├── operation epic fury.png                  # Cover — Operation Epic Fury article
 │       ├── oil rigs.png / oil price rise.png        # Inline — Operation Epic Fury article
 │       └── logistics.png / tecnoindicator promotion.png  # Inline — Operation Epic Fury article
-├── llms.txt
+├── llms.txt                      # Includes /policy
 ├── robots.txt
-└── sitemap.xml
+└── sitemap.xml                  # Includes /policy (lastmod 2026-11-14)
 
 images/                             # Project/marketing image assets (repo-level)
 next.config.ts                      # Next.js configuration
@@ -234,6 +236,8 @@ tsconfig.json                       # TypeScript configuration
 package.json / package-lock.json    # npm manifest + lockfile
 AGENT_PROMPT.md                     # Extra guidance for AI agents working on this repo
 ```
+
+`NumberBadge` is shared by the homepage, careers hiring steps, and policy applicant rounds. It displays numbers with a leading zero and keeps its 40px square size in flex layouts instead of shrinking beside text.
 
 ---
 

@@ -141,6 +141,7 @@ export function Navbar() {
             {productsMenu}
           </Dropdown>
           <Link href="/about" className={linkCls("/about")}>{t.nav.about}</Link>
+          <Link href="/policy" data-testid="nav-policy" className={linkCls("/policy")}>{t.nav.policy}</Link>
           <Link href="/blog" className={linkCls("/blog")}>{t.nav.blog}</Link>
           <Link href="/careers" className={linkCls("/careers")}>{t.nav.careers}</Link>
         </div>
@@ -204,6 +205,7 @@ export function Navbar() {
           {productsMenu(() => setMobileOpen(false))}
           <div className="mt-2 flex flex-col">
             <Link href="/about" className={linkCls("/about")}>{t.nav.about}</Link>
+            <Link href="/policy" data-testid="nav-policy" className={linkCls("/policy")}>{t.nav.policy}</Link>
             <Link href="/blog" className={linkCls("/blog")}>{t.nav.blog}</Link>
             <Link href="/careers" className={linkCls("/careers")}>{t.nav.careers}</Link>
           </div>

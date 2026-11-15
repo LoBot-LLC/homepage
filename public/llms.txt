@@ -11,6 +11,7 @@ Home: /
 Products: /products
 TecnoIndicator: /products/tecnoindicator
 About: /about
+Policy: /policy
 Careers: /careers
 Blog: /blog
 
