@@ -190,7 +190,7 @@ src/
 │   ├── pages/
 │   │   ├── AboutContent.tsx
 │   │   ├── BlogContent.tsx        # Blog list/article; renders inline images, cover images and IEEE citation links
-│   │   ├── CareersContent.tsx      # Careers page content incl. role levels/tracks and hiring steps
+│   │   ├── CareersContent.tsx      # Careers page content incl. roles grouped by department, role levels/tracks
 │   │   ├── HomeContent.tsx
 │   │   ├── PolicyContent.tsx       # Company policy page (employee rules + applicant rounds, trilingual via `policy` keys)
 │   │   └── ProductContent.tsx      # TecnoIndicator product page content
