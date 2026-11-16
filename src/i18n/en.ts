@@ -363,7 +363,7 @@ const en = {
         title: "First round — application",
         items: [
           "Your CV is required and must include your email address.",
-          "SWE / DevOps: include a repository URL where you must include at least 1 project and more than 50% of your projects are viable end products — web apps deployed to Vercel or Cloud Run, desktop apps with an exported .exe + .flatpak, mobile apps with an installable .apk.",
+          "SWE / DevOps: include a repository URL where you must include at least 1 project and more than 50% of your projects are viable end products (except repositories related to API, MCP or other protocols) — web apps deployed to Vercel or Cloud Run, desktop apps with an exported .exe + .flatpak, mobile apps with an installable .apk.",
           "HR / ER: show 2 organizations you have worked with, with images.",
           "Market Research: show 2 regions or platforms you have researched, what you learned, and a repository (CSV or Markdown plus other formats).",
           "Content Managers: show 2 content projects you have created, with URLs.",

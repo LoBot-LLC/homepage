@@ -315,7 +315,7 @@ const vi: Dict = {
         title: "Vòng một — hồ sơ ứng tuyển",
         items: [
           "Phải có CV có đính kèm địa chỉ email của bạn.",
-          "SWE / DevOps: đính kèm URL repository trong đó có ít nhất 1 project và hơn 50% số đó là sản phẩm hoàn chỉnh — web app đã deploy lên Vercel hoặc Cloud Run, desktop app có file .exe + .flatpak, mobile app có file .apk cài được.",
+          "SWE / DevOps: đính kèm URL repository trong đó có ít nhất 1 project và hơn 50% số đó là sản phẩm hoàn chỉnh (trừ các repo liên quan đến API, MCP và các protocol khác) — web app đã deploy lên Vercel hoặc Cloud Run, desktop app có file .exe + .flatpak, mobile app có file .apk cài được.",
           "HR / ER: nêu 2 tổ chức bạn từng làm việc cùng, kèm hình ảnh.",
           "Market Research: nêu 2 khu vực hoặc nền tảng bạn đã nghiên cứu, bài học bạn rút ra, và đường dẫn repository (CSV hoặc Markdown kèm các định dạng khác).",
           "Content Manager: nêu 2 dự án nội dung bạn đã tạo, kèm URL.",
