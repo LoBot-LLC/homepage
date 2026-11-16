@@ -315,7 +315,7 @@ const es: Dict = {
         title: "Primera ronda — solicitud",
         items: [
           "Tu CV es obligatorio y debe incluir tu correo electrónico.",
-          "SWE / DevOps: incluye la URL de un repositorio donde debes tener al menos 1 proyecto y más del 50% de tus proyectos sean productos finales viables: apps web desplegadas en Vercel o Cloud Run, apps de escritorio con .exe + .flatpak exportados, apps móviles con .apk instalable.",
+          "SWE / DevOps: incluye la URL de un repositorio donde debes tener al menos 1 proyecto y más del 50% de tus proyectos sean productos finales viables (excepto los repositorios relacionado a API, MCP o otros protocols): apps web desplegadas en Vercel o Cloud Run, apps de escritorio con .exe + .flatpak exportados, apps móviles con .apk instalable.",
           "RR. HH. / RR. EE.: muestra 2 organizaciones con las que hayas trabajado, con imágenes.",
           "Investigación de mercado: muestra 2 regiones o plataformas investigadas, lo aprendido y un repositorio (CSV o Markdown más otros formatos).",
           "Content Managers: muestra 2 proyectos de contenido que hayas creado, con sus URL.",
