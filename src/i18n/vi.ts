@@ -287,7 +287,7 @@ const vi: Dict = {
   },
   footer: {
     description:
-      "LoBot LLC là startup AI-native tạo ra các giải pháp kinh doanh đột phá giúp các doanh nghiệp lớn đưa ra quyết định chiến lược sẵn sàng cho tương lai.",
+      "LoBot LLC là startup AI-native Việt Nam tạo ra các giải pháp kinh doanh đột phá giúp các doanh nghiệp lớn đưa ra quyết định chiến lược sẵn sàng cho tương lai.",
     resources: "Tài nguyên",
     blogs: "Blog",
     company: "Công ty",
