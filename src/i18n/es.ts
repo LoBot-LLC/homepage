@@ -338,7 +338,7 @@ const es: Dict = {
   },
   footer: {
     description:
-      "LoBot LLC es una startup nativa en IA que crea soluciones empresariales innovadoras que permiten a las grandes empresas tomar decisiones estratégicas preparadas para el futuro.",
+      "LoBot LLC es una startup nativa en IA de Vietnam que crea soluciones empresariales innovadoras que permiten a las grandes empresas tomar decisiones estratégicas preparadas para el futuro.",
     resources: "Recursos",
     blogs: "Blogs",
     company: "Empresa",
