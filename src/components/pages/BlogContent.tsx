@@ -131,7 +131,8 @@ export function BlogList({ posts }: { posts: PublicPost[] }) {
 export function BlogArticle({ post }: { post: PublicPost }) {
   const { t, lang } = useApp();
   const tr = post.translations[lang] ?? post.translations.en;
-  const hasCustomCta = tr.body.some((b) => b === "__CTA__") || Boolean(tr.references?.length);
+  const hasCustomCta = tr.body.some((b) => b === "__CTA__");
+  const isCathayCargoPost = post.slug === "how-cathay-cargo-terminal-powers-hkia-daily-logistics";
   return (
     <article className="mx-auto max-w-3xl px-4 py-16 sm:px-6 lg:px-8">
       <Link href="/blog" className="inline-flex items-center gap-1.5 text-sm font-medium text-brand-600 hover:underline dark:text-brand-300">
@@ -159,23 +160,25 @@ export function BlogArticle({ post }: { post: PublicPost }) {
       <div className="mt-10 space-y-6 border-t border-slate-200 pt-10 text-base leading-8 text-slate-700 dark:border-white/10 dark:text-slate-300">
         {tr.body.map((para, i) => renderBodyBlock(para, i))}
       </div>
-      <div className="mt-12 flex flex-wrap gap-3">
-        {hasCustomCta ? (
-          <>
-            <a href={TECNO_URL} target="_blank" rel="noopener noreferrer" className="btn-primary">
-              {t.blog.tryTecnoIndicator}
-            </a>
-            <Link href="/careers#apply" className="btn-secondary">
-              {t.blog.applyNow}
-            </Link>
-          </>
-        ) : (
-          <>
-            <Link href="/careers" className="btn-secondary">{t.nav.careers}</Link>
-            <Link href="/careers#apply" className="btn-primary">{t.careers.cta.title}</Link>
-          </>
-        )}
-      </div>
+      {!isCathayCargoPost && (
+        <div className="mt-12 flex flex-wrap gap-3">
+          {hasCustomCta ? (
+            <>
+              <a href={TECNO_URL} target="_blank" rel="noopener noreferrer" className="btn-primary">
+                {t.blog.tryTecnoIndicator}
+              </a>
+              <Link href="/careers#apply" className="btn-secondary">
+                {t.blog.applyNow}
+              </Link>
+            </>
+          ) : (
+            <>
+              <Link href="/careers" className="btn-secondary">{t.nav.careers}</Link>
+              <Link href="/careers#apply" className="btn-primary">{t.careers.cta.title}</Link>
+            </>
+          )}
+        </div>
+      )}
       {tr.references && tr.references.length > 0 ? (
         <section className="mt-14 scroll-mt-24 border-t border-slate-200 pt-8 dark:border-white/10" aria-labelledby="references-heading">
           <h2 id="references-heading" className="text-2xl font-bold text-slate-900 dark:text-white">

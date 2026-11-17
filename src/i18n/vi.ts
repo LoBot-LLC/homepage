@@ -4,6 +4,7 @@ const vi: Dict = {
   nav: {
     products: "Sản phẩm",
     about: "Về công ty",
+    policy: "Chính sách",
     blog: "Blog",
     careers: "Tuyển dụng",
     flagship: "Chủ lực",
@@ -204,6 +205,7 @@ const vi: Dict = {
       pulls: "Pull request",
       forks: "Fork",
       source: "Nguồn: GitHub API — cập nhật mỗi giờ.",
+      mostActiveDeveloper: "Nhà phát triển Năng động nhất",
     },
     culture: {
       title: "Văn hóa làm việc",
@@ -263,12 +265,15 @@ const vi: Dict = {
       subtitle: "Tất cả vị trí đều mở cho ứng viên quốc tế.",
       apply: "Ứng tuyển",
       chooseOne: "Chọn một hướng:",
+      chooseLevel: "Chọn cấp bậc:",
       items: [
-        { dept: "Phần mềm", title: "Kỹ sư phần mềm", desc: "Xây dựng và mở rộng sản phẩm Next.js / TypeScript / Bun cùng các tác nhân AI.", tracks: ["Full-stack", "Backend", "Front-end"] },
-        { dept: "Nhân sự", title: "Chuyên viên Nhân sự (HR)", desc: "Định hình tuyển dụng, onboarding và văn hóa lấy con người làm trung tâm.", tracks: [] },
-        { dept: "Nghiên cứu", title: "Chuyên viên Nghiên cứu thị trường", desc: "Nghiên cứu thị trường năng lượng, logistics và doanh nghiệp để định hướng sản phẩm.", tracks: [] },
-        { dept: "Marketing", title: "Content Manager", desc: "Quảng bá hình ảnh của LoBot qua blog, mạng xã hội, tài liệu và các hình thức khác.", tracks: [] },
-        { dept: "Marketing", title: "Thiết kế đồ họa", desc: "Tạo nên bản sắc muôn màu của LoBot trên sản phẩm, website, mạng xã hội và các kênh truyền thông khác của LoBot.", tracks: [] },
+        { dept: "Tecnology", title: "Kỹ sư phần mềm", desc: "Xây dựng và mở rộng sản phẩm Next.js / TypeScript / Bun cùng với các công cụ AI.", tracks: ["Full-stack", "Backend", "Front-end"], levels: ["Junior", "Senior"] },
+        { dept: "Tecnology", title: "Kỹ sư DevOps", desc: "Quản lý cơ sở hạ tầng quan trọng để duy trì hoạt động - với các công cụ như Vercel và Supabase.", tracks: [], levels: ["Junior", "Senior"] },
+        { dept: "Operations", title: "Điều phối viên Nhân sự (HR)", desc: "Định hình tuyển dụng, onboarding và văn hóa lấy con người làm trung tâm.", tracks: [], levels: ["Junior", "Senior"] },
+        { dept: "Operations", title: "Điều phối viên Quan hệ đối ngoại (ER)", desc: "Tổ chức và điều phối các sự kiện chung cho công ty hoặc với bên ngoài, và đàm phán các điều khoản với họ.", tracks: [], levels: ["Junior", "Senior"] },
+        { dept: "Market Research", title: "Chuyên viên Nghiên cứu thị trường", desc: "Nghiên cứu thị trường năng lượng, logistics và doanh nghiệp để định hướng sản phẩm.", tracks: [], levels: ["Junior", "Senior"] },
+        { dept: "MarCom", title: "Content Manager", desc: "Quảng bá hình ảnh của LoBot qua blog, mạng xã hội, tài liệu và các hình thức khác.", tracks: [], levels: ["Junior", "Senior"] },
+        { dept: "MarCom", title: "Thiết kế đồ họa", desc: "Tạo nên bản sắc muôn màu của LoBot trên sản phẩm, website, mạng xã hội và các kênh truyền thông khác của LoBot.", tracks: [], levels: ["Junior", "Senior"] },
       ],
       type: "Từ xa / Kết hợp",
     },
@@ -285,6 +290,52 @@ const vi: Dict = {
       button: "Gửi CV qua email",
     },
   },
+  policy: {
+    eyebrow: "Chính sách công ty",
+    title: "Chính sách rõ ràng cho tất cả nhân viên ở LoBot",
+    subtitle:
+      "Các quy định này giữ cho nơi làm việc tôn trọng, an toàn và vui vẻ — đồng thời giúp quy trình tuyển dụng minh bạch với mọi ứng viên.",
+    employees: {
+      title: "Dành cho tất cả các nhân viên nội bộ",
+      subtitle: "Sau đây là một số quy định mọi thành viên đều phải tuân thủ:",
+      items: [
+        { title: "Tôn trọng tất cả mọi người", desc: "Đối xử tôn trọng với mọi người bất kể xuất thân, danh tính hay vai trò." },
+        { title: "Hoàn thành công việc đúng hạn", desc: "Hoàn thành nhiệm vụ được giao đúng hạn và tham dự các sự kiện của công ty, cả trực tuyến lẫn trực tiếp." },
+        { title: "Cấm hút thuốc, vape hay chất cấm", desc: "NGHIÊM CẤM hút thuốc, vape hay sử dụng các loại chất cấm khi làm việc hay tại sự kiện công ty." },
+        { title: "Cấm sử dụng vũ khí hay bạo lực", desc: "NGHIÊM CẤM mang vũ khí hay chất nổ đến nơi làm việc, và không được sử dùng bạo lực với bất kỳ ai." },
+        { title: "Cấm hack", desc: "NGHIÊM CẤM hack các dịch vụ của công ty hay thông tin cá nhân của bất kỳ ai." },
+        { title: "Cấm rò rỉ thông tin mật", desc: "NGHIÊM CẤM rò rỉ thông tin đăng nhập mật, bí mật hay quyền truy cập nội bộ cho bất kỳ ai ngoài công ty." },
+        { title: "Luôn vui vẻ", desc: "Luôn giữ tinh thần tích cực và góp phần giúp LoBot trở thành nơi làm việc tuyệt vời." },
+      ],
+    },
+    applicants: {
+      title: "Dành cho ứng viên mới",
+      subtitle: "Hai vòng: xét duyệt hồ sơ, sau đó gặp Ban điều hành.",
+      firstRound: {
+        title: "Vòng một — hồ sơ ứng tuyển",
+        items: [
+          "Phải có CV có đính kèm địa chỉ email của bạn.",
+          "SWE / DevOps: đính kèm URL repository trong đó có ít nhất 1 project và hơn 50% số đó là sản phẩm hoàn chỉnh (trừ các repo liên quan đến API, MCP và các protocol khác) — web app đã deploy lên Vercel hoặc Cloud Run, desktop app có file .exe + .flatpak, mobile app có file .apk cài được.",
+          "HR / ER: nêu 2 tổ chức bạn từng làm việc cùng, kèm hình ảnh.",
+          "Market Research: nêu 2 khu vực hoặc nền tảng bạn đã nghiên cứu, bài học bạn rút ra, và đường dẫn repository (CSV hoặc Markdown kèm các định dạng khác).",
+          "Content Manager: nêu 2 dự án nội dung bạn đã tạo, kèm URL.",
+          "Designer: nêu 1 dự án thiết kế ở bất kỳ định dạng nào.",
+          "Hãy lịch sự, tôn trọng trong mọi email gửi cho chúng tôi.",
+          "Chờ email thông báo kết quả vòng một của chúng tôi.",
+        ],
+      },
+      secondRound: {
+        title: "Vòng hai — gặp Ban điều hành",
+        items: [
+          "Chọn phỏng vấn trực tuyến hoặc trực tiếp.",
+          "Với phỏng vấn trực tiếp, địa điểm là quán cà phê hoặc nhà hàng do công ty chọn.",
+          "Với phỏng vấn trực tuyến, tham gia qua link chúng tôi gửi, bật camera và micro.",
+          "Hãy tôn trọng, lịch sự trong suốt buổi phỏng vấn.",
+          "Chờ email thông báo kết quả cuối cùng của chúng tôi.",
+        ],
+      },
+    },
+  },
   footer: {
     description:
       "LoBot LLC là startup AI-native Việt Nam tạo ra các giải pháp kinh doanh đột phá giúp các doanh nghiệp lớn đưa ra quyết định chiến lược sẵn sàng cho tương lai.",
@@ -292,6 +343,7 @@ const vi: Dict = {
     blogs: "Blog",
     company: "Công ty",
     about: "Giới thiệu",
+    policy: "Chính sách",
     careers: "Tuyển dụng",
     rights: "LoBot, LLC - Bảo lưu mọi quyền",
     updated: "Cập nhật lần cuối:",

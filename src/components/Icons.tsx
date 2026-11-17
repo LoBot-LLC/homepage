@@ -1,6 +1,6 @@
 import type { SVGProps } from "react";
 
-/** LoBot LLC mark: a robot head profile built from circuit traces & nodes. */
+/** LoBot mark: a robot head profile built from circuit traces & nodes. */
 export function LoBotMark({ className = "h-9 w-9", ...props }: SVGProps<SVGSVGElement>) {
   return (
     <svg viewBox="0 0 64 64" fill="none" className={className} aria-hidden="true" {...props}>
@@ -48,9 +48,8 @@ export function LoBotLogo({ className = "" }: { className?: string }) {
   return (
     <span className={`inline-flex items-center gap-2.5 ${className}`}>
       <LoBotMark className="h-9 w-9 text-slate-700 dark:text-white" />
-      <span className="text-lg font-extrabold tracking-tight">
-        <span className="text-slate-900 dark:text-white">LoBot</span>{" "}
-        <span className="text-brand-500 dark:text-brand-300">LLC</span>
+      <span className="text-lg font-extrabold tracking-tight text-slate-900 dark:text-white">
+        LoBot
       </span>
     </span>
   );
@@ -111,3 +110,11 @@ export const ArrowRight = base("M5 12h14m-6-6 6 6-6 6");
 export const ArrowLeft = base("M19 12H5m6 6-6-6 6-6");
 export const MailIcon = base("M3 6h18v12H3zm0 0 9 7 9-7");
 export const ExternalIcon = base("M14 4h6v6m0-6L10 14M18 14v6H4V6h6");
+
+export function LinkedinIcon({ className = "h-5 w-5" }: { className?: string }) {
+  return (
+    <svg viewBox="0 0 24 24" fill="currentColor" className={className} aria-hidden="true">
+      <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.06 2.06 0 0 1-2.063-2.065a2.064 2.064 0 1 1 2.063 2.065m1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0z" />
+    </svg>
+  );
+}
