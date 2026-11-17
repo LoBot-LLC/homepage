@@ -335,7 +335,7 @@ const en = {
   },
   footer: {
     description:
-      "LoBot LLC is an AI-native startup that creates breakthrough business solutions enabling large enterprises to make future-ready strategic decisions.",
+      "LoBot LLC is an Vietnamese AI-native startup that creates breakthrough business solutions enabling large enterprises to make future-ready strategic decisions.",
     resources: "Resources",
     blogs: "Blogs",
     company: "Company",
