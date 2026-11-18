@@ -140,6 +140,16 @@ Every seeded post is fully translated into the **3 supported languages** (`en`, 
 
 ---
 
+## 🔍 SEO & Header Meta
+
+- **Root layout** — `src/app/layout.tsx` exports `metadata` with the site title template (`%s | LoBot LLC`) and default description, plus a pre-paint `<script>` in `<head>` that applies the saved/system theme and sets `document.lang` from the `lobot-lang` cookie.
+- **Per-page metadata** — each page exports `metadata` (or `generateMetadata`) for the title and description: homepage, `/about`, `/careers`, `/policy`, `/products/tecnoindicator`, `/blog`, and `/blog/[slug]` (which uses the post's English title and excerpt).
+- **Crawlers** — `public/robots.txt` allows all search engines and AI crawlers (GPTBot, ClaudeBot, etc.) and points to `/sitemap.xml`.
+- **Sitemap** — `public/sitemap.xml` lists the homepage, products, about, policy, careers, and blog pages with per-URL `lastmod`, `changefreq`, and `priority`.
+- **llms.txt** — `public/llms.txt` exposes site sections (including `/policy`) to LLM crawlers.
+
+---
+
 ## 🛠 Tech Stack
 
 | Category | Technology |
@@ -225,6 +235,7 @@ public/
 │       ├── oil rigs.png / oil price rise.png        # Inline — Operation Epic Fury article
 │       ├── logistics.png / tecnoindicator promotion.png  # Inline — Operation Epic Fury article
 │       ├── lobot privacy and security.png           # Cover — user privacy and security article
+│       ├── lobot privacy & security.png             # Cover image duplicate (unreferenced)
 │       ├── vendor lock in.png                       # Inline — privacy and security article
 │       ├── predatory pricing.png                    # Inline — privacy and security article
 │       ├── adobe scandal.png                        # Inline — privacy and security article
