@@ -190,6 +190,7 @@ const es: Dict = {
       items: [
         { date: "Sep 2026", title: "Nace TecnoIndicator", desc: "Nuestra app insignia de pronóstico de precios de energía se publica como código abierto." },
         { date: "Oct 2026", title: "Se funda LoBot LLC", desc: "LoBot LLC se funda oficialmente." },
+        { date: "Nov 2026", title: "LoBot acumuló más de 500 commits y más de 100 pull requests (PR)", desc: "Un buen primer paso para todos los ingenieros de LoBot que desarrollan los productos de la empresa." },
         { date: "Oct 2026 – Presente", title: "Mejora continua", desc: "LoBot mejora continuamente TecnoIndicator y crea herramientas útiles similares para gerentes de negocio y logística." },
       ],
     },
