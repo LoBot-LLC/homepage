@@ -233,7 +233,7 @@ const en = {
         { date: "Sep 2026", title: "TecnoIndicator is born", desc: "Our flagship energy price forecasting app is released as open source." },
         { date: "Oct 2026", title: "LoBot LLC is founded", desc: "LoBot LLC is officially founded." },
         { date: "Nov 2026", title: "LoBot reached >500 commits and >100 pull requests (PRs)", desc: "A good first step for all LoBot engineers working towards the company's products." },
-        { date: "Oct 2026 – Present", title: "Continuous improvement", desc: "LoBot keeps improving TecnoIndicator and building similar useful tools for business and logistics managers." },
+        { date: "Nov 2026 – Present", title: "Continuous improvement", desc: "LoBot keeps improving TecnoIndicator and building similar useful tools for business and logistics managers." },
       ],
     },
     community: {
