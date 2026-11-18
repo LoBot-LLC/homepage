@@ -190,7 +190,8 @@ const vi: Dict = {
       items: [
         { date: "Th9 2026", title: "TecnoIndicator ra đời", desc: "Ứng dụng dự báo giá năng lượng chủ lực được phát hành dưới mã nguồn mở." },
         { date: "Th10 2026", title: "Thành lập LoBot LLC", desc: "LoBot LLC được chính thức thành lập." },
-        { date: "Th10 2026 – Nay", title: "Cải tiến liên tục", desc: "LoBot liên tục cải tiến TecnoIndicator và xây dựng các công cụ hữu ích tương tự cho nhà quản lý kinh doanh và logistics." },
+        { date: "Th11 2026", title: "LoBot đạt hơn 500 commit và hơn 100 pull request (PR)", desc: "Đây là bước khởi đầu tốt đẹp cho tất cả các kỹ sư LoBot đang phát triển sản phẩm của công ty." },
+        { date: "Th11 2026 – Nay", title: "Cải tiến liên tục", desc: "LoBot liên tục cải tiến TecnoIndicator và xây dựng các công cụ hữu ích tương tự cho nhà quản lý kinh doanh và logistics." },
       ],
     },
     community: {
