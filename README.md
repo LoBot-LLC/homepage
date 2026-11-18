@@ -151,7 +151,7 @@ Package versions below are the ones installed by `npm ci` from [package-lock.jso
 | Styling | Tailwind CSS and `@tailwindcss/postcss` 4.1.17, PostCSS 8.5.8 |
 | Database | PostgreSQL via `pg` 8.20.0 and Drizzle ORM 0.45.2; Drizzle Kit 0.31.10 for schema tooling |
 | Environment | Next.js `.env.local` support; `dotenv` 17.3.1 is also installed |
-| Localization & themes | React Context, English/Spanish/Vietnamese dictionaries, browser `localStorage` |
+| Localization & themes | React Context with typed `en`, `es` and `vi` dictionaries; language and theme preferences persist in `localStorage` |
 | Community statistics | GitHub REST API (contributors, commits, PRs, forks and most active developer) with hourly revalidation and a fallback snapshot |
 | Hosting & analytics | Vercel, `@vercel/analytics` 2.0.1, `@vercel/speed-insights` 2.1.0 |
 | Linting | ESLint 9.39.5, `eslint-config-next` 16.2.6 (Core Web Vitals) |
@@ -194,7 +194,7 @@ Tracked files are shown below; installed dependencies, build output and local en
 │   └── sitemap.xml
 ├── src/
 │   ├── app/                                  # App Router pages and route handlers
-│   │   ├── about/page.tsx
+│   │   ├── about/page.tsx                    # About page, including /about#milestones
 │   │   ├── api/
 │   │   │   ├── blog/
 │   │   │   │   ├── [slug]/route.ts           # Get a single post
@@ -265,7 +265,13 @@ npm run build       # Production build
 
 CI runs on pushes and pull requests targeting `main` with Node.js `latest` and `npm ci`. Both workflows also run `npm test --if-present`; there is currently no `test` script.
 
-To check the timeline after building, run `npm start` and open `/about#milestones`. Switch between English, Spanish and Vietnamese: the November 2026 commits/PRs milestone should appear just before the final ongoing entry in each language.
+To check the timeline after building, run `npm start` and open `/about#milestones`. The entry immediately before **Continuous improvement** should read:
+
+> **Nov 2026 — LoBot reached >500 commits and >100 pull requests (PRs)**
+>
+> A good first step for all LoBot engineers working towards the company's products.
+
+Switch to Spanish and Vietnamese. The same entry should appear once, in the same position, with its localized date, title and description.
 
 ---
 
