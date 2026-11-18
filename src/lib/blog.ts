@@ -12,7 +12,7 @@ export const SEED_POSTS: PublicPost[] = [
     slug: "lobots-stance-on-user-privacy-and-security",
     author: "LoBot LLC Team",
     coverEmoji: "🔒",
-    coverImage: "/images/blog/lobot privacy and security.png",
+    coverImage: "/images/blog/lobot privacy & security.png",
     publishedAt: "2026-11-18",
     translations: {
       en: {
