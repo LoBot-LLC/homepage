@@ -123,7 +123,7 @@ The blog is powered by a seeded editorial data pipeline (`src/lib/blog.ts`). Pos
 
 | Published | Slug | Topic |
 |-----------|-----------------------|-------|
-| 2026-11-18 | `lobots-stance-on-user-privacy-and-security` | LoBot's stance on user privacy and security — Big Tech data practices, vendor lock-in, hidden fees and censorship-by-protection, and LoBot's alternative: minimal sign-in, open and portable software, public data, honest pricing and a 100% refund guarantee |
+| 2026-11-18 | `lobots-stance-on-user-privacy-and-security` | LoBot's stance on user privacy and security — Big Tech data practices, vendor lock-in, hidden fees and censorship-by-protection (incl. documented data misuse cases cited via [13]–[16]), and LoBot's alternative: minimal sign-in, open and portable software, public data, honest pricing and a 100% refund guarantee |
 | 2026-11-13 | `how-cathay-cargo-terminal-powers-hkia-daily-logistics` | How Cathay Cargo Terminal powers the daily logistics of HKIA, the world’s busiest cargo airport — import/export flows, exception handling, live-animal care, and the HKIA Cargo Data Platform |
 | 2026-11-07 | `how-operation-epic-fury-inspired-lobot-tecnoindicator` | How the 2026 Middle East conflict inspired LoBot TecnoIndicator |
 | 2026-10-28 | `introducing-lobot-llc` | Company introduction |
@@ -132,7 +132,7 @@ The blog is powered by a seeded editorial data pipeline (`src/lib/blog.ts`). Pos
 
 - **Cover image** — high-resolution image displayed at the top of the article (e.g. `cathay cargo terminal.jpg` for the HKIA logistics article), with a `coverEmoji` fallback.
 - **Inline images** — body paragraphs can embed an image via the `__IMAGE__:/images/blog/<name>|<alt>|<caption>` marker.
-- **IEEE-style references** — numbered citations such as `[1]`, `[2]` inside paragraphs are clickable and jump to the matching entry in the **References** section at the end of the article, where every reference links out to its source URL.
+- **IEEE-style references** — numbered citations such as `[1]`, `[2]` inside paragraphs are clickable and jump to the matching entry in the **References** section at the end of the article, where every reference links out to its source URL. Each post keeps a per-locale reference list; the privacy and security post has 16 references in every language, each one cited in the body.
 - **Localized references** — the reference labels follow IEEE conventions in each language (`[Online]. Available:` for English, `[En línea]. Disponible:` for Spanish, `[Trực tuyến]. Có tại:` for Vietnamese).
 - **Metadata** — every article shows the author (`By LoBot LLC Team`), the publication date, and an automatic estimated reading time in all supported languages.
 
@@ -145,7 +145,7 @@ Every seeded post is fully translated into the **3 supported languages** (`en`, 
 - **Root layout** — `src/app/layout.tsx` exports `metadata` with the site title template (`%s | LoBot LLC`) and default description, plus a pre-paint `<script>` in `<head>` that applies the saved/system theme and sets `document.lang` from the `lobot-lang` cookie.
 - **Per-page metadata** — each page exports `metadata` (or `generateMetadata`) for the title and description: homepage, `/about`, `/careers`, `/policy`, `/products/tecnoindicator`, `/blog`, and `/blog/[slug]` (which uses the post's English title and excerpt).
 - **Crawlers** — `public/robots.txt` allows all search engines and AI crawlers (GPTBot, ClaudeBot, etc.) and points to `/sitemap.xml`.
-- **Sitemap** — `public/sitemap.xml` lists the homepage, products, about, policy, careers, and blog pages with per-URL `lastmod`, `changefreq`, and `priority`.
+- **Sitemap** — `public/sitemap.xml` lists the homepage, `/products/tecnoindicator`, about, policy, careers, the blog index, and the `introducing-lobot-llc` post with per-URL `lastmod`, `changefreq`, and `priority`.
 - **llms.txt** — `public/llms.txt` exposes site sections (including `/policy`) to LLM crawlers.
 
 ---
@@ -234,8 +234,7 @@ public/
 │       ├── operation epic fury.png                  # Cover — Operation Epic Fury article
 │       ├── oil rigs.png / oil price rise.png        # Inline — Operation Epic Fury article
 │       ├── logistics.png / tecnoindicator promotion.png  # Inline — Operation Epic Fury article
-│       ├── lobot privacy and security.png           # Cover — user privacy and security article
-│       ├── lobot privacy & security.png             # Cover image duplicate (unreferenced)
+│       ├── lobot privacy & security.png             # Cover — user privacy and security article
 │       ├── vendor lock in.png                       # Inline — privacy and security article
 │       ├── predatory pricing.png                    # Inline — privacy and security article
 │       ├── adobe scandal.png                        # Inline — privacy and security article
