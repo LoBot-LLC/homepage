@@ -6,6 +6,11 @@ export type BlogTranslation = {
   title: string;
   excerpt: string;
   body: string[];
+  // body: string[] — each entry is either:
+  // - plain text paragraph
+  // - "__IMAGE__:{src}|{alt}|{caption}" — inline image marker
+  // - "__SUBTITLE__:{text}" — section subheading marker
+  // - "__CTA__" — custom call-to-action sentinel (exact match)
   /** Optional references section rendered at the end of the article. */
   references?: BlogReference[];
 };

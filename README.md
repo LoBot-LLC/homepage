@@ -132,6 +132,7 @@ The blog is powered by a seeded editorial data pipeline (`src/lib/blog.ts`). Pos
 
 - **Cover image** — high-resolution image displayed at the top of the article (e.g. `cathay cargo terminal.jpg` for the HKIA logistics article), with a `coverEmoji` fallback.
 - **Inline images** — body paragraphs can embed an image via the `__IMAGE__:/images/blog/<name>|<alt>|<caption>` marker.
+- **Section subtitles** — body groups can be introduced with a `__SUBTITLE__:text` marker rendered as editorial subheadings.
 - **IEEE-style references** — numbered citations such as `[1]`, `[2]` inside paragraphs are clickable and jump to the matching entry in the **References** section at the end of the article, where every reference links out to its source URL. Each post keeps a per-locale reference list; the privacy and security post has 16 references in every language, each one cited in the body.
 - **Localized references** — the reference labels follow IEEE conventions in each language (`[Online]. Available:` for English, `[En línea]. Disponible:` for Spanish, `[Trực tuyến]. Có tại:` for Vietnamese).
 - **Metadata** — every article shows the author (`By LoBot LLC Team`), the publication date, and an automatic estimated reading time in all supported languages.

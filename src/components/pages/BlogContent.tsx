@@ -71,6 +71,17 @@ function renderBodyBlock(block: string, index: number) {
       </figure>
     );
   }
+  if (block.startsWith("__SUBTITLE__:")) {
+    const text = block.slice("__SUBTITLE__:".length).trim();
+    return (
+      <div key={index} className="mt-12">
+        <h2 className="text-xl font-bold tracking-tight text-slate-900 dark:text-white">
+          {text}
+        </h2>
+        <div className="mt-2 h-px w-16 bg-brand-500 dark:bg-brand-400" />
+      </div>
+    );
+  }
   return (
     <p key={index} className="whitespace-pre-line">
       {renderTextWithCitations(block)}
