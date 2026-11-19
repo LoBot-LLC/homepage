@@ -9,6 +9,305 @@ export type PublicPost = Pick<
 
 export const SEED_POSTS: PublicPost[] = [
   {
+    slug: "lobots-stance-on-user-privacy-and-security",
+    author: "LoBot LLC Team",
+    coverEmoji: "🔒",
+    coverImage: "/images/blog/lobot privacy & security.png",
+    publishedAt: "2026-11-18",
+    translations: {
+      en: {
+        title: "LoBot's stance on user privacy and security",
+        excerpt: "Big Tech's data practices, vendor lock-in, hidden fees and censorship-by-protection are reshaping the balance of power between companies and users. LoBot sets out a different model: minimal sign-in, open and portable software, public data, honest pricing and a 100% refund guarantee.",
+body: [
+           "__SUBTITLE__:The Data Bargain",
+           "The modern internet runs on a bargain users never accepted: free services for their behavior and data. A 2024 FTC report found major platforms amassed vast user data while promising privacy [1]. The gap between promises and reality was so wide it demanded public accountability. This gap is no engineering accident; it is the predictable result of business models where user data and attention are products, and shareholder returns are measured quarterly.",
+           "The consequences extend beyond advertising. The same infrastructure that profiles consumers also decides access to essential services, operating under laws that clash with users outside the U.S. The U.S. CLOUD Act lets American authorities compel providers to hand over data stored overseas, creating conflict with European data-protection rules [3]. The Electronic Frontier Foundation warns such laws turn data protection into geopolitical bargaining, risking a global race to the bottom where power determines who is protected. This technical question about server location is, in practice, a power struggle between a corporation and the person whose life is recorded in its databases.",
+           "__SUBTITLE__:The Cost of Leaving",
+           "__IMAGE__:/images/blog/vendor lock in.png|A visual metaphor of a user constrained by proprietary technology and closed platforms|Vendor lock-in turns a convenient service into a dependency that is costly to leave.",
+           "Power becomes most visible when a company controls both the data and the only practical route to it. Vendor lock-in is the quiet mechanism: a file format that cannot be exported cleanly, a workspace that cannot be replicated elsewhere, an API that changes without notice. Once business has stored years of work in such a system, switching costs are no longer theoretical.",
+           "__IMAGE__:/images/blog/predatory pricing.png|Conceptual image of aggressive, misleading price offers|Predatory pricing hides the full cost until leaving a service becomes too expensive.",
+           "Predatory pricing follows the same logic from the opposite direction: a low introductory price or hidden departure costs makes the initial decision look rational, while exit becomes prohibitively expensive. Adobe's 2024 subscription transition illustrated this pattern. Reuters reported that the U.S. government sued Adobe for failing to disclose early-termination fees and making cancellation harder than sign-up [5]. In March 2026, Reuters reported that Adobe agreed to pay tens of millions to resolve the case [12]. Whether viewed as accountability or business cost, the lesson for customers is the same: a price not fully disclosed is not a trustworthy price.",
+           "__IMAGE__:/images/blog/adobe scandal.png|Editorial imagery relating to the Adobe subscription and hidden-fee controversy|The 2024 Adobe case showed how cancellation terms and termination fees can become a legal dispute.",
+           "The same loss of control extends to hidden fees. A monthly charge can be accompanied by mandatory add-ons, auto-renewing terms, or a 'forecast' product whose limitations are described only in unread documents. The FTC's rule on unfair or deceptive fees, codified at 16 CFR Part 464, was written to address pricing structures that hide true costs [8]. Forecasting services deserve scrutiny: a model that quietly changes inputs or presents a projection as a guarantee can cost a business far more than the subscription fee. In both cases, users are asked to trust the seller's presentation rather than verify underlying terms — exactly the trust the Adobe litigation showed can be misplaced [5], [12].",
+           "__SUBTITLE__:Your Data, Their Weapon",
+           "Stolen data and unauthorized sharing complete the picture. Security lapses expose information users never agreed to publish, while legal data flows move the same information to data brokers, advertisers, and political consultants. In its Mobilewalla statement, FTC leadership described the company's alleged collection and use of sensitive location data as an invasion of privacy that demanded action [2]. The issue is not just the single breach that makes headlines. It is the routine aggregation of location history, purchase records, and device identifiers into profiles no individual ever assembled about themselves — profiles that can be bought, sold, and acted upon without their knowledge [1], [2]. When a platform treats a person as a database row to be monetized, the security of that database is inseparable from the ethics of the business.",
+           "Censorship carried out in the name of 'better protection' mirrors this imbalance. Privacy and safety are legitimate goals but also justifications for controlling what users may see and say. EFF has documented how courts and regulators can be pressed to treat content moderation and age-assurance mandates as substitutes for genuine privacy protection, restricting lawful speech [6]. Once a platform accepts it must filter expression to keep users safe, 'unsafe' becomes corporate policy, not individual choice — shifting with advertising pressures, political demands, or management sensibilities [6]. The record shows what happens when these platforms are asked to route user data to the state. EFF reports ICE and DHS served administrative subpoenas on Meta, Google, Reddit, and X for subscriber data on protesters and critics; several were withdrawn after court challenges [13]. Google handed an international student's data to ICE in May 2025 after a protest, without notifying him [14]. A class action alleges Telenor passed data on 1,200+ customers — including locations — to Myanmar's junta, enabling arrests, torture, and executions [15]. A U.S. judge blocked Meta from sharing Instagram users' identities with DHS after comments on a border patrol agent [16]. These cases are at different stages; some were withdrawn or blocked, and Myanmar claims are allegations in a pending lawsuit. Together they show compliance pipelines can be turned against dissent, and in extreme cases data handed to authorities contributed to arrests. A service that silently edits the public conversation while claiming to protect you is not protecting your autonomy.",
+           "__IMAGE__:/images/blog/digital censorship.png|Digital censorship and content-control imagery|Censorship justified as protection can become a mechanism for controlling lawful expression.",
+           "__SUBTITLE__:A Different Model",
+           "LoBot was built around different assumptions. Our services almost never require user accounts. When verification is genuinely necessary — for example to secure access to a purchased tool — we ask for an email address and nothing more. There is no advertising profile to assemble, no behavioral history to sell, no reason for users to hand over a phone number, social identity, or photograph to read documentation or try a tool. The design is deliberately unremarkable: we collect the minimum needed to deliver the service, explain why we need it, and do not build a business around accumulating more of it. 🔒",
+           "__IMAGE__:/images/blog/privacy respecting system.png|Concept illustration of a privacy-respecting, minimal-data software system|LoBot's systems are designed so that using a product does not require surrendering a personal profile.",
+           "Portability is the second pillar. LoBot tools are built to work across operating systems and hardware rather than forcing upgrades to particular platforms. Users should be able to run a tool on the machine they already own, keep files in inspectable formats, and move work elsewhere without asking permission. Where practical, our software is released as open source: you can read it, modify it, redistribute it, and, when the architecture allows, host it yourself. That is not a marketing gesture. Open code is a way of making promises that can be checked — any user or independent engineer can verify that a program does what its documentation says and change it if it does not. A closed system asks for faith; an open one invites inspection.",
+           "Our data sources reflect the same preference for the verifiable and the public. The energy and commodity context in our analyses draws on openly published statistics from institutions such as the International Energy Agency, which has expanded free access to its country and regional data [9]. Water and agriculture information comes from FAO's AQUASTAT system, a global reference built on publicly shared national data [10]. We use these sources because a claim that cannot be checked by the reader is not evidence — it is an instruction to trust the author. A recent Science editorial argued that free climate and weather data are a public good that underpins research and resilience [7]. We take the same view of the data that feeds our products: where underlying facts can be published, they should be.",
+           "The commercial model is intentionally plain. LoBot publishes transparent monthly, annual, and one-time prices, stating what is included rather than relying on dark patterns at checkout. If a service is unavailable, or support fails to meet advertised standards, we offer a 100% refund — consistent with the FTC principle that a satisfaction guarantee must be honored on the terms presented to the customer [11]. We do not use an introductory price that quietly triples, a cancellation flow with a dozen steps, or a fee disclosed only in the small print. Our pricing should survive the same scrutiny regulators now apply to the Adobe case [5], [12]. 🤝",
+           "__IMAGE__:/images/blog/transparent pricing.png|Graphic representing clear, published and honest pricing|Transparent pricing means the amount you see is the amount you pay, with a real refund policy behind it.",
+           "__SUBTITLE__:A Personal Stake",
+           "This position is also personal. Many staff members use public social platforms in their own names, and several have reported privacy infringements by large tech companies — unexpected data collection, opaque moderation decisions, or difficulties deleting information that should never have been retained. These experiences are not abstract to us; they are part of why this subject is not a theoretical exercise in corporate social responsibility. When a colleague cannot control what a platform does with their own posts and personal details, a policy document about 'user empowerment' rings hollow.",
+           "None of this makes LoBot a charity, and we do not pretend that running reliable software is free. It means we have chosen a narrower, more accountable path: collect less, lock no one in, publish the sources, show the full price, and refund customers when we fail. The concentration of data and power in a handful of platforms is not inevitable — it is the cumulative result of design decisions that favored surveillance, friction, and silence over clarity and consent. Therefore, the alternative shall not be built by complaining about the problem alone. It is built, one ordinary product decision at a time, by teams willing to make privacy and security the default rather than the premium option. That is the stance we intend to keep, and we invite users to hold us accountable for our actions. ✅",
+         ],
+        references: [
+          {
+            label: "Federal Trade Commission, “A Look Behind the Screens: Examining the Data Practices of Social Media and Video Streaming Services,” FTC, Sep. 11, 2024. [Online]. Available: https://search.ftc.gov/system/files/ftc_gov/pdf/Social-Media-6b-Report-9-11-2024.pdf (accessed: Nov. 18, 2026)",
+            url: "https://search.ftc.gov/system/files/ftc_gov/pdf/Social-Media-6b-Report-9-11-2024.pdf",
+          },
+          {
+            label: "Federal Trade Commission, “Statement of Chair Khan, Commissioner Bedoya and Commissioner Slaughter on Mobilewalla Matter,” FTC, Jul. 2024. [Online]. Available: https://search.ftc.gov/system/files/ftc_gov/pdf/statement-khan-bedoya-slaughter-mobilewalla.pdf (accessed: Nov. 18, 2026)",
+            url: "https://search.ftc.gov/system/files/ftc_gov/pdf/statement-khan-bedoya-slaughter-mobilewalla.pdf",
+          },
+          {
+            label: "Electronic Privacy Information Center, “The CLOUD Act,” EPIC, 2026. [Online]. Available: https://epic.org/the-cloud-act/ (accessed: Nov. 18, 2026)",
+            url: "https://epic.org/the-cloud-act/",
+          },
+          {
+            label: "Electronic Frontier Foundation, “The U.S. CLOUD Act and EU Privacy: A Race to the Bottom?,” EFF, Apr. 2018. [Online]. Available: https://www.eff.org/deeplinks/2018/04/us-cloud-act-and-eu-privacy-protection-race-bottom (accessed: Nov. 18, 2026)",
+            url: "https://www.eff.org/deeplinks/2018/04/us-cloud-act-and-eu-privacy-protection-race-bottom",
+          },
+          {
+            label: "Reuters, “US sues Adobe over subscription plan disclosures,” Reuters, Jun. 17, 2024. [Online]. Available: https://www.reuters.com/technology/us-sues-adobe-over-subscription-plan-disclosures-2024-06-17/ (accessed: Nov. 18, 2026)",
+            url: "https://www.reuters.com/technology/us-sues-adobe-over-subscription-plan-disclosures-2024-06-17/",
+          },
+          {
+            label: "Electronic Frontier Foundation, “A Court Says California Can Try to Protect Privacy, Not Censor the Internet,” EFF, Aug. 2024. [Online]. Available: https://www.eff.org/deeplinks/2024/08/court-california-try-privacy-law-not-online-censorship (accessed: Nov. 18, 2026)",
+            url: "https://www.eff.org/deeplinks/2024/08/court-california-try-privacy-law-not-online-censorship",
+          },
+          {
+            label: "Science, “Editorial: Free climate and weather data are a public good,” Science, 2025. [Online]. Available: https://www.science.org/doi/full/10.1126/science.aec8146 (accessed: Nov. 18, 2026)",
+            url: "https://www.science.org/doi/full/10.1126/science.aec8146",
+          },
+          {
+            label: "Federal Trade Commission, “Unfair or Deceptive Fees, 16 CFR Part 464,” eCFR, 2024. [Online]. Available: https://www.ecfr.gov/current/title-16/chapter-I/subchapter-D/part-464 (accessed: Nov. 18, 2026)",
+            url: "https://www.ecfr.gov/current/title-16/chapter-I/subchapter-D/part-464",
+          },
+          {
+            label: "International Energy Agency, “IEA makes more of its data and statistics freely available through upgraded Countries and Regions pages,” IEA, 2024. [Online]. Available: https://www.iea.org/news/iea-makes-more-of-its-data-and-statistics-freely-available-through-upgraded-countries-and-regions-pages (accessed: Nov. 18, 2026)",
+            url: "https://www.iea.org/news/iea-makes-more-of-its-data-and-statistics-freely-available-through-upgraded-countries-and-regions-pages",
+          },
+          {
+            label: "Food and Agriculture Organization of the United Nations, “AQUASTAT — Global information system on water and agriculture,” FAO, 2026. [Online]. Available: https://www.fao.org/aquastat/en/overview/ (accessed: Nov. 18, 2026)",
+            url: "https://www.fao.org/aquastat/en/overview/",
+          },
+          {
+            label: "Federal Trade Commission, “Satisfaction Guarantees and Refunds, 16 CFR Part 239, Section 239.3,” eCFR, 2026. [Online]. Available: https://www.ecfr.gov/current/title-16/chapter-I/subchapter-B/part-239/section-239.3 (accessed: Nov. 18, 2026)",
+            url: "https://www.ecfr.gov/current/title-16/chapter-I/subchapter-B/part-239/section-239.3",
+          },
+          {
+            label: "Reuters, “Adobe to pay $75 million to resolve US lawsuit over fees, subscription cancellations,” Reuters, Mar. 13, 2026. [Online]. Available: https://www.reuters.com/world/adobe-pay-75-million-resolve-us-lawsuit-over-fees-subscription-cancellations-2026-03-13/ (accessed: Nov. 18, 2026)",
+            url: "https://www.reuters.com/world/adobe-pay-75-million-resolve-us-lawsuit-over-fees-subscription-cancellations-2026-03-13/",
+          },
+          {
+            label: "Electronic Frontier Foundation, “A List of ICE Subpoenas to Tech Companies,” EFF, 2026. [Online]. Available: https://www.eff.org/deeplinks/2026/08/list-ice-subpoenas-tech-companies (accessed: Nov. 18, 2026)",
+            url: "https://www.eff.org/deeplinks/2026/08/list-ice-subpoenas-tech-companies",
+          },
+          {
+            label: "Electronic Frontier Foundation, “Google Broke Its Promise to Me. Now ICE Has My Data,” EFF, 2026. [Online]. Available: https://www.eff.org/deeplinks/2026/04/google-broke-its-promise-me-now-ice-has-my-data (accessed: Nov. 18, 2026)",
+            url: "https://www.eff.org/deeplinks/2026/04/google-broke-its-promise-me-now-ice-has-my-data",
+          },
+          {
+            label: "The Guardian, “Norway’s state telecoms firm accused of helping Myanmar regime seize activists,” The Guardian, 2026. [Online]. Available: https://www.theguardian.com/global-development/2026/apr/16/norways-state-telecoms-firm-accused-of-helping-myanmar-regime-seize-activists (accessed: Nov. 18, 2026)",
+            url: "https://www.theguardian.com/global-development/2026/apr/16/norways-state-telecoms-firm-accused-of-helping-myanmar-regime-seize-activists",
+          },
+          {
+            label: "POLITICO, “Judge tells Meta not to share Instagram users’ information with Trump admin,” POLITICO, 2025. [Online]. Available: https://www.politico.com/news/2025/09/19/judge-tells-meta-not-to-share-instagram-users-information-with-dhs-00574094 (accessed: Nov. 18, 2026)",
+            url: "https://www.politico.com/news/2025/09/19/judge-tells-meta-not-to-share-instagram-users-information-with-dhs-00574094",
+          },
+        ],
+      },
+      es: {
+        title: "La postura de LoBot sobre la privacidad y la seguridad de los usuarios",
+        excerpt: "Las prácticas de datos de las grandes tecnológicas, el bloqueo del proveedor, las comisiones ocultas y la censura en nombre de la protección están reconfigurando el equilibrio de poder entre empresas y usuarios. LoBot propone otro modelo: inicio de sesión mínimo, software abierto y portable, datos públicos, precios honestos y devolución íntegra del dinero.",
+body: [
+          "__SUBTITLE__:El pacto de los datos",
+          "Internet moderno se sostiene en un pacto que la mayoría de usuarios nunca aceptó. Reciben servicios gratis o empaquetados. A cambio, su conducta, contactos y relaciones se recopilan, infieren y comercian. Un informe de la Comisión Federal de Comercio (FTC) de septiembre de 2024, fruto de dos años de investigación sobre redes sociales y plataformas de vídeo, concluyó que varios de los mayores servicios acumularon ingentes cantidades de datos personales mientras prometían privacidad [1]. La brecha entre lo que esas empresas decían y lo que sus sistemas hacían era lo bastante amplia como para exigir una rendición de cuentas sin precedentes [1]. Ese desfase no es un accidente de ingeniería. Es el resultado previsible de modelos de negocio donde la atención y los datos del usuario son el producto, y el beneficio trimestral para el accionista es la métrica que se mide.",
+          "Las consecuencias no se limitan a la publicidad. Las mismas infraestructuras que perfilan consumidores deciden quién accede a servicios digitales esenciales, y operan bajo obligaciones legales que chocan con las expectativas de privacidad fuera de Estados Unidos. La Ley CLOUD permite a las autoridades estadounidenses exigir a proveedores que entreguen datos almacenados en servidores de otros países. El Electronic Privacy Information Center sostiene que esto entra en conflicto directo con las normas europeas de protección de datos [3]. La Electronic Frontier Foundation ha advertido que leyes así convierten la protección de datos personales en moneda de cambio geopolítica y alimentan una carrera hacia el abismo en la que decide la voz más fuerte, no el usuario con más razones para ser protegido [4]. Lo que parece una cuestión técnica sobre la ubicación de un servidor es, en la práctica, una lucha por el poder entre una corporación y la persona cuya vida queda registrada en sus bases de datos.",
+          "__SUBTITLE__:El costo de irte",
+          "__IMAGE__:/images/blog/vendor lock in.png|Metáfora visual de una persona limitada por tecnología propietaria y plataformas cerradas|El bloqueo del proveedor convierte un servicio cómodo en una dependencia costosa de abandonar.",
+          "Esa lucha se vuelve más visible cuando una empresa controla a la vez los datos y la única vía práctica para acceder a ellos. El bloqueo del proveedor actúa como un mecanismo silencioso: un formato de archivo que no se exporta limpiamente, un espacio de trabajo que no se puede replicar en otro lugar, una interfaz de programación que cambia sin aviso. Cuando una empresa ha almacenado años de trabajo dentro de ese sistema, los costes de cambio dejan de ser teóricos.",
+          "__IMAGE__:/images/blog/predatory pricing.png|Imagen conceptual de ofertas de precios agresivas y engañosas|Los precios depredadores ocultan el coste hasta que salir resulta demasiado caro.",
+          "Los precios depredadores siguen la misma lógica desde el lado opuesto. Un precio de lanzamiento bajo, o un precio que oculta el coste real de marcharse, hace que la decisión inicial parezca racional y la salida final resulte prohibitiva. La transición de Adobe a suscripciones en 2024 ilustró ese patrón. Reuters informó de que el Gobierno estadounidense demandó a la empresa alegando que no divulgó con claridad las comisiones por cancelación anticipada e hizo más difícil darse de baja que registrarse [5]. En marzo de 2026, Reuters informó de que Adobe acordó pagar 75 millones de dólares para resolver el caso [12]. Tanto si se interpreta ese desenlace como rendición de cuentas como si se ve como el coste de hacer negocios, la lección para los clientes es la misma: un precio que no se divulga por completo no es un precio en el que se puede confiar.",
+          "__IMAGE__:/images/blog/adobe scandal.png|Imagen editorial relacionada con la polémica sobre las suscripciones de Adobe y las comisiones ocultas|El caso de Adobe en 2024 mostró cómo las condiciones de cancelación y las comisiones pueden acabar en los tribunales.",
+          "Las comisiones ocultas o engañosas extienden esa misma pérdida de control al precio del servicio. Una cuota mensual que parece modesta puede ir acompañada de complementos obligatorios, cláusulas de renovación automática o un servicio de pronóstico cuyas limitaciones reales solo se describen en un documento que nadie lee. La norma de la FTC sobre comisiones injustas o engañosas, codificada en 16 CFR Parte 464, se escribió precisamente para hacer frente a estructuras de precios que ocultan al consumidor el coste verdadero de un bien o servicio [8]. Los servicios de pronóstico merecen un escrutinio especial: un modelo que cambia discretamente sus entradas, o un proveedor que presenta una proyección como una garantía, puede costar a una empresa mucho más que la cuota de suscripción. En ambos casos se pide al usuario que confíe en la presentación del vendedor en lugar de verificar las condiciones subyacentes: exactamente la confianza que el litigio de Adobe demostró que puede resultar infundada [5], [12].",
+          "__SUBTITLE__:Tus datos, su arma",
+          "El robo de datos y la compartición no autorizada completan el cuadro. Las fallas de seguridad exponen información que los usuarios nunca aceptaron publicar, mientras flujos de datos perfectamente legales trasladan esa misma información a intermediarios de datos, anunciantes y consultores políticos. En su declaración sobre el caso Mobilewalla, la dirección de la FTC describió la presunta recopilación y uso de datos sensibles de localización como una invasión de la privacidad que exigía actuar [2]. El problema no es solo la filtración puntual que sale en los titulares. Es la agregación cotidiana del historial de ubicación, los registros de compra y los identificadores de dispositivo en perfiles que ninguna persona habría ensamblado sobre su propia vida: perfiles que se pueden comprar, vender y utilizar sin que ella lo sepa [1], [2]. Cuando una plataforma trata a una persona como una fila en una base de datos que hay que monetizar, la seguridad de esa base de datos resulta inseparable de la ética del negocio.",
+          "La censura ejecutada en nombre de una «mejor protección» es el reflejo invertido del mismo desequilibrio. La privacidad y la seguridad son metas legítimas, pero también poderosas justificaciones para controlar lo que los usuarios ven y dicen. La EFF ha documentado cómo jueces y reguladores pueden ser presionados para tratar la moderación de contenidos y los mandatos de verificación de edad como sustitutos de la protección real de la privacidad, restringiendo la expresión legítima [6]. En cuanto una plataforma acepta filtrar la expresión para mantener a salvo a los usuarios, lo «peligroso» pasa a depender de la política corporativa —no de la elección individual— y puede cambiar con presiones publicitarias, exigencias políticas o la sensibilidad de un equipo directivo [6].",
+          "__IMAGE__:/images/blog/digital censorship.png|Imágenes sobre censura digital y control de contenidos|La censura justificada como protección puede convertirse en un mecanismo para controlar la expresión legítima.",
+          "El historial documentado muestra qué ocurre cuando a esas plataformas se les pide, en nombre de la aplicación de la ley, canalizar datos al Estado. Según la EFF, ICE y el Departamento de Seguridad Nacional enviaron citaciones a Meta, Google, Reddit y X para obtener datos de suscriptores de manifestantes y críticos; varias se retiraron tras impugnaciones judiciales [13]. En un caso que la EFF documentó, Google entregó a ICE en mayo de 2025 los datos de un estudiante extranjero tras una protesta, sin avisarle [14]. En una acción colectiva contra Telenor, operadora estatal noruega, los demandantes alegan que se entregaron a la junta militar de Myanmar datos de más de 1.200 clientes —incluidas sus ubicaciones—, facilitando arrestos, torturas y ejecuciones [15]. En EE. UU., un juez federal ordenó a Meta no compartir identidades de usuarios de Instagram con el DHS tras comentarios sobre un agente de la patrulla fronteriza [16]. Estos casos están en distintas fases; algunos se retiraron o bloquearon, y las alegaciones de Myanmar son de una demanda pendiente. Juntos muestran que los circuitos de cumplimiento normativo pueden volverse contra la disidencia y que, en casos extremos, los datos entregados a las autoridades contribuyeron a arrestos. Un servicio que silencia la conversación pública mientras dice protegerte no protege tu autonomía.",
+          "__SUBTITLE__:Un modelo diferente",
+          "LoBot se construyó sobre otro conjunto de supuestos. Nuestros servicios casi nunca exigen una cuenta de usuario. Cuando la verificación resulta realmente necesaria —por ejemplo, para asegurar el acceso a una herramienta adquirida— pedimos una dirección de correo electrónico y nada más. No hay un perfil publicitario que armar, ni un historial de conducta que vender, ni ninguna razón para que el usuario entregue un número de teléfono, una identidad social o una fotografía para leer documentación o probar una herramienta. El diseño es deliberadamente sobrio: recopilamos el mínimo necesario para prestar el servicio, explicamos por qué lo necesitamos y no montamos un negocio en torno a acumular más de él. 🔒",
+          "__IMAGE__:/images/blog/privacy respecting system.png|Ilustración conceptual de un sistema de software que respeta la privacidad y usa pocos datos|Los sistemas de LoBot están diseñados para que usar un producto no exija entregar un perfil personal.",
+          "La portabilidad es el segundo pilar. Las herramientas de LoBot están pensadas para funcionar en distintos sistemas operativos y tipos de hardware, en lugar de obligar a actualizar a una plataforma concreta. El usuario debería poder ejecutar una herramienta en el equipo que ya tiene, conservar sus archivos en formatos que pueda inspeccionar y llevar su trabajo a otro lugar sin pedir permiso. Cuando resulta factible, publicamos nuestro software como código abierto: puedes leerlo, modificarlo, redistribuirlo y, si la arquitectura lo permite, alojarlo tú mismo. No es un gesto de marketing. El código abierto es una forma de hacer promesas verificables: cualquier usuario o ingeniero independiente puede comprobar que un programa hace lo que dice su documentación y cambiarlo si no es así. Un sistema cerrado pide fe; uno abierto invita a la inspección.",
+          "Nuestras fuentes de datos responden a la misma preferencia por lo verificable y lo público. El contexto energético y de materias primas de nuestros análisis se apoya en estadísticas publicadas abiertamente por instituciones como la Agencia Internacional de la Energía, que ha ampliado el acceso gratuito a sus datos nacionales y regionales [9]. La información sobre agua y agricultura procede del sistema AQUASTAT de la FAO, una referencia mundial construida con datos nacionales compartidos públicamente [10]. Utilizamos estas fuentes porque una afirmación que el lector no puede comprobar no es una prueba: es una instrucción para confiar en el autor. Un reciente editorial de Science sostuvo que los datos climáticos y meteorológicos abiertos son un bien público que sostiene la investigación y la resiliencia [7]. Sostenemos lo mismo respecto a los datos que alimentan nuestros productos: allí donde los hechos subyacentes puedan publicarse, deben publicarse.",
+          "El modelo comercial es deliberadamente sencillo. LoBot publica precios transparentes mensuales, anuales y de pago único, e indicamos qué incluye cada opción en lugar de recurrir a patrones oscuros en el pago. Si un servicio no está disponible o nuestro soporte no alcanza el estándar que anunciamos, ofrecemos una devolución del 100 % del importe, una política coherente con el principio histórico de la FTC de que una garantía de satisfacción debe cumplirse en los términos presentados al cliente [11]. No aplicamos un precio introductorio que se triplica sin aviso, un proceso de cancelación con una docena de pasos ni una comisión revelada solo en la letra pequeña. Nuestros precios deberían resistir el mismo escrutinio que los reguladores aplican ahora al caso de Adobe [5], [12]. 🤝",
+          "__IMAGE__:/images/blog/transparent pricing.png|Gráfico que representa precios claros, publicados y honestos|Un precio transparente significa que pagas exactamente lo que ves, con una política real de devolución detrás.",
+          "__SUBTITLE__:Un interés personal",
+          "Esta postura también es personal. Muchos miembros de nuestro equipo usan plataformas sociales públicas con su propio nombre y varios han denunciado vulneraciones de su privacidad por parte de grandes empresas tecnológicas: recopilación inesperada de datos, decisiones opacas de moderación o dificultades para eliminar información que nunca debió conservarse. Esas experiencias no nos resultan abstractas; explican en parte por qué este tema no es un ejercicio teórico de responsabilidad social corporativa. Cuando un compañero no puede controlar lo que una plataforma hace con sus propias publicaciones y datos personales, un documento de política sobre «empoderamiento del usuario» suena hueco.",
+          "Nada de esto convierte a LoBot en una organización benéfica, y no fingimos que mantener software fiable sea gratis. Significa que hemos elegido un camino más estrecho y más responsable: recopilar menos, no encadenar a nadie, publicar las fuentes, mostrar el precio completo y devolver el dinero al cliente cuando fallamos. La concentración de datos y poder en un puñado de plataformas no es inevitable: es el resultado acumulado de decisiones de diseño que favorecieron la vigilancia, la fricción y el silencio frente a la claridad y el consentimiento. Por tanto, la alternativa no se construirá limitándose a denunciar el problema. Se construye, una decisión de producto corriente tras otra, con equipos dispuestos a convertir la privacidad y la seguridad en valor predeterminado y no en una opción premium. Esa es la postura que pretendemos mantener, y invitamos los nuestros usuarios a haznos responsables para nuestra acciónes. ✅",
+        ],
+        references: [
+          {
+            label: "Comisión Federal de Comercio (FTC), «A Look Behind the Screens: Examining the Data Practices of Social Media and Video Streaming Services», FTC, 11 sep. 2024. [En línea]. Disponible: https://search.ftc.gov/system/files/ftc_gov/pdf/Social-Media-6b-Report-9-11-2024.pdf (consultado: 18 nov. 2026)",
+            url: "https://search.ftc.gov/system/files/ftc_gov/pdf/Social-Media-6b-Report-9-11-2024.pdf",
+          },
+          {
+            label: "Comisión Federal de Comercio (FTC), «Declaración de la presidenta Khan y los comisionados Bedoya y Slaughter sobre el caso Mobilewalla», FTC, jul. 2024. [En línea]. Disponible: https://search.ftc.gov/system/files/ftc_gov/pdf/statement-khan-bedoya-slaughter-mobilewalla.pdf (consultado: 18 nov. 2026)",
+            url: "https://search.ftc.gov/system/files/ftc_gov/pdf/statement-khan-bedoya-slaughter-mobilewalla.pdf",
+          },
+          {
+            label: "Electronic Privacy Information Center, «The CLOUD Act», EPIC, 2026. [En línea]. Disponible: https://epic.org/the-cloud-act/ (consultado: 18 nov. 2026)",
+            url: "https://epic.org/the-cloud-act/",
+          },
+          {
+            label: "Electronic Frontier Foundation, «The U.S. CLOUD Act and EU Privacy: A Race to the Bottom?», EFF, abr. 2018. [En línea]. Disponible: https://www.eff.org/deeplinks/2018/04/us-cloud-act-and-eu-privacy-protection-race-bottom (consultado: 18 nov. 2026)",
+            url: "https://www.eff.org/deeplinks/2018/04/us-cloud-act-and-eu-privacy-protection-race-bottom",
+          },
+          {
+            label: "Reuters, «EE. UU. demanda a Adobe por la divulgación de sus planes de suscripción», Reuters, 17 jun. 2024. [En línea]. Disponible: https://www.reuters.com/technology/us-sues-adobe-over-subscription-plan-disclosures-2024-06-17/ (consultado: 18 nov. 2026)",
+            url: "https://www.reuters.com/technology/us-sues-adobe-over-subscription-plan-disclosures-2024-06-17/",
+          },
+          {
+            label: "Electronic Frontier Foundation, «Un tribunal permite a California proteger la privacidad, no censurar internet», EFF, ago. 2024. [En línea]. Disponible: https://www.eff.org/deeplinks/2024/08/court-california-try-privacy-law-not-online-censorship (consultado: 18 nov. 2026)",
+            url: "https://www.eff.org/deeplinks/2024/08/court-california-try-privacy-law-not-online-censorship",
+          },
+          {
+            label: "Science, «Editorial: Los datos climáticos y meteorológicos abiertos son un bien público», Science, 2025. [En línea]. Disponible: https://www.science.org/doi/full/10.1126/science.aec8146 (consultado: 18 nov. 2026)",
+            url: "https://www.science.org/doi/full/10.1126/science.aec8146",
+          },
+          {
+            label: "Comisión Federal de Comercio (FTC), «Unfair or Deceptive Fees, 16 CFR Part 464», eCFR, 2024. [En línea]. Disponible: https://www.ecfr.gov/current/title-16/chapter-I/subchapter-D/part-464 (consultado: 18 nov. 2026)",
+            url: "https://www.ecfr.gov/current/title-16/chapter-I/subchapter-D/part-464",
+          },
+          {
+            label: "Agencia Internacional de la Energía, «La AIE ofrece acceso gratuito a más datos y estadísticas en las páginas de países y regiones», AIE, 2024. [En línea]. Disponible: https://www.iea.org/news/iea-makes-more-of-its-data-and-statistics-freely-available-through-upgraded-countries-and-regions-pages (consultado: 18 nov. 2026)",
+            url: "https://www.iea.org/news/iea-makes-more-of-its-data-and-statistics-freely-available-through-upgraded-countries-and-regions-pages",
+          },
+          {
+            label: "Organización de las Naciones Unidas para la Alimentación y la Agricultura, «AQUASTAT — Sistema global de información sobre agua y agricultura», FAO, 2026. [En línea]. Disponible: https://www.fao.org/aquastat/en/overview/ (consultado: 18 nov. 2026)",
+            url: "https://www.fao.org/aquastat/en/overview/",
+          },
+          {
+            label: "Comisión Federal de Comercio (FTC), «Satisfaction Guarantees and Refunds, 16 CFR Part 239, Section 239.3», eCFR, 2026. [En línea]. Disponible: https://www.ecfr.gov/current/title-16/chapter-I/subchapter-B/part-239/section-239.3 (consultado: 18 nov. 2026)",
+            url: "https://www.ecfr.gov/current/title-16/chapter-I/subchapter-B/part-239/section-239.3",
+          },
+          {
+            label: "Reuters, «Adobe pagará 75 millones de dólares para resolver la demanda estadounidense por comisiones y cancelaciones», Reuters, 13 mar. 2026. [En línea]. Disponible: https://www.reuters.com/world/adobe-pay-75-million-resolve-us-lawsuit-over-fees-subscription-cancellations-2026-03-13/ (consultado: 18 nov. 2026)",
+            url: "https://www.reuters.com/world/adobe-pay-75-million-resolve-us-lawsuit-over-fees-subscription-cancellations-2026-03-13/",
+          },
+          {
+            label: "Electronic Frontier Foundation, «A List of ICE Subpoenas to Tech Companies», EFF, 2026. [En línea]. Disponible: https://www.eff.org/deeplinks/2026/08/list-ice-subpoenas-tech-companies (consultado: 18 nov. 2026)",
+            url: "https://www.eff.org/deeplinks/2026/08/list-ice-subpoenas-tech-companies",
+          },
+          {
+            label: "Electronic Frontier Foundation, «Google Broke Its Promise to Me. Now ICE Has My Data», EFF, 2026. [En línea]. Disponible: https://www.eff.org/deeplinks/2026/04/google-broke-its-promise-me-now-ice-has-my-data (consultado: 18 nov. 2026)",
+            url: "https://www.eff.org/deeplinks/2026/04/google-broke-its-promise-me-now-ice-has-my-data",
+          },
+          {
+            label: "The Guardian, «Norway's state telecoms firm accused of helping Myanmar regime seize activists», The Guardian, 2026. [En línea]. Disponible: https://www.theguardian.com/global-development/2026/apr/16/norways-state-telecoms-firm-accused-of-helping-myanmar-regime-seize-activists (consultado: 18 nov. 2026)",
+            url: "https://www.theguardian.com/global-development/2026/apr/16/norways-state-telecoms-firm-accused-of-helping-myanmar-regime-seize-activists",
+          },
+          {
+            label: "POLITICO, «Judge tells Meta not to share Instagram users' information with Trump admin», POLITICO, 2025. [En línea]. Disponible: https://www.politico.com/news/2025/09/19/judge-tells-meta-not-to-share-instagram-users-information-with-dhs-00574094 (consultado: 18 nov. 2026)",
+            url: "https://www.politico.com/news/2025/09/19/judge-tells-meta-not-to-share-instagram-users-information-with-dhs-00574094",
+          },
+        ],
+      },
+      vi: {
+        title: "Quan điểm của LoBot về quyền riêng tư và an toàn dữ liệu của người dùng",
+        excerpt: "Thực tế thu thập dữ liệu của các tập đoàn công nghệ lớn, khóa hệ sinh thái, phí ẩn và kiểm duyệt nhân danh an toàn đang làm thay đổi cán cân quyền lực giữa doanh nghiệp và người dùng. LoBot đề xuất một mô hình khác: gần như không cần đăng nhập, phần mềm mở và di động, dữ liệu công khai, giá minh bạch và hoàn tiền 100%.",
+        body: [
+          "__SUBTITLE__:Thỏa thuận về dữ liệu",
+          "Internet hiện đại vận hành trên một thỏa thuận mà đa số người dùng chưa từng ý thức chấp nhận: nhận dịch vụ miễn phí hoặc đóng gói, đổi lại hành vi, danh bạ và mối quan hệ được thu thập, suy luận và mua bán. Theo báo cáo Ủy ban Thương mại Liên bang Hoa Kỳ (FTC) công bố tháng 9 năm 2024 sau hai năm điều tra mạng xã hội và nền tảng phát video, một số dịch vụ lớn nhất tích lũy khối lượng dữ liệu người dùng khổng lồ trong khi đưa ra cam kết rộng rãi về quyền riêng tư [1]. FTC khẳng định khoảng cách giữa tuyên bố công khai và xử lý thực tế của thông tin cá nhân đủ lớn để đòi hỏi sự giải trình công khai chưa từng có [1]. Do đó, đây không phải tai nạn kỹ thuật phần mềm mà là hệ quả tất yếu của mô hình kinh doanh lấy sự chú ý và dữ liệu người dùng làm sản phẩm, còn lợi nhuận hàng quý trả cổ đông là chỉ số đo lường.",
+          "Hệ quả không chỉ dừng ở quảng cáo. Cùng hạ tầng lập hồ sơ người tiêu dùng cũng quyết định ai được tiếp cận dịch vụ số thiết yếu, và ngày càng chịu nghĩa vụ pháp lý không phù hợp với kỳ vọng quyền riêng tư của người dùng ngoài nước Mỹ. Đạo luật CLOUD của Hoa Kỳ cho phép chính quyền buộc nhà cung cấp giao dữ liệu lưu trên máy chủ ở nước khác, và Trung tâm Thông tin Quyền riêng tư Điện tử (EPIC) cho biết điều này mâu thuẫn trực tiếp với quy định bảo vệ dữ liệu châu Âu [3]. Quỹ Biên giới Điện tử (EFF) cảnh báo các luật này biến dữ liệu cá nhân thành vật cược địa chính trị, đẩy thế giới vào cuộc đua xuống đáy mà người dùng xứng đáng nhất không phải là người được bảo vệ [4]. Vấn đề bề mặt là máy chủ đặt ở đâu; thực ra, đó là cuộc giằng co quyền lực giữa tập đoàn và người có cuộc đời được ghi trong cơ sở dữ liệu của nó.",
+          "__SUBTITLE__:Khóa hệ sinh thái và định giá ăn mòn",
+          "__IMAGE__:/images/blog/vendor lock in.png|Hình ảnh ẩn dụ về người dùng bị ràng buộc bởi công nghệ độc quyền và nền tảng đóng|Khóa hệ sinh thái biến một dịch vụ tiện lợi thành sự phụ thuộc khó thoát.",
+          "Cuộc giằng co ấy lộ rõ nhất khi một công ty vừa nắm giữ dữ liệu, vừa là con đường thực tế duy nhất để truy cập vào nó. Khóa hệ sinh thái là cơ chế thầm lặng: định dạng tệp không xuất sang nơi khác trọn vẹn, không gian làm việc không sao chép được sang hệ thống khác, giao diện lập trình thay đổi mà không báo trước. Khi một doanh nghiệp đã lưu nhiều năm công việc vào hệ thống đó, chi phí chuyển đổi không còn là lý thuyết.",
+          "__IMAGE__:/images/blog/predatory pricing.png|Hình ảnh minh họa các ưu đãi giá hung hăng và gây hiểu lầm|Định giá ăn mòn giấu chi phí thật cho đến khi rời đi trở nên quá đắt.",
+          "Định giá ăn mòn đi theo logic ngược lại: mức giá khởi động thấp, hoặc mức giá che giấu chi phí thực sự của việc rời đi, khiến quyết định ban đầu trông hợp lý trong khi lối thoát sau này trở nên quá đắt. Trường hợp Adobe chuyển sang mô hình đăng ký năm 2024 là ví dụ điển hình. Theo Reuters, Chính phủ Hoa Kỳ kiện Adobe tháng 6 năm 2024, cáo buộc công ty này không công bố rõ phí hủy sớm và khiến hủy đăng ký khó hơn đăng ký [5]. Tháng 3 năm 2026, Reuters đưa tin Adobe đồng ý trả 75 triệu USD để chấm dứt vụ kiện [12]. Dù xem kết quả đó như trách nhiệm giải trình hay đơn giản là giá của việc kinh doanh, bài học cho khách hàng vẫn vậy: mức giá không được công bố trọn vẹn không đáng tin.",
+          "__IMAGE__:/images/blog/adobe scandal.png|Hình ảnh biên tập liên quan đến tranh cãi về gói đăng ký và phí ẩn của Adobe|Vụ Adobe năm 2024 cho thấy điều khoản hủy và phí kết thúc hợp đồng có thể trở thành tranh chấp pháp lý.",
+          "Phí ẩn hoặc phí lừa dối kéo dài sự mất kiểm soát đó sang mức giá của dịch vụ. Khoản phí hàng tháng trông khiêm tốn có thể đi kèm tiện ích bắt buộc, điều khoản gia hạn tự động, hoặc một sản phẩm \"dự báo\" mà giới hạn thực sự chỉ được mô tả trong tài liệu không ai đọc. Quy định của FTC về phí không công bằng hoặc lừa dối được quy định tại 16 CFR Phần 464, ra đời để xử lý cấu trúc giá che giấu chi phí thật sự của hàng hóa hay dịch vụ đối với người tiêu dùng [8]. Dịch vụ dự báo cần được soi kỹ: mô hình thay đổi dữ liệu đầu vào, hoặc người bán trình bày một dự báo như cam kết, có thể khiến doanh nghiệp tốn kém hơn cả phí đăng ký. Trong cả hai trường hợp, người dùng được yêu cầu tin vào cách người bán trình bày thay vì kiểm chứng các điều khoản gốc — chính là niềm tin mà vụ kiện Adobe đã chứng minh có thể được đặt sai chỗ [5], [12].",
+          "__SUBTITLE__:Dữ liệu bị đánh cắp và môi giới dữ liệu và kiểm duyệt nhân danh bảo vệ",
+          "Dữ liệu bị đánh cắp và chia sẻ trái phép hoàn thiện bức tranh. Sự cố bảo mật lộ thông tin mà người dùng chưa từng đồng ý công bố, trong khi luồng dữ liệu hợp pháp chuyển thông tin đó sang bên môi giới, nhà quảng cáo và chuyên gia chính trị. Trong tuyên bố về vụ Mobilewalla, lãnh đạo FTC mô tả việc công ty này bị cáo buộc thu thập và sử dụng dữ liệu vị trí nhạy cảm là sự xâm phạm quyền riêng tư cần được xử lý [2]. Vấn đề không chỉ là một vụ rò rỉ lên mặt báo. Đó là việc ngày ngày tích tụ lịch sử vị trí, hồ sơ mua sắm và mã định danh thiết bị thành những hồ sơ không một cá nhân nào tự mình ghép nên về cuộc đời mình — hồ sơ có thể mua, bán và tác động mà bản thân không hề hay biết [1], [2]. Khi nền tảng xem con người như một dòng dữ liệu cần khai thác, an toàn dữ liệu của nó không thể tách rời đạo đức của mô hình kinh doanh.",
+          "Kiểm duyệt nội dung nhân danh \"bảo vệ tốt hơn\" là hình ảnh gương của cùng một mất cân bằng. Quyền riêng tư và an toàn là mục tiêu chính đáng, nhưng cũng là lý do mạnh để kiểm soát người dùng được xem và nói gì. EFF ghi nhận tòa án và cơ quan quản lý có thể bị ép buộc coi kiểm duyệt nội dung và yêu cầu xác minh độ tuổi thay thế cho sự bảo vệ quyền riêng tư thực sự, hạn chế phát biểu hợp pháp [6]. Khi nền tảng chấp nhận lọc nội dung để giữ an toàn cho người dùng, \"không an toàn\" trở thành chính sách doanh nghiệp chứ không phải lựa chọn cá nhân, và có thể thay đổi theo áp lực quảng cáo, yêu cầu chính trị hay quan điểm của ban quản lý [6].",
+          "__IMAGE__:/images/blog/digital censorship.png|Hình ảnh về kiểm duyệt số và kiểm soát nội dung|Kiểm duyệt được biện minh là sự bảo vệ có thể trở thành công cụ kiểm soát sự biểu đạt hợp pháp.",
+          "Hồ sơ cho thấy điều gì xảy ra khi nền tảng bị yêu cầu chuyển dữ liệu người dùng cho nhà nước. Theo EFF, Cơ quan Thực thi Xuất nhập cảnh và Hải quan (ICE) và Bộ An ninh Nội địa đã gửi lệnh triệu tập hành chính đến Meta, Google, Reddit và X đòi dữ liệu thuê bao của người biểu tình và người chỉ trích; một số lệnh bị rút sau khi bị tố tụng tại toà [13]. Google đã giao dữ liệu của một du học sinh cho ICE vào tháng 5 năm 2025 sau một cuộc biểu tình, mà không thông báo cho người này [14]. Vụ kiện tập thể cho rằng Telenor — viễn thông nhà nước Na Uy — đã chuyển dữ liệu của hơn 1.200 khách hàng, kể cả vị trí, cho chính quyền quân sự Myanmar, dẫn đến bắt giam, tra tấn và xử tử [15]. Tại Mỹ, thẩm phán liên bang đã chặn Meta chia sẻ danh tính người dùng Instagram với Bộ An ninh Nội địa (DHS) sau bình luận về nhân viên tuần tra biên giới [16]. Các vụ này ở các giai đoạn khác nhau; một số bị rút hoặc bị chặn, còn các khẳng định về Myanmar là cáo buộc trong một vụ kiện đang chờ xét xử. Cùng nhau cho thấy đường ống tuân thủ có thể được dùng để chống lại những người có ý kiến khác, và dữ liệu giao cho cơ quan chức năng đã từng góp phần dẫn đến bắt giam. Một dịch vụ lặng lẽ chỉnh sửa cuộc trò chuyện công cộng trong khi tự nhận bảo vệ bạn — không bảo vệ sự tự chủ của bạn.",
+          "__SUBTITLE__:Mô hình khác và giá minh bạch",
+          "LoBot được xây dựng dựa trên một tập giả định khác. Dịch vụ của LoBot gần như không bao giờ yêu cầu tài khoản người dùng. Khi việc xác minh thực sự cần thiết — chẳng hạn để bảo vệ quyền truy cập vào một công cụ đã mua — LoBot chỉ hỏi địa chỉ email, không gì khác. Không có hồ sơ quảng cáo để ghép, không có lịch sử hành vi để bán, không lý do gì để người dùng đưa số điện thoại, danh tính mạng xã hội hay ảnh cá nhân chỉ để đọc tài liệu hoặc thử một công cụ. Thiết kế này cố tình rất đỗi bình thường: LoBot thu thập tối thiểu cần thiết để cung cấp dịch vụ, giải thích lý do và không xây dựng hoạt động kinh doanh quanh việc tích lũy thêm dữ liệu.",
+          "__IMAGE__:/images/blog/privacy respecting system.png|Minh họa khái niệm về hệ thống phần mềm tôn trọng quyền riêng tư, dùng ít dữ liệu|Hệ thống của LoBot được thiết kế để việc dùng sản phẩm không đòi hỏi giao nộp hồ sơ cá nhân.",
+          "Khả năng di động là trụ cột thứ hai: công cụ LoBot chạy trên nhiều hệ điều hành và phần cứng, không bắt người dùng nâng cấp lên một nền tảng cụ thể. Người dùng nên chạy được công cụ trên thiết bị họ đang có, lưu tệp ở định dạng họ có thể tự kiểm tra, và mang công việc sang nơi khác mà không cần xin phép. Khi khả thi, LoBot phát hành phần mềm dưới dạng mã nguồn mở: người dùng có thể đọc, sửa đổi, phân phối lại và, nếu kiến trúc cho phép, tự lưu trữ. Đây không phải cử chỉ tiếp thị: mã nguồn mở cho phép bất kỳ ai kiểm chứng rằng một chương trình làm đúng như tài liệu mô tả, và thay đổi nó nếu không. Hệ thống đóng đòi hỏi niềm tin; hệ thống mở mời gọi sự kiểm tra.",
+          "LoBot ưu tiên nguồn công khai, có thể kiểm chứng: phân tích năng lượng dựa trên số liệu công khai của Cơ quan Năng lượng Quốc tế (IEA), đơn vị đã mở rộng truy cập miễn phí dữ liệu theo quốc gia và khu vực [9]. Thông tin về nước và nông nghiệp đến từ hệ thống AQUASTAT của FAO — nguồn tham chiếu toàn cầu xây dựng trên dữ liệu quốc gia được chia sẻ công khai [10]. Một lời khẳng định mà người đọc không thể kiểm chứng không phải bằng chứng — đó chỉ là lời nhờ tin vào tác giả. Một bài xã luận trên tạp chí Science gần đây lập luận rằng dữ liệu khí hậu và thời tiết miễn phí là tài sản công, nền tảng của nghiên cứu và sự kháng cường [7]; LoBot quan niệm tương tự với dữ liệu đầu vào sản phẩm: những gì có thể công bố thì nên công bố.",
+          "Mô hình thương mại được giữ cực kỳ đơn giản. LoBot công bố mức giá minh bạch theo tháng, năm và thanh toán một lần, đồng thời nêu rõ những gì được bao gồm thay vì dùng thủ thuật khi thanh toán. Nếu dịch vụ không khả dụng hoặc bộ phận hỗ trợ không đạt chuẩn LoBot quảng bá, LoBot hoàn tiền 100% — chính sách phù hợp với nguyên tắc lâu dài của FTC rằng bảo đảm sự hài lòng phải được thực hiện đúng các điều khoản đã trình bày với khách hàng [11]. LoBot không dùng giá khởi động rồi tăng gấp ba không báo trước, luồng hủy đăng ký với hàng chục bước, hay khoản phí chỉ tiết lộ ở phần chữ nhỏ. Mức giá của LoBot nên chịu được sự soi chiếu mà cơ quan quản lý hiện áp dụng cho trường hợp Adobe [5], [12].",
+          "__IMAGE__:/images/blog/transparent pricing.png|Đồ họa thể hiện giá cả rõ ràng, công khai và trung thực|Giá minh bạch nghĩa là số tiền bạn thấy đúng là số tiền bạn trả, có chính sách hoàn tiền thực tế.",
+          "__SUBTITLE__:Lập trường cá nhân",
+          "Lập trường này cũng mang tính cá nhân. Nhiều thành viên đội ngũ LoBot dùng các nền tảng mạng xã hội công khai dưới tên thật, và không ít người đã báo cáo việc bị các công ty công nghệ lớn xâm phạm quyền riêng tư — dữ liệu bị thu thập ngoài ý muốn, quyết định kiểm duyệt mờ ám, hay khó khăn khi xóa thông tin lẽ ra không bao giờ được lưu giữ. Những trải nghiệm ấy không hề xa lạ với tập thể; chúng là một phần lý do khiến chủ đề này không phải bài tập lý thuyết về trách nhiệm xã hội của doanh nghiệp. Khi một đồng nghiệp không kiểm soát được việc nền tảng xử lý bài viết và thông tin cá nhân của chính họ, thì một văn bản chính sách nói về \"trao quyền cho người dùng\" sẽ trở nên rỗng tuếch.",
+          "LoBot không giả vờ rằng vận hành phần mềm đáng tin cậy là miễn phí. Điều đó có nghĩa là LoBot chọn một con đường hẹp hơn nhưng có trách nhiệm hơn: thu thập ít hơn, không khóa bất kỳ ai vào hệ sinh thái, công bố nguồn dữ liệu, nêu trọn vẹn mức giá và hoàn tiền cho khách hàng khi làm chưa tốt. Sự tập trung dữ liệu và quyền lực trong một vài nền tảng không phải định mệnh — đó là kết quả lũy kế của những quyết định thiết kế ưu tiên giám sát và khó chịu thay vì rõ ràng và đồng thuận. Do đó, các giải pháp thay thế không được xây dựng chỉ bằng cách phàn nàn về vấn đề. Nó được xây dựng qua từng quyết định sản phẩm bình thường, bởi những đội ngũ sẵn sàng biến quyền riêng tư và bảo mật thành mặc định thay vì tùy chọn cao cấp. Đó là lập trường LoBot sẽ giữ vững, và chúng tôi rất mong muốn khách hàng của chúng tôi sẽ giữ LoBot chịu trách nhiệm.",
+        ],
+        references: [
+          {
+            label: "Ủy ban Thương mại Liên bang Hoa Kỳ (FTC), “A Look Behind the Screens: Examining the Data Practices of Social Media and Video Streaming Services,” FTC, 11 thg. 9, 2024. [Trực tuyến]. Có tại: https://search.ftc.gov/system/files/ftc_gov/pdf/Social-Media-6b-Report-9-11-2024.pdf (truy cập: 18 thg. 11, 2026)",
+            url: "https://search.ftc.gov/system/files/ftc_gov/pdf/Social-Media-6b-Report-9-11-2024.pdf",
+          },
+          {
+            label: "Ủy ban Thương mại Liên bang Hoa Kỳ (FTC), “Tuyên bố của Chủ tịch Khan và các Ủy viên Bedoya, Slaughter về vụ Mobilewalla,” FTC, thg. 7, 2024. [Trực tuyến]. Có tại: https://search.ftc.gov/system/files/ftc_gov/pdf/statement-khan-bedoya-slaughter-mobilewalla.pdf (truy cập: 18 thg. 11, 2026)",
+            url: "https://search.ftc.gov/system/files/ftc_gov/pdf/statement-khan-bedoya-slaughter-mobilewalla.pdf",
+          },
+          {
+            label: "Trung tâm Thông tin Quyền riêng tư Điện tử (EPIC), “The CLOUD Act,” EPIC, 2026. [Trực tuyến]. Có tại: https://epic.org/the-cloud-act/ (truy cập: 18 thg. 11, 2026)",
+            url: "https://epic.org/the-cloud-act/",
+          },
+          {
+            label: "Quỹ Biên giới Điện tử (EFF), “Đạo luật CLOUD của Hoa Kỳ và quyền riêng tư tại EU: Cuộc đua xuống đáy?,” EFF, thg. 4, 2018. [Trực tuyến]. Có tại: https://www.eff.org/deeplinks/2018/04/us-cloud-act-and-eu-privacy-protection-race-bottom (truy cập: 18 thg. 11, 2026)",
+            url: "https://www.eff.org/deeplinks/2018/04/us-cloud-act-and-eu-privacy-protection-race-bottom",
+          },
+          {
+            label: "Reuters, “Hoa Kỳ kiện Adobe vì cách công bố gói đăng ký,” Reuters, 17 thg. 6, 2024. [Trực tuyến]. Có tại: https://www.reuters.com/technology/us-sues-adobe-over-subscription-plan-disclosures-2024-06-17/ (truy cập: 18 thg. 11, 2026)",
+            url: "https://www.reuters.com/technology/us-sues-adobe-over-subscription-plan-disclosures-2024-06-17/",
+          },
+          {
+            label: "Quỹ Biên giới Điện tử (EFF), “Tòa án cho phép California bảo vệ quyền riêng tư, không kiểm duyệt internet,” EFF, thg. 8, 2024. [Trực tuyến]. Có tại: https://www.eff.org/deeplinks/2024/08/court-california-try-privacy-law-not-online-censorship (truy cập: 18 thg. 11, 2026)",
+            url: "https://www.eff.org/deeplinks/2024/08/court-california-try-privacy-law-not-online-censorship",
+          },
+          {
+            label: "Science, “Xã luận: Dữ liệu khí hậu và thời tiết mở là tài sản công,” Science, 2025. [Trực tuyến]. Có tại: https://www.science.org/doi/full/10.1126/science.aec8146 (truy cập: 18 thg. 11, 2026)",
+            url: "https://www.science.org/doi/full/10.1126/science.aec8146",
+          },
+          {
+            label: "Ủy ban Thương mại Liên bang Hoa Kỳ (FTC), “Unfair or Deceptive Fees, 16 CFR Part 464,” eCFR, 2024. [Trực tuyến]. Có tại: https://www.ecfr.gov/current/title-16/chapter-I/subchapter-D/part-464 (truy cập: 18 thg. 11, 2026)",
+            url: "https://www.ecfr.gov/current/title-16/chapter-I/subchapter-D/part-464",
+          },
+          {
+            label: "Cơ quan Năng lượng Quốc tế (IEA), “IEA cung cấp thêm dữ liệu và thống kê miễn phí qua trang quốc gia và vùng lãnh thổ được nâng cấp,” IEA, 2024. [Trực tuyến]. Có tại: https://www.iea.org/news/iea-makes-more-of-its-data-and-statistics-freely-available-through-upgraded-countries-and-regions-pages (truy cập: 18 thg. 11, 2026)",
+            url: "https://www.iea.org/news/iea-makes-more-of-its-data-and-statistics-freely-available-through-upgraded-countries-and-regions-pages",
+          },
+          {
+            label: "Tổ chức Lương thực và Nông nghiệp Liên Hợp Quốc (FAO), “AQUASTAT — Hệ thống thông tin toàn cầu về nước và nông nghiệp,” FAO, 2026. [Trực tuyến]. Có tại: https://www.fao.org/aquastat/en/overview/ (truy cập: 18 thg. 11, 2026)",
+            url: "https://www.fao.org/aquastat/en/overview/",
+          },
+          {
+            label: "Ủy ban Thương mại Liên bang Hoa Kỳ (FTC), “Satisfaction Guarantees and Refunds, 16 CFR Part 239, Section 239.3,” eCFR, 2026. [Trực tuyến]. Có tại: https://www.ecfr.gov/current/title-16/chapter-I/subchapter-B/part-239/section-239.3 (truy cập: 18 thg. 11, 2026)",
+            url: "https://www.ecfr.gov/current/title-16/chapter-I/subchapter-B/part-239/section-239.3",
+          },
+          {
+            label: "Reuters, “Adobe sẽ trả 75 triệu USD để dàn xếp vụ kiện tại Hoa Kỳ về phí và hủy đăng ký,” Reuters, 13 thg. 3, 2026. [Trực tuyến]. Có tại: https://www.reuters.com/world/adobe-pay-75-million-resolve-us-lawsuit-over-fees-subscription-cancellations-2026-03-13/ (truy cập: 18 thg. 11, 2026)",
+            url: "https://www.reuters.com/world/adobe-pay-75-million-resolve-us-lawsuit-over-fees-subscription-cancellations-2026-03-13/",
+          },
+          {
+            label: "Quỹ Biên giới Điện tử (EFF), “A List of ICE Subpoenas to Tech Companies,” EFF, 2026. [Trực tuyến]. Có tại: https://www.eff.org/deeplinks/2026/08/list-ice-subpoenas-tech-companies (truy cập: 18 thg. 11, 2026)",
+            url: "https://www.eff.org/deeplinks/2026/08/list-ice-subpoenas-tech-companies",
+          },
+          {
+            label: "Quỹ Biên giới Điện tử (EFF), “Google Broke Its Promise to Me. Now ICE Has My Data,” EFF, 2026. [Trực tuyến]. Có tại: https://www.eff.org/deeplinks/2026/04/google-broke-its-promise-me-now-ice-has-my-data (truy cập: 18 thg. 11, 2026)",
+            url: "https://www.eff.org/deeplinks/2026/04/google-broke-its-promise-me-now-ice-has-my-data",
+          },
+          {
+            label: "The Guardian, “Norway’s state telecoms firm accused of helping Myanmar regime seize activists,” The Guardian, 2026. [Trực tuyến]. Có tại: https://www.theguardian.com/global-development/2026/apr/16/norways-state-telecoms-firm-accused-of-helping-myanmar-regime-seize-activists (truy cập: 18 thg. 11, 2026)",
+            url: "https://www.theguardian.com/global-development/2026/apr/16/norways-state-telecoms-firm-accused-of-helping-myanmar-regime-seize-activists",
+          },
+          {
+            label: "POLITICO, “Judge tells Meta not to share Instagram users’ information with Trump admin,” POLITICO, 2025. [Trực tuyến]. Có tại: https://www.politico.com/news/2025/09/19/judge-tells-meta-not-to-share-instagram-users-information-with-dhs-00574094 (truy cập: 18 thg. 11, 2026)",
+            url: "https://www.politico.com/news/2025/09/19/judge-tells-meta-not-to-share-instagram-users-information-with-dhs-00574094",
+          },
+        ],
+      },
+    },
+  },
+  {
     slug: "how-cathay-cargo-terminal-powers-hkia-daily-logistics",
     author: "LoBot LLC Team",
     coverEmoji: "✈️",
