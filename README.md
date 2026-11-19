@@ -132,7 +132,7 @@ The blog is powered by a seeded editorial data pipeline (`src/lib/blog.ts`). Pos
 
 - **Cover image** — high-resolution image displayed at the top of the article (e.g. `cathay cargo terminal.jpg` for the HKIA logistics article), with a `coverEmoji` fallback.
 - **Inline images** — body paragraphs can embed an image via the `__IMAGE__:/images/blog/<name>|<alt>|<caption>` marker.
-- **Section subtitles** — body groups can be introduced with a `__SUBTITLE__:text` marker rendered as editorial subheadings.
+- **Section subtitles** — a body entry of the exact form `__SUBTITLE__:text` is rendered as an editorial `<h2>` subheading with an accent rule (see `src/components/pages/BlogContent.tsx`). The privacy post uses 9 such subtitles (data bargain, vendor lock-in, predatory pricing, data brokers, censorship, hidden fees, different model, transparent pricing, personal stake) in all three languages.
 - **IEEE-style references** — numbered citations such as `[1]`, `[2]` inside paragraphs are clickable and jump to the matching entry in the **References** section at the end of the article, where every reference links out to its source URL. Each post keeps a per-locale reference list; the privacy and security post has 16 references in every language, each one cited in the body.
 - **Localized references** — the reference labels follow IEEE conventions in each language (`[Online]. Available:` for English, `[En línea]. Disponible:` for Spanish, `[Trực tuyến]. Có tại:` for Vietnamese).
 - **Metadata** — every article shows the author (`By LoBot LLC Team`), the publication date, and an automatic estimated reading time in all supported languages.
@@ -201,7 +201,7 @@ src/
 ├── components/
 │   ├── pages/
 │   │   ├── AboutContent.tsx
-│   │   ├── BlogContent.tsx        # Blog list/article; renders inline images, cover images and IEEE citation links
+│   │   ├── BlogContent.tsx        # Blog list/article; renders inline images, cover images, IEEE citation links, and `__SUBTITLE__` editorial subheadings
 │   │   ├── CareersContent.tsx      # Careers page content incl. role levels/tracks and hiring steps
 │   │   ├── HomeContent.tsx
 │   │   ├── PolicyContent.tsx       # Company policy page (employee rules + applicant rounds, trilingual via `policy` keys)
@@ -214,9 +214,9 @@ src/
 │   └── ui.tsx                    # Shared Section, SectionHeader, NumberBadge, and PageHero components
 ├── db/
 │   ├── index.ts                  # Lazy-initialized Drizzle client (getDb())
-│   └── schema.ts                 # Blog schema/types (translations, cover image, references)
+│   └── schema.ts                 # Blog schema/types (translations, cover image, references) + body sentinel patterns (`__IMAGE__:`, `__SUBTITLE__:`, `__CTA__`)
 ├── lib/
-│   ├── blog.ts                    # Blog data layer + seed posts (en/es/vi) with IEEE references, cover images, and inline images
+│   ├── blog.ts                    # Blog data layer + seed posts (en/es/vi) with IEEE references, cover images, inline images, and `__SUBTITLE__` section subtitles
 │   ├── github.ts                  # GitHub helpers (community stats + Most Active Developer)
 │   └── site.ts                    # Site constants (email, URLs)
 └── i18n/
