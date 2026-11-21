@@ -138,14 +138,15 @@ export function AboutContent({ stats }: { stats: CommunityStats }) {
           <div className="card flex w-full max-w-xs flex-col items-center text-center">
             <GithubIcon className="h-6 w-6 text-brand-500" />
             <p className="mt-3 text-sm font-semibold uppercase tracking-wide text-brand-600 dark:text-brand-300">{c.mostActiveProject}</p>
-            <div className="mt-3">
+            <div className="mt-2 flex flex-1 flex-col items-center justify-center">
               {stats.mostActiveProject ? (
-                <a href={stats.mostActiveProject.url} target="_blank" rel="noopener noreferrer" className="flex flex-col items-center gap-1">
-                  <span className="text-lg font-bold text-slate-900 dark:text-white">{stats.mostActiveProject.name}</span>
-                  <span className="text-sm font-semibold text-brand-600 dark:text-brand-300">
+                <a href={stats.mostActiveProject.url} target="_blank" rel="noopener noreferrer" className="flex w-full flex-col items-center justify-center gap-2 rounded-lg p-2 transition hover:bg-brand-50 dark:hover:bg-white/5">
+                  <span className="max-w-full break-words text-2xl font-bold leading-tight text-slate-900 dark:text-white sm:text-3xl">
+                    {stats.mostActiveProject.name}
+                  </span>
+                  <span className="text-lg font-semibold text-brand-600 dark:text-brand-300">
                     {stats.mostActiveProject.commits} commits
                   </span>
-                  <p className="mt-1 text-xs text-slate-500 dark:text-slate-400">Most active repository</p>
                 </a>
               ) : (
                 <p className="text-sm text-slate-500 dark:text-slate-400">Loading…</p>
