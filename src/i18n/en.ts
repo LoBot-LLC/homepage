@@ -249,6 +249,7 @@ const en = {
       forks: "Forks",
       source: "Source: GitHub API — refreshed hourly.",
       mostActiveDeveloper: "Most Active Developer",
+      mostActiveProject: "Most Active Project",
     },
     culture: {
       title: "Work culture",

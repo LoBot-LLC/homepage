@@ -165,7 +165,7 @@ Every seeded post is fully translated into the **3 supported languages** (`en`, 
 | Linting | ESLint 9 + eslint-config-next |
 | CI/CD | GitHub Actions (`.github/workflows/nextjs.yml`, `nodejs.yml` — Node.js `latest`) |
 | Analytics | Vercel Analytics (`@vercel/analytics`) + Speed Insights (`@vercel/speed-insights`) |
-| GitHub Integration | REST API for live community statistics (repos, contributors, commits, MAD) |
+| GitHub Integration | REST API for live community statistics (repos, contributors, commits, MAD, Most Active Project) |
 
 ---
 
@@ -217,7 +217,7 @@ src/
 │   └── schema.ts                 # Blog schema/types (translations, cover image, references) + body sentinel patterns (`__IMAGE__:`, `__SUBTITLE__:`, `__CTA__`)
 ├── lib/
 │   ├── blog.ts                    # Blog data layer + seed posts (en/es/vi) with IEEE references, cover images, inline images, and `__SUBTITLE__` section subtitles
-│   ├── github.ts                  # GitHub helpers (community stats + Most Active Developer)
+│   ├── github.ts                  # GitHub helpers (community stats + Most Active Developer + Most Active Project)
 │   └── site.ts                    # Site constants (email, URLs)
 └── i18n/
      ├── en.ts                     # English translations (incl. `policy` keys)
