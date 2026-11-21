@@ -247,6 +247,7 @@ const en = {
       contributionsNote: "commits across repos",
       pulls: "Pull requests",
       forks: "Forks",
+      mostActiveProject: "Most Active Project",
       source: "Source: GitHub API — refreshed hourly.",
       mostActiveDeveloper: "Most Active Developer",
     },

@@ -7,6 +7,12 @@ export type MostActiveDeveloper = {
   contributions: number;
 };
 
+export type MostActiveProject = {
+  name: string;
+  commits: number;
+  url: string;
+};
+
 export type CommunityStats = {
   developers: number;
   humans: number;
@@ -16,6 +22,7 @@ export type CommunityStats = {
   forks: number;
   live: boolean;
   mostActiveDeveloper: MostActiveDeveloper | null;
+  mostActiveProject: MostActiveProject | null;
 };
 
 // Snapshot taken from the GitHub API (LoBot-LLC org) — used when the API is unreachable/rate-limited.
@@ -28,6 +35,7 @@ export const FALLBACK_STATS: CommunityStats = {
   forks: 6,
   live: false,
   mostActiveDeveloper: null,
+  mostActiveProject: null,
 };
 
 const ORG = "LoBot-LLC";
@@ -118,6 +126,7 @@ export async function getCommunityStats(): Promise<CommunityStats> {
     let pulls = 0;
     const humans = new Set<string>();
     const agents = new Set<string>();
+    let mostActiveProject: MostActiveProject | null = null;
 
     for (const repo of own) {
       forks += repo.forks_count;
@@ -134,6 +143,15 @@ export async function getCommunityStats(): Promise<CommunityStats> {
         if (c.type === "Bot" || key.endsWith("[bot]")) agents.add(key);
         else humans.add(key);
       });
+
+      // Track the repository with the most commits (all current and future org repos).
+      if (commits > 0 && (!mostActiveProject || commits > mostActiveProject.commits)) {
+        mostActiveProject = {
+          name: repo.name,
+          commits,
+          url: `https://github.com/${ORG}/${repo.name}`,
+        };
+      }
     }
 
     if (contributions === 0) return FALLBACK_STATS;
@@ -147,6 +165,7 @@ export async function getCommunityStats(): Promise<CommunityStats> {
       forks,
       live: true,
       mostActiveDeveloper: mad,
+      mostActiveProject,
     };
   } catch {
     const mad = await getMostActiveDeveloper();

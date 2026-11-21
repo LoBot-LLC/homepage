@@ -38,6 +38,7 @@ export function AboutContent({ stats }: { stats: CommunityStats }) {
     { value: `${stats.contributions}+`, label: c.contributions, note: c.contributionsNote },
     { value: stats.pulls, label: c.pulls },
     { value: stats.forks, label: c.forks },
+    { value: stats.mostActiveProject?.name || "—", label: c.mostActiveProject, note: `${stats.mostActiveProject?.commits} commits` },
   ];
 
   const mad = stats.mostActiveDeveloper;
