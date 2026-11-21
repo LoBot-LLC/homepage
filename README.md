@@ -151,6 +151,10 @@ Every seeded post is fully translated into the **3 supported languages** (`en`, 
 
 ---
 
+### 🏘️ LoBot's Open-source Community
+
+The homepage's **LoBot's Open-source community** section now shows two centered square cards side by side: **Most Active Developer** and **Most Active Project**. Both cards are powered by live data from the GitHub REST API and are refreshed hourly.
+
 ## 🛠 Tech Stack
 
 | Category | Technology |
@@ -165,7 +169,7 @@ Every seeded post is fully translated into the **3 supported languages** (`en`, 
 | Linting | ESLint 9 + eslint-config-next |
 | CI/CD | GitHub Actions (`.github/workflows/nextjs.yml`, `nodejs.yml` — Node.js `latest`) |
 | Analytics | Vercel Analytics (`@vercel/analytics`) + Speed Insights (`@vercel/speed-insights`) |
-| GitHub Integration | REST API for live community statistics (repos, contributors, commits, MAD, most active project) |
+| GitHub Integration | REST API for live community statistics (repos, contributors, commits, most active developer, most active project) |
 
 ---
 
@@ -256,6 +260,8 @@ package.json / package-lock.json    # npm manifest + lockfile
 most_active_project.py             # Standalone script: finds the LoBot-LLC org repo with the most commits via GitHub REST API
 AGENT_PROMPT.md                     # Extra guidance for AI agents working on this repo
 ```
+
+The **LoBot's Open-source community** section on the homepage renders two centered cards side by side: **Most Active Developer** and **Most Active Project**, each backed by live GitHub REST API data.
 
 `NumberBadge` is shared by the homepage, careers hiring steps, and policy applicant rounds. It displays numbers with a leading zero and keeps its 40px square size in flex layouts instead of shrinking beside text.
 

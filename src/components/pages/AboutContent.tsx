@@ -38,7 +38,6 @@ export function AboutContent({ stats }: { stats: CommunityStats }) {
     { value: `${stats.contributions}+`, label: c.contributions, note: c.contributionsNote },
     { value: stats.pulls, label: c.pulls },
     { value: stats.forks, label: c.forks },
-    { value: stats.mostActiveProject?.name || "—", label: c.mostActiveProject, note: `${stats.mostActiveProject?.commits} commits` },
   ];
 
   const mad = stats.mostActiveDeveloper;
@@ -113,7 +112,7 @@ export function AboutContent({ stats }: { stats: CommunityStats }) {
             </div>
           ))}
         </div>
-        <div className="mt-5 flex justify-center">
+        <div className="mt-6 flex justify-center gap-6 sm:gap-8 lg:gap-10">
           <div className="card flex w-full max-w-xs flex-col items-center text-center">
             <GithubIcon className="h-6 w-6 text-brand-500" />
             <p className="mt-3 text-sm font-semibold uppercase tracking-wide text-brand-600 dark:text-brand-300">{madLabel}</p>
@@ -130,6 +129,23 @@ export function AboutContent({ stats }: { stats: CommunityStats }) {
                   <span className="text-sm font-semibold text-brand-600 dark:text-brand-300">{mad.contributions} commits</span>
                   {mad.bio && <p className="mt-1 max-w-[200px] text-xs text-slate-500 dark:text-slate-400">{mad.bio}</p>}
                   {mad.createdAt && <p className="mt-1 text-xs text-slate-400 dark:text-slate-500">Joined {new Date(mad.createdAt).toLocaleDateString()}</p>}
+                </a>
+              ) : (
+                <p className="text-sm text-slate-500 dark:text-slate-400">Loading…</p>
+              )}
+            </div>
+          </div>
+          <div className="card flex w-full max-w-xs flex-col items-center text-center">
+            <GithubIcon className="h-6 w-6 text-brand-500" />
+            <p className="mt-3 text-sm font-semibold uppercase tracking-wide text-brand-600 dark:text-brand-300">{c.mostActiveProject}</p>
+            <div className="mt-3">
+              {stats.mostActiveProject ? (
+                <a href={stats.mostActiveProject.url} target="_blank" rel="noopener noreferrer" className="flex flex-col items-center gap-1">
+                  <span className="text-lg font-bold text-slate-900 dark:text-white">{stats.mostActiveProject.name}</span>
+                  <span className="text-sm font-semibold text-brand-600 dark:text-brand-300">
+                    {stats.mostActiveProject.commits} commits
+                  </span>
+                  <p className="mt-1 text-xs text-slate-500 dark:text-slate-400">Most active repository</p>
                 </a>
               ) : (
                 <p className="text-sm text-slate-500 dark:text-slate-400">Loading…</p>
