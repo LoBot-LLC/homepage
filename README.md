@@ -151,6 +151,10 @@ Every seeded post is fully translated into the **3 supported languages** (`en`, 
 
 ---
 
+### 🏘️ LoBot's Open-source Community
+
+The homepage's **LoBot's Open-source community** section now shows two centered square cards side by side: **Most Active Developer** and **Most Active Project**. Both cards are powered by live data from the GitHub REST API and are refreshed hourly.
+
 ## 🛠 Tech Stack
 
 | Category | Technology |
@@ -165,7 +169,7 @@ Every seeded post is fully translated into the **3 supported languages** (`en`, 
 | Linting | ESLint 9 + eslint-config-next |
 | CI/CD | GitHub Actions (`.github/workflows/nextjs.yml`, `nodejs.yml` — Node.js `latest`) |
 | Analytics | Vercel Analytics (`@vercel/analytics`) + Speed Insights (`@vercel/speed-insights`) |
-| GitHub Integration | REST API for live community statistics (repos, contributors, commits, MAD) |
+| GitHub Integration | REST API for live community statistics (repos, contributors, commits, most active developer, most active project) |
 
 ---
 
@@ -217,7 +221,7 @@ src/
 │   └── schema.ts                 # Blog schema/types (translations, cover image, references) + body sentinel patterns (`__IMAGE__:`, `__SUBTITLE__:`, `__CTA__`)
 ├── lib/
 │   ├── blog.ts                    # Blog data layer + seed posts (en/es/vi) with IEEE references, cover images, inline images, and `__SUBTITLE__` section subtitles
-│   ├── github.ts                  # GitHub helpers (community stats + Most Active Developer)
+│   ├── github.ts                  # GitHub helpers (community stats + Most Active Developer + Most Active Project)
 │   └── site.ts                    # Site constants (email, URLs)
 └── i18n/
      ├── en.ts                     # English translations (incl. `policy` keys)
@@ -253,8 +257,81 @@ eslint.config.mjs                   # ESLint configuration
 drizzle.config.json                 # Drizzle Kit config
 tsconfig.json                       # TypeScript configuration
 package.json / package-lock.json    # npm manifest + lockfile
+most_active_project.py             # Standalone script: finds the LoBot-LLC org repo with the most commits via GitHub REST API
 AGENT_PROMPT.md                     # Extra guidance for AI agents working on this repo
 ```
+
+## 🧪 Quality Checks
+
+```bash
+# Run all checks (CI pipeline)
+npm run typecheck   # Generates route types + tsc --noEmit
+npm run lint        # ESLint
+npm run build       # Production build
+```
+
+CI runs on every push/PR to `main` with Node.js `latest`, using `npm ci` for reproducible installs.
+
+---
+
+## 🌍 Internationalization
+
+The site supports **3 languages** out of the box:
+- **English** (`en`) — default
+- **Spanish** (`es`)
+- **Vietnamese** (`vi`)
+
+Language is detected from the browser and persisted via a cookie. All UI strings are in `src/i18n/*.ts`.
+
+---
+
+## 🤝 Contributing
+
+We welcome contributions from everyone, including AI-generated and AI-assisted code.
+
+### Our Standards
+
+- Be respectful and inclusive.
+- Provide constructive feedback.
+- Focus on improving the project.
+
+### Contribution Guidelines
+
+- All contributions are welcome (features, bug fixes, documentation, design improvements, etc).
+- AI-generated / AI-assisted contributions are explicitly allowed, but you must rigorously test the codebase before pushing to the main repository.
+- Always run the site in multiple browsers and test responsiveness, chart rendering, data exports, and edge cases (horizon = 1 and horizon = 10).
+- Open a Pull Request with a clear description of changes.
+- You are required to justify why your UI looks better and more consistent compared to the original one (e.g., better functionality, etc.) if your Pull Requests has a different UI from the original or if you want to remove a feature.
+- Ensure that your code has to work via the autotester before submitting a Pull Request.
+- Reference any related issues.
+
+Violations of this Code of Conduct may result in temporary or permanent bans from the project.
+
+---
+
+## 📄 License
+
+**BSD 3-Clause License** — see [LICENSE](LICENSE) for details.
+
+```
+Copyright (c) 2026, LoBot LLC
+```
+
+---
+
+## 🙏 Credits
+
+**Author & Maintainer**  
+🤖 [LoBot LLC](https://github.com/LoBot-LLC)
+
+**Company Contact**  
+📧 lobotllc@atomicmail.io
+
+---
+
+*Built with AI agents and human developers working together, all as a team.*
+
+The **LoBot's Open-source community** section on the homepage renders two centered cards side by side: **Most Active Developer** and **Most Active Project**, each backed by live GitHub REST API data.
 
 `NumberBadge` is shared by the homepage, careers hiring steps, and policy applicant rounds. It displays numbers with a leading zero and keeps its 40px square size in flex layouts instead of shrinking beside text.
 

@@ -205,6 +205,7 @@ const vi: Dict = {
       contributionsNote: "commit trên các repo",
       pulls: "Pull request",
       forks: "Fork",
+      mostActiveProject: "Dự án Năng động nhất",
       source: "Nguồn: GitHub API — cập nhật mỗi giờ.",
       mostActiveDeveloper: "Nhà phát triển Năng động nhất",
     },

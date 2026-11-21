@@ -205,6 +205,7 @@ const es: Dict = {
       contributionsNote: "commits en los repositorios",
       pulls: "Pull requests",
       forks: "Forks",
+      mostActiveProject: "Proyecto Más Activo",
       source: "Fuente: API de GitHub — actualizada cada hora.",
       mostActiveDeveloper: "Desarrollador Más Activo",
     },
