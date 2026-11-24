@@ -7,6 +7,16 @@ export type MostActiveDeveloper = {
   contributions: number;
 };
 
+export type MostActiveProject = {
+  name: string;
+  full_name: string;
+  url: string;
+  description: string;
+  stargazers_count: number;
+  language: string | null;
+  commits: number;
+};
+
 export type CommunityStats = {
   developers: number;
   humans: number;
@@ -16,6 +26,7 @@ export type CommunityStats = {
   forks: number;
   live: boolean;
   mostActiveDeveloper: MostActiveDeveloper | null;
+  mostActiveProject: MostActiveProject | null;
 };
 
 // Snapshot taken from the GitHub API (LoBot-LLC org) — used when the API is unreachable/rate-limited.
@@ -28,6 +39,7 @@ export const FALLBACK_STATS: CommunityStats = {
   forks: 6,
   live: false,
   mostActiveDeveloper: null,
+  mostActiveProject: null,
 };
 
 const ORG = "LoBot-LLC";
@@ -49,7 +61,7 @@ async function countViaLink(url: string): Promise<number> {
   return Array.isArray(body) ? body.length : 0;
 }
 
-type Repo = { name: string; forks_count: number; fork: boolean };
+type Repo = { name: string; full_name?: string; forks_count: number; fork: boolean; description?: string | null; stargazers_count?: number; language?: string | null; html_url?: string };
 type Contributor = { login?: string; type: string; contributions: number };
 
 /** Aggregate total commits per contributor across all org repos (including future ones) and return the most active developer. */
@@ -109,6 +121,35 @@ export async function getMostActiveDeveloper(): Promise<MostActiveDeveloper | nu
   }
 }
 
+/** Aggregate total commits per repo across the org (including future repos) and return the most active project. */
+export async function getMostActiveProject(): Promise<MostActiveProject | null> {
+  try {
+    const repos = (await (await gh(`https://api.github.com/orgs/${ORG}/repos?per_page=100`)).json()) as Repo[];
+    const own = repos.filter((r) => !r.fork);
+
+    let top: { repo: Repo; commits: number } | null = null;
+    for (const repo of own) {
+      const base = `https://api.github.com/repos/${ORG}/${repo.name}`;
+      const commits = await countViaLink(`${base}/commits`).catch(() => 0);
+      if (!top || commits > top.commits) top = { repo, commits };
+    }
+
+    if (!top || top.commits === 0) return null;
+    const repo = top.repo;
+    return {
+      name: repo.name,
+      full_name: repo.full_name ?? `${ORG}/${repo.name}`,
+      url: repo.html_url ?? `https://github.com/${ORG}/${repo.name}`,
+      description: repo.description ?? "",
+      stargazers_count: repo.stargazers_count ?? 0,
+      language: repo.language ?? null,
+      commits: top.commits,
+    };
+  } catch {
+    return null;
+  }
+}
+
 export async function getCommunityStats(): Promise<CommunityStats> {
   try {
     const repos = (await (await gh(`https://api.github.com/orgs/${ORG}/repos?per_page=100`)).json()) as Repo[];
@@ -136,8 +177,11 @@ export async function getCommunityStats(): Promise<CommunityStats> {
       });
     }
 
-    if (contributions === 0) return FALLBACK_STATS;
-    const mad = await getMostActiveDeveloper();
+    if (contributions === 0) {
+      const map = await getMostActiveProject();
+      return { ...FALLBACK_STATS, mostActiveProject: map };
+    }
+    const [mad, map] = await Promise.all([getMostActiveDeveloper(), getMostActiveProject()]);
     return {
       developers: humans.size + agents.size,
       humans: humans.size,
@@ -147,12 +191,14 @@ export async function getCommunityStats(): Promise<CommunityStats> {
       forks,
       live: true,
       mostActiveDeveloper: mad,
+      mostActiveProject: map,
     };
   } catch {
-    const mad = await getMostActiveDeveloper();
+    const [mad, map] = await Promise.all([getMostActiveDeveloper(), getMostActiveProject()]);
     return {
       ...FALLBACK_STATS,
       mostActiveDeveloper: mad,
+      mostActiveProject: map,
     };
   }
 }

@@ -23,7 +23,8 @@ Visit our homepage **HERE**: https://lobotllc.vercel.app/
 
 ### Prerequisites
 
-- **Node.js** (v22+ recommended) with **npm**. Next.js is installed by `npm ci`.
+- **Node.js** latest LTS (v22+ recommended)
+- **Next.js** latest (currently v16.4.5)
 - **PostgreSQL** database (local or managed like Neon, Supabase, etc.)
 
 ### Installation
@@ -78,7 +79,7 @@ npm run start
 
 ## 📡 API Endpoints
 
-All API routes are dynamic (`force-dynamic`). The health check needs a working database connection; the blog endpoints fall back to seed posts if PostgreSQL is unavailable.
+All API routes are server-rendered (`force-dynamic`) and require a working `DATABASE_URL` at runtime.
 
 | Endpoint | Method | Description |
 |----------|--------|-------------|
@@ -122,6 +123,7 @@ The blog is powered by a seeded editorial data pipeline (`src/lib/blog.ts`). Pos
 
 | Published | Slug | Topic |
 |-----------|-----------------------|-------|
+| 2026-11-18 | `lobots-stance-on-user-privacy-and-security` | LoBot's stance on user privacy and security — Big Tech data practices, vendor lock-in, hidden fees and censorship-by-protection (incl. documented data misuse cases cited via [13]–[16]), and LoBot's alternative: minimal sign-in, open and portable software, public data, honest pricing and a 100% refund guarantee |
 | 2026-11-13 | `how-cathay-cargo-terminal-powers-hkia-daily-logistics` | How Cathay Cargo Terminal powers the daily logistics of HKIA, the world’s busiest cargo airport — import/export flows, exception handling, live-animal care, and the HKIA Cargo Data Platform |
 | 2026-11-07 | `how-operation-epic-fury-inspired-lobot-tecnoindicator` | How the 2026 Middle East conflict inspired LoBot TecnoIndicator |
 | 2026-10-28 | `introducing-lobot-llc` | Company introduction |
@@ -130,7 +132,8 @@ The blog is powered by a seeded editorial data pipeline (`src/lib/blog.ts`). Pos
 
 - **Cover image** — high-resolution image displayed at the top of the article (e.g. `cathay cargo terminal.jpg` for the HKIA logistics article), with a `coverEmoji` fallback.
 - **Inline images** — body paragraphs can embed an image via the `__IMAGE__:/images/blog/<name>|<alt>|<caption>` marker.
-- **IEEE-style references** — numbered citations such as `[1]`, `[2]` inside paragraphs are clickable and jump to the matching entry in the **References** section at the end of the article, where every reference links out to its source URL.
+- **Section subtitles** — a body entry of the exact form `__SUBTITLE__:text` is rendered as an editorial `<h2>` subheading with an accent rule (see `src/components/pages/BlogContent.tsx`). The privacy post uses 5 such subtitles (the data bargain, the cost of leaving, your data their weapon, a different model, a personal stake) in all three languages.
+- **IEEE-style references** — numbered citations such as `[1]`, `[2]` inside paragraphs are clickable and jump to the matching entry in the **References** section at the end of the article, where every reference links out to its source URL. Each post keeps a per-locale reference list; the privacy and security post has 16 references in every language, each one cited in the body.
 - **Localized references** — the reference labels follow IEEE conventions in each language (`[Online]. Available:` for English, `[En línea]. Disponible:` for Spanish, `[Trực tuyến]. Có tại:` for Vietnamese).
 - **Metadata** — every article shows the author (`By LoBot LLC Team`), the publication date, and an automatic estimated reading time in all supported languages.
 
@@ -138,116 +141,119 @@ Every seeded post is fully translated into the **3 supported languages** (`en`, 
 
 ---
 
-## 🛠 Tech Stack
+## 🔍 SEO & Header Meta
 
-Package versions below are the ones installed by `npm ci` from [package-lock.json](package-lock.json).
+- **Root layout** — `src/app/layout.tsx` exports `metadata` with the site title template (`%s | LoBot LLC`) and default description, plus a pre-paint `<script>` in `<head>` that applies the saved/system theme and sets `document.lang` from the `lobot-lang` cookie.
+- **Per-page metadata** — each page exports `metadata` (or `generateMetadata`) for the title and description: homepage, `/about`, `/careers`, `/policy`, `/products/tecnoindicator`, `/blog`, and `/blog/[slug]` (which uses the post's English title and excerpt).
+- **Crawlers** — `public/robots.txt` allows all search engines and AI crawlers (GPTBot, ClaudeBot, etc.) and points to `/sitemap.xml`.
+- **Sitemap** — `public/sitemap.xml` lists the homepage, `/products/tecnoindicator`, about, policy, careers, the blog index, and the `introducing-lobot-llc` post with per-URL `lastmod`, `changefreq`, and `priority`.
+- **llms.txt** — `public/llms.txt` exposes site sections (including `/policy`) to LLM crawlers.
+
+---
+
+## 🛠 Tech Stack
 
 | Category | Technology |
 |----------|------------|
-| Runtime & package manager | Node.js (22+ recommended), npm (lockfile v3) |
-| Framework & UI | Next.js 16.4.5 (App Router, Turbopack), React and React DOM 19.2.6 |
-| Language | TypeScript 5.9.3 (strict mode) |
-| Type definitions | `@types/node` 22.19.15, `@types/pg` 8.18.0, `@types/react` 19.2.14, `@types/react-dom` 19.2.3 |
-| Styling | Tailwind CSS and `@tailwindcss/postcss` 4.1.17, PostCSS 8.5.8 |
-| Database | PostgreSQL via `pg` 8.20.0 and Drizzle ORM 0.45.2; Drizzle Kit 0.31.10 for schema tooling |
-| Environment | Next.js `.env.local` support; `dotenv` 17.3.1 is also installed |
-| Localization & themes | React Context with typed `en`, `es` and `vi` dictionaries; language and theme preferences persist in `localStorage` |
-| Community statistics | GitHub REST API (contributors, commits, PRs, forks and most active developer) with hourly revalidation and a fallback snapshot |
-| Hosting & analytics | Vercel, `@vercel/analytics` 2.0.1, `@vercel/speed-insights` 2.1.0 |
-| Linting | ESLint 9.39.5, `eslint-config-next` 16.2.6 (Core Web Vitals) |
-| CI | GitHub Actions on `ubuntu-latest` with Node.js `latest` and npm |
+| Framework | Next.js 16.4.5 (App Router, Turbopack) |
+| UI Library | React 19.2.6 |
+| Language | TypeScript 5.9.3 |
+| Styling | Tailwind CSS 4.1.17 (PostCSS) |
+| Database | PostgreSQL + Drizzle ORM 0.45.2 (`pg` 8.20.0) |
+| Runtime | Node.js 22+ |
+| Package Manager | npm (with `package-lock.json` for reproducibility) |
+| Linting | ESLint 9 + eslint-config-next |
+| CI/CD | GitHub Actions (`.github/workflows/nextjs.yml`, `nodejs.yml` — Node.js `latest`) |
+| Analytics | Vercel Analytics (`@vercel/analytics`) + Speed Insights (`@vercel/speed-insights`) |
+| GitHub Integration | REST API for live community statistics (repos, contributors, commits, MAD, Most Active Project) |
 
 ---
 
 ## 📁 Project Structure
 
-Tracked files are shown below; installed dependencies, build output and local environment files are omitted.
+```
+.github/
+├── ISSUE_TEMPLATE/               # GitHub issue templates
+└── workflows/
+    ├── nextjs.yml                # Next.js CI workflow
+    └── nodejs.yml                # Node.js CI workflow
 
-```text
-.
-├── .github/
-│   ├── ISSUE_TEMPLATE/                       # GitHub issue templates
-│   │   ├── bug_report.md
-│   │   └── feature_request.md
-│   └── workflows/
-│       ├── nextjs.yml                        # Type-check, lint and build
-│       └── nodejs.yml                        # Node.js build check
-├── images/                                   # Repository-level brand and marketing assets
-│   ├── lobotfullbanner.png
-│   ├── loboticon.png
-│   ├── lobotlogoonly.svg
-│   └── lobotmainbanner.png
-├── public/
-│   ├── images/blog/                          # Article covers and inline images
-│   │   ├── cargo warning.jpg
-│   │   ├── cathay cargo terminal.jpg
-│   │   ├── HKIA air cargo data platform.jpg
-│   │   ├── hong kong air cargo handling.png
-│   │   ├── hong kong international airport.jpg
-│   │   ├── logistics.png
-│   │   ├── oil price rise.png
-│   │   ├── oil rigs.png
-│   │   ├── operation epic fury.png
-│   │   └── tecnoindicator promotion.png
-│   ├── llms.txt                              # Site information for AI agents
-│   ├── robots.txt
-│   └── sitemap.xml
-├── src/
-│   ├── app/                                  # App Router pages and route handlers
-│   │   ├── about/page.tsx                    # About page, including /about#milestones
-│   │   ├── api/
-│   │   │   ├── blog/
-│   │   │   │   ├── [slug]/route.ts           # Get a single post
-│   │   │   │   └── route.ts                  # List posts
-│   │   │   └── health/route.ts               # PostgreSQL health check
-│   │   ├── blog/
-│   │   │   ├── [slug]/page.tsx
-│   │   │   └── page.tsx
-│   │   ├── careers/page.tsx
-│   │   ├── policy/page.tsx
-│   │   ├── products/
-│   │   │   ├── tecnoindicator/page.tsx
-│   │   │   └── page.tsx                      # Redirects to /products/tecnoindicator
-│   │   ├── globals.css
-│   │   ├── layout.tsx                        # Root layout, providers and analytics
-│   │   ├── not-found.tsx
-│   │   └── page.tsx                          # Homepage
-│   ├── components/
-│   │   ├── pages/
-│   │   │   ├── AboutContent.tsx              # Includes the milestone timeline and community stats
-│   │   │   ├── BlogContent.tsx               # Article list, images and citation links
-│   │   │   ├── CareersContent.tsx            # Roles, departments and hiring steps
-│   │   │   ├── HomeContent.tsx
-│   │   │   ├── PolicyContent.tsx             # Employee rules and applicant rounds
-│   │   │   └── ProductContent.tsx            # TecnoIndicator product page
-│   │   ├── CopyEmail.tsx
-│   │   ├── Footer.tsx
-│   │   ├── Icons.tsx                         # SVG icons and brand marks
-│   │   ├── Navbar.tsx                        # Navigation, language and theme selectors
-│   │   ├── Providers.tsx                     # Language and theme context
-│   │   └── ui.tsx                            # Shared sections, headers, NumberBadge and PageHero
-│   ├── db/
-│   │   ├── index.ts                          # Lazy PostgreSQL pool and Drizzle client
-│   │   └── schema.ts                         # Blog table and translation types
-│   ├── i18n/                                 # UI dictionaries, including about.milestones.items
-│   │   ├── en.ts
-│   │   ├── es.ts
-│   │   └── vi.ts
-│   └── lib/
-│       ├── blog.ts                           # Translated seed posts and database access
-│       ├── github.ts                         # GitHub community statistics
-│       └── site.ts                           # Site URLs and contact details
-├── .gitignore
-├── AGENT_PROMPT.md                           # Sample task prompt
-├── drizzle.config.json                       # Drizzle Kit configuration
-├── eslint.config.mjs                         # ESLint flat configuration
-├── LICENSE
-├── next.config.ts                            # Next.js configuration
-├── package-lock.json                         # Locked dependency versions
-├── package.json                              # Dependencies and npm scripts
-├── postcss.config.mjs                        # Tailwind PostCSS plugin
-├── README.md
-└── tsconfig.json                             # TypeScript configuration
+src/
+├── app/
+│   ├── api/
+│   │   ├── health/route.ts        # Health check endpoint
+│   │   └── blog/
+│   │       ├── route.ts           # List all posts
+│   │       └── [slug]/route.ts    # Get single post
+│   ├── blog/
+│   │   ├── page.tsx               # Blog index page
+│   │   └── [slug]/page.tsx        # Blog post page
+│   ├── products/
+│   │   ├── page.tsx               # Products index
+│   │   └── tecnoindicator/page.tsx
+│   ├── careers/page.tsx           # Careers page
+│   ├── about/page.tsx             # About page
+│   ├── policy/page.tsx            # Company policy page (renders PolicyContent)
+│   ├── layout.tsx                 # Root layout
+│   ├── page.tsx                   # Homepage
+│   ├── not-found.tsx              # 404 page
+│   └── globals.css                # Global styles
+├── components/
+│   ├── pages/
+│   │   ├── AboutContent.tsx
+│   │   ├── BlogContent.tsx        # Blog list/article; renders inline images, cover images, IEEE citation links, and `__SUBTITLE__` editorial subheadings
+│   │   ├── CareersContent.tsx      # Careers page content incl. role levels/tracks and hiring steps
+│   │   ├── HomeContent.tsx
+│   │   ├── PolicyContent.tsx       # Company policy page (employee rules + applicant rounds, trilingual via `policy` keys)
+│   │   └── ProductContent.tsx      # TecnoIndicator product page content
+│   ├── CopyEmail.tsx             # Email-copy UI component
+│   ├── Footer.tsx                # Footer with logo, description, links, and social icons (GitHub, LinkedIn, company website)
+│   ├── Icons.tsx                 # SVG icons + brand marks (LoBotLogo, TecnoLogo, GithubIcon, LinkedinIcon, etc.)
+│   ├── Navbar.tsx                # Sticky navbar with dropdowns, theme & language toggles (`nav-policy` testid for /policy link)
+│   ├── Providers.tsx             # React context providers (i18n, theme)
+│   └── ui.tsx                    # Shared Section, SectionHeader, NumberBadge, and PageHero components
+├── db/
+│   ├── index.ts                  # Lazy-initialized Drizzle client (getDb())
+│   └── schema.ts                 # Blog schema/types (translations, cover image, references) + body sentinel patterns (`__IMAGE__:`, `__SUBTITLE__:`, `__CTA__`)
+├── lib/
+│   ├── blog.ts                    # Blog data layer + seed posts (en/es/vi) with IEEE references, cover images, inline images, and `__SUBTITLE__` section subtitles
+│   ├── github.ts                  # GitHub helpers (community stats + Most Active Developer + Most Active Project)
+│   └── site.ts                    # Site constants (email, URLs)
+└── i18n/
+     ├── en.ts                     # English translations (incl. `policy` keys)
+     ├── es.ts                     # Spanish translations (incl. `policy` keys)
+     └── vi.ts                     # Vietnamese translations (incl. `policy` keys)
+
+public/
+├── images/
+│   └── blog/                     # Blog article images (covers + inline), e.g.:
+│       ├── cathay cargo terminal.jpg                # Cover — Cathay Cargo Terminal × HKIA logistics article
+│       ├── hong kong international airport.jpg      # Inline — HKIA overview
+│       ├── hong kong air cargo handling.png         # Inline — air cargo handling/ramp operations
+│       ├── cargo warning.jpg                        # Inline — special/exception cargo handling
+│       ├── HKIA air cargo data platform.jpg         # Inline — HKIA Cargo Data Platform
+│       ├── operation epic fury.png                  # Cover — Operation Epic Fury article
+│       ├── oil rigs.png / oil price rise.png        # Inline — Operation Epic Fury article
+│       ├── logistics.png / tecnoindicator promotion.png  # Inline — Operation Epic Fury article
+│       ├── lobot privacy & security.png             # Cover — user privacy and security article
+│       ├── vendor lock in.png                       # Inline — privacy and security article
+│       ├── predatory pricing.png                    # Inline — privacy and security article
+│       ├── adobe scandal.png                        # Inline — privacy and security article
+│       ├── digital censorship.png                   # Inline — privacy and security article
+│       ├── privacy respecting system.png            # Inline — privacy and security article
+│       └── transparent pricing.png                  # Inline — privacy and security article
+├── llms.txt                      # Includes /policy
+├── robots.txt
+└── sitemap.xml                  # Includes /policy (lastmod 2026-11-14)
+
+images/                             # Project/marketing image assets (repo-level)
+next.config.ts                      # Next.js configuration
+postcss.config.mjs                  # PostCSS (Tailwind) configuration
+eslint.config.mjs                   # ESLint configuration
+drizzle.config.json                 # Drizzle Kit config
+tsconfig.json                       # TypeScript configuration
+package.json / package-lock.json    # npm manifest + lockfile
+AGENT_PROMPT.md                     # Extra guidance for AI agents working on this repo
 ```
 
 `NumberBadge` is shared by the homepage, careers hiring steps, and policy applicant rounds. It displays numbers with a leading zero and keeps its 40px square size in flex layouts instead of shrinking beside text.
@@ -263,15 +269,7 @@ npm run lint        # ESLint
 npm run build       # Production build
 ```
 
-CI runs on pushes and pull requests targeting `main` with Node.js `latest` and `npm ci`. Both workflows also run `npm test --if-present`; there is currently no `test` script.
-
-To check the timeline after building, run `npm start` and open `/about#milestones`. The entry immediately before **Continuous improvement** should read:
-
-> **Nov 2026 — LoBot reached >500 commits and >100 pull requests (PRs)**
->
-> A good first step for all LoBot engineers working towards the company's products.
-
-Switch to Spanish and Vietnamese. The same entry should appear once, in the same position, with its localized date, title and description.
+CI runs on every push/PR to `main` with Node.js `latest`, using `npm ci` for reproducible installs.
 
 ---
 
@@ -282,7 +280,7 @@ The site supports **3 languages** out of the box:
 - **Spanish** (`es`)
 - **Vietnamese** (`vi`)
 
-The site defaults to English and saves the selected language in `localStorage` (`lobot-lang`). UI translations live in `src/i18n/*.ts`. To edit the About timeline, update `about.milestones.items` in all three dictionaries; entries render in array order.
+Language is detected from the browser and persisted via a cookie. All UI strings are in `src/i18n/*.ts`.
 
 ---
 
